@@ -9,18 +9,11 @@ public class Index {
 	
 	@RequestMapping(value = "/")
 	public ModelAndView index() {
-		System.out.println("Controller 메인");
+		System.out.println("Controller index");
 		ModelAndView mav = new ModelAndView("/index");
 		
 		return mav;
 	}
 	
-	@RequestMapping(value = "/information2")
-	public ModelAndView reservation() {
-		
-		System.out.println("Controller information2");
-		ModelAndView mav = new ModelAndView("/services/information/information2");
-		
-		return mav;
-	}
+
 }

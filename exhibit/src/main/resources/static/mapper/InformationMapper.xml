@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper 
+   PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.projectexhibit.information.InformationMapper">
+	<resultMap type="com.project.exhibit.information.Information" id="Admin">
+		<result property="reserve_Seq"		column="reserve_Seq" />
+		<result property="name"				column="name" />
+		<result property="tel"				column="tel" />
+		<result property="visit_day"		column="visit_day" />
+		<result property="visit_time"		column="visit_time" />
+		<result property="reserve_people"	column="reserve_people" />
+		<result property="transport"		column="transport" />
+		<result property="add_item1"		column="add_item1" />
+		<result property="add_item2"		column="add_item2" />
+		<result property="add_item3"		column="add_item3" />
+		<result property="add_item4"		column="add_item4" />
+		<result property="add_item5"		column="add_item5" />
+	</resultMap>
+	
+</mapper>

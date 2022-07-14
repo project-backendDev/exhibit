@@ -78,7 +78,7 @@
 						</div>						
 					</li>
 					<li>
-						<a href="${pageContext.request.contextPath }/services/information/information1.jsp">관람 안내</a>
+						<a href="${pageContext.request.contextPath }/information1">관람 안내</a>
 						<div class="depth2">
 							<ul>
 								<li><a href="${pageContext.request.contextPath }/information1">관람 안내</a></li>
