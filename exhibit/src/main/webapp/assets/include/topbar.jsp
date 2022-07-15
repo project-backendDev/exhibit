@@ -40,40 +40,40 @@
 			<nav class="gnb pc_only">
 				<ul>
 					<li>
-						<a href="${pageContext.request.contextPath }/services/introduce/introduce1_1.jsp">소개</a>
+						<a href="${pageContext.request.contextPath }/introduce1_1">소개</a>
 						<div class="depth2">
 							<ul>
 								<li>
-									<a href="${pageContext.request.contextPath }/services/introduce/introduce1_1.jsp">설립자 소개</a>
+									<a href="${pageContext.request.contextPath }/introduce1_1">설립자 소개</a>
 									<div class="depth3">
 										<ul>
 											<li>
-												<a href="${pageContext.request.contextPath }/services/introduce/introduce1_1.jsp">인사말</a>
+												<a href="${pageContext.request.contextPath }/introduce1_1">인사말</a>
 											</li>
 											<li>
-												<a href="${pageContext.request.contextPath }/services/introduce/introduce1_2.jsp">가천이란</a>
+												<a href="${pageContext.request.contextPath }/introduce1_2">가천이란</a>
 											</li>
 											<li>
-												<a href="${pageContext.request.contextPath }/services/introduce/introduce1_3.jsp">프로필</a>
+												<a href="${pageContext.request.contextPath }/introduce1_3">프로필</a>
 											</li>
 										</ul>
 									</div>
 								</li>
-								<li><a href="${pageContext.request.contextPath }/services/introduce/introduce2.jsp">설립 목적</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/introduce/introduce3.jsp">언론에 비친 기념관</a></li>
+								<li><a href="${pageContext.request.contextPath }/introduce2">설립 목적</a></li>
+								<li><a href="${pageContext.request.contextPath }/introduce3">언론에 비친 기념관</a></li>
 							</ul>
 						</div>
 					</li>
 					<li>
-						<a href="${pageContext.request.contextPath }/services/exhibition/exhibition1.jsp">전시 공간</a>
+						<a href="${pageContext.request.contextPath }/exhibition1">전시 공간</a>
 						<div class="depth2">
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/services/exhibition/exhibition1.jsp">외부전경</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/exhibition/exhibition2.jsp">1층 전시실</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/exhibition/exhibition3.jsp">2층 전시실</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/exhibition/exhibition4.jsp">3층 전시실</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/exhibition/exhibition5.jsp">주요 전시물</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/exhibition/exhibition6.jsp">VR관람</a></li>
+								<li><a href="${pageContext.request.contextPath }/exhibition1">외부전경</a></li>
+								<li><a href="${pageContext.request.contextPath }/exhibition2">1층 전시실</a></li>
+								<li><a href="${pageContext.request.contextPath }/exhibition3">2층 전시실</a></li>
+								<li><a href="${pageContext.request.contextPath }/exhibition4">3층 전시실</a></li>
+								<li><a href="${pageContext.request.contextPath }/exhibition5">주요 전시물</a></li>
+								<li><a href="${pageContext.request.contextPath }/exhibition6">VR관람</a></li>
 							</ul>
 						</div>						
 					</li>
@@ -89,24 +89,24 @@
 						</div>							
 					</li>
 					<li>
-						<a href="${pageContext.request.contextPath }/services/news/news1.jsp">알림/참여</a>
+						<a href="${pageContext.request.contextPath }/news1">알림/참여</a>
 						<div class="depth2">
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/services/news/news1.jsp">공지사항</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/news/news2.jsp">언론보도</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/news/news3.jsp">뉴스레터</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/news/news4.jsp">사연남기기</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/news/news5.jsp">자원봉사</a></li>
+								<li><a href="${pageContext.request.contextPath }/news1">공지사항</a></li>
+								<li><a href="${pageContext.request.contextPath }/news2">언론보도</a></li>
+								<li><a href="${pageContext.request.contextPath }/news3">뉴스레터</a></li>
+								<li><a href="${pageContext.request.contextPath }/news4">사연남기기</a></li>
+								<li><a href="${pageContext.request.contextPath }/news5">자원봉사</a></li>
 							</ul>
 						</div>	
 					</li>
 					<li>
-						<a href="${pageContext.request.contextPath }/services/foundation/foundation1.jsp">가천길재단</a>
+						<a href="${pageContext.request.contextPath }/foundation1">가천길재단</a>
 						<div class="depth2">
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/services/foundation/foundation1.jsp">재단현황</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/foundation/foundation2.jsp">재단이념</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/foundation/foundation3.jsp">재단연혁</a></li>
+								<li><a href="${pageContext.request.contextPath }/foundation1">재단현황</a></li>
+								<li><a href="${pageContext.request.contextPath }/foundation2">재단이념</a></li>
+								<li><a href="${pageContext.request.contextPath }/foundation3">재단연혁</a></li>
 							</ul>
 						</div>							
 					</li>
@@ -128,17 +128,17 @@
 								<img src="${pageContext.request.contextPath }/assets/images/close.png" alt="">
 							</div>
 							<div class="menu_logo">
-								<a href="${pageContext.request.contextPath }/index.jsp">
+								<a href="${pageContext.request.contextPath }/index">
 									<img src="${pageContext.request.contextPath }/assets/images/logo.png" alt="">
 								</a>
 							</div>
 							<!-- <ul class="lnb"> 
-								<li><a href="${pageContext.request.contextPath }/services/login.jsp">로그인</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/agree_term.jsp">회원가입</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/my.jsp">마이페이지</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/notice.jsp">공지사항</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/faq.jsp">FAQ</a></li>
-								<li><a href="${pageContext.request.contextPath }/services/quick_reserv.jsp">예약신청</a></li>
+								<li><a href="${pageContext.request.contextPath }/login">로그인</a></li>
+								<li><a href="${pageContext.request.contextPath }/agree_term">회원가입</a></li>
+								<li><a href="${pageContext.request.contextPath }/my">마이페이지</a></li>
+								<li><a href="${pageContext.request.contextPath }/notice">공지사항</a></li>
+								<li><a href="${pageContext.request.contextPath }/faq">FAQ</a></li>
+								<li><a href="${pageContext.request.contextPath }/quick_reserv">예약신청</a></li>
 							</ul> -->
 							<div class="menu_list">
 								<div id="Accordion_wrap">
@@ -149,51 +149,51 @@
 										<span>
 											<a>설립자 소개</a>
 											<ul>
-												<li><a href="${pageContext.request.contextPath }/services/introduce/introduce1_1.jsp">인사말</a></li>
-												<li><a href="${pageContext.request.contextPath }/services/introduce/introduce1_2.jsp">가천이란</a></li>
-												<li><a href="${pageContext.request.contextPath }/services/introduce/introduce1_3.jsp">프로필</a></li>
+												<li><a href="${pageContext.request.contextPath }/introduce1_1">인사말</a></li>
+												<li><a href="${pageContext.request.contextPath }/introduce1_2">가천이란</a></li>
+												<li><a href="${pageContext.request.contextPath }/introduce1_3">프로필</a></li>
 											</ul>
 										</span>
-										<span><a href="${pageContext.request.contextPath }/services/introduce/introduce2.jsp">설립목적</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/introduce/introduce3.jsp">언론에 비친 기념관</a></span>
+										<span><a href="${pageContext.request.contextPath }/introduce2">설립목적</a></span>
+										<span><a href="${pageContext.request.contextPath }/introduce3">언론에 비친 기념관</a></span>
 									</div>
 									<div class="que">
 										<a>전시 공간</a>
 									</div>
 									<div class="anw">
-										<span><a href="${pageContext.request.contextPath }/services/exhibition/exhibition1.jsp">외부전경</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/exhibition/exhibition1.jsp">1층 전시실</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/exhibition/exhibition1.jsp">2층 전시실</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/exhibition/exhibition1.jsp">3층 전시실</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/exhibition/exhibition1.jsp">주요 전시물</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/exhibition/exhibition1.jsp">VR관람</a></span>
+										<span><a href="${pageContext.request.contextPath }/exhibition1">외부전경</a></span>
+										<span><a href="${pageContext.request.contextPath }/exhibition2">1층 전시실</a></span>
+										<span><a href="${pageContext.request.contextPath }/exhibition3">2층 전시실</a></span>
+										<span><a href="${pageContext.request.contextPath }/exhibition4">3층 전시실</a></span>
+										<span><a href="${pageContext.request.contextPath }/exhibition5">주요 전시물</a></span>
+										<span><a href="${pageContext.request.contextPath }/exhibition6">VR관람</a></span>
 									</div>
 									<div class="que">
 										<a>관람 안내</a>
 									</div>
 									<div class="anw">
-										<span><a href="${pageContext.request.contextPath }/services/information/information1.jsp">관람 안내</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/information/information2.jsp">단체관람 예약</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/information/information3.jsp">자주 묻는 질문</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/information/information4.jsp">오시는 길</a></span>
+										<span><a href="${pageContext.request.contextPath }/information1">관람 안내</a></span>
+										<span><a href="${pageContext.request.contextPath }/information2">단체관람 예약</a></span>
+										<span><a href="${pageContext.request.contextPath }/information3">자주 묻는 질문</a></span>
+										<span><a href="${pageContext.request.contextPath }/information4">오시는 길</a></span>
 									</div>
 									<div class="que">
 										<a>알림/참여</a>
 									</div>
 									<div class="anw">
-										<span><a href="${pageContext.request.contextPath }/services/news/news1.jsp">공지사항</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/news/news2.jsp">언론보도</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/news/news3.jsp">뉴스레터</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/news/news4.jsp">사연남기기</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/news/news5.jsp">자원봉사</a></span>
+										<span><a href="${pageContext.request.contextPath }/news1">공지사항</a></span>
+										<span><a href="${pageContext.request.contextPath }/news2">언론보도</a></span>
+										<span><a href="${pageContext.request.contextPath }/news3">뉴스레터</a></span>
+										<span><a href="${pageContext.request.contextPath }/news4">사연남기기</a></span>
+										<span><a href="${pageContext.request.contextPath }/news5">자원봉사</a></span>
 									</div>
 									<div class="que">
 										<a>가천길재단</a>
 									</div>
 									<div class="anw">
-										<span><a href="${pageContext.request.contextPath }/services/foundation/foundation1.jsp">재단현황</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/foundation/foundation2.jsp">재단이념</a></span>
-										<span><a href="${pageContext.request.contextPath }/services/foundation/foundation3.jsp">재단연혁</a></span>
+										<span><a href="${pageContext.request.contextPath }/foundation1">재단현황</a></span>
+										<span><a href="${pageContext.request.contextPath }/foundation2">재단이념</a></span>
+										<span><a href="${pageContext.request.contextPath }/foundation3">재단연혁</a></span>
 									</div>
 									</div>
 							</div>

@@ -149,13 +149,13 @@
 				<div class="wrap">
 					<ul>
 						<li>
-							<a href="${pageContext.request.contextPath }/services/information1.jsp"><i><img src="${pageContext.request.contextPath }/assets/images/i_preview.png" alt=""></i>관람안내</a>
+							<a href="${pageContext.request.contextPath }/information1.jsp"><i><img src="${pageContext.request.contextPath }/assets/images/i_preview.png" alt=""></i>관람안내</a>
 						</li>
 						<li>
-							<a href="${pageContext.request.contextPath }/services/information4.jsp"><i><img src="${pageContext.request.contextPath }/assets/images/i_location.png" alt=""></i>오시는길</a>
+							<a href="${pageContext.request.contextPath }/information4.jsp"><i><img src="${pageContext.request.contextPath }/assets/images/i_location.png" alt=""></i>오시는길</a>
 						</li>
 						<li>
-							<a href="${pageContext.request.contextPath }/services/exhibition6.jsp"><i><img src="${pageContext.request.contextPath }/assets/images/i_vr.png" alt=""></i>VR 전시실</a>
+							<a href="${pageContext.request.contextPath }/exhibition6.jsp"><i><img src="${pageContext.request.contextPath }/assets/images/i_vr.png" alt=""></i>VR 전시실</a>
 						</li>
 					</ul>
 				</div>
@@ -191,28 +191,28 @@
 				<div class="sec_bottom">
 					<ul class="gallery">
 						<li data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
-							<a href="${pageContext.request.contextPath }/services/exhibition2.jsp" style="background: url(${pageContext.request.contextPath }/assets/images/preview_1.png) no-repeat center center;">
+							<a href="${pageContext.request.contextPath }/exhibition2.jsp" style="background: url(${pageContext.request.contextPath }/assets/images/preview_1.png) no-repeat center center;">
 								<div class="bg"></div>
 								<h5>1 전시실</h5>
 								<p>관람하기 <i><img src="${pageContext.request.contextPath }/assets/images/i_view.png" alt=""></i></p>
 							</a>
 						</li>
 						<li data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="100">
-							<a href="${pageContext.request.contextPath }/services/exhibition3.jsp" style="background: url(${pageContext.request.contextPath }/assets/images/preview_2.png) no-repeat center center;">
+							<a href="${pageContext.request.contextPath }/exhibition3.jsp" style="background: url(${pageContext.request.contextPath }/assets/images/preview_2.png) no-repeat center center;">
 								<div class="bg"></div>
 								<h5>2 전시실</h5>
 								<p>관람하기 <i><img src="${pageContext.request.contextPath }/assets/images/i_view.png" alt=""></i></p>
 							</a>
 						</li>
 						<li data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="200">
-							<a href="${pageContext.request.contextPath }/services/exhibition4.jsp" style="background: url(${pageContext.request.contextPath }/assets/images/preview_3.png) no-repeat center center;">
+							<a href="${pageContext.request.contextPath }/exhibition4.jsp" style="background: url(${pageContext.request.contextPath }/assets/images/preview_3.png) no-repeat center center;">
 								<div class="bg"></div>
 								<h5>3 전시실</h5>
 								<p>관람하기 <i><img src="${pageContext.request.contextPath }/assets/images/i_view.png" alt=""></i></p>
 							</a>
 						</li>
 						<li data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="300">
-							<a href="${pageContext.request.contextPath }/services/exhibition5.jsp" style="background: url(${pageContext.request.contextPath }/assets/images/preview_4.png) no-repeat center center;">
+							<a href="${pageContext.request.contextPath }/exhibition5.jsp" style="background: url(${pageContext.request.contextPath }/assets/images/preview_4.png) no-repeat center center;">
 								<div class="bg"></div>
 								<h5>주요 전시물</h5>
 								<p>관람하기 <i><img src="${pageContext.request.contextPath }/assets/images/i_view.png" alt=""></i></p>
@@ -260,7 +260,7 @@
 												이길여 산부인과 기념관 단체 관람을 위해<br/>
 												사전 예약이 필요합니다.<br/><br/>						
 											</p>
-											<a class="btn1" href="${pageContext.request.contextPath }/services/information2.jsp">신청하기</a>
+											<a class="btn1" href="${pageContext.request.contextPath }/information2.jsp">신청하기</a>
 										</div>
 									</div>
 								</div>
@@ -279,7 +279,7 @@
 												인증기관입니다.
 																					
 											</p>
-											<a class="btn1" href="${pageContext.request.contextPath }/services/news5.jsp">신청하기</a>
+											<a class="btn1" href="${pageContext.request.contextPath }/news5.jsp">신청하기</a>
 										</div>
 									</div>
 								</div>
@@ -371,7 +371,7 @@
 			<div class="swiper sec4_slide">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a href="${pageContext.request.contextPath }/services/foundation2.jsp">
+						<a href="${pageContext.request.contextPath }/foundation2.jsp">
 							<div class="slide_con" style="background: url(${pageContext.request.contextPath }/assets/images/sec4_slide_bg1.png) no-repeat center center;">
 								<div class="txt" >
 									<h1>봉사(奉仕)</h1>
@@ -388,7 +388,7 @@
 						</a>
 					</div>
 					<div class="swiper-slide">
-						<a href="${pageContext.request.contextPath }/services/foundation2.jsp">
+						<a href="${pageContext.request.contextPath }/foundation2.jsp">
 							<div class="slide_con" style="background: url(${pageContext.request.contextPath }/assets/images/sec4_slide_bg2.png) no-repeat center center;">
 								<div class="txt">
 									<h1 class="orange">박애(博愛)</h1>
@@ -406,7 +406,7 @@
 
 					</div>
 					<div class="swiper-slide">
-						<a href="${pageContext.request.contextPath }/services/foundation2.jsp">
+						<a href="${pageContext.request.contextPath }/foundation2.jsp">
 							<div class="slide_con" style="background: url(${pageContext.request.contextPath }/assets/images/sec4_slide_bg3.png) no-repeat center center;">
 								<div class="txt">
 									<h1 class="blue">애국(愛國)</h1>
@@ -460,7 +460,7 @@
 					<div class="swiper sec5_slide">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
-								<a href="${pageContext.request.contextPath }/services/news1_detail.jsp">
+								<a href="${pageContext.request.contextPath }/news1_detail">
 									<div class="slide_con">
 										<div class="txt">
 											<h4>
@@ -478,7 +478,7 @@
 								</a>
 							</div>
 							<div class="swiper-slide">
-								<a href="${pageContext.request.contextPath }/services/news1_detail.jsp">
+								<a href="${pageContext.request.contextPath }/news1_detail">
 									<div class="slide_con">
 										<div class="txt">
 											<h4>
@@ -496,7 +496,7 @@
 								</a>
 							</div>
 							<div class="swiper-slide">
-								<a href="${pageContext.request.contextPath }/services/news1_detail.jsp">
+								<a href="${pageContext.request.contextPath }/news1_detail">
 									<div class="slide_con">
 										<div class="txt">
 											<h4>
@@ -514,7 +514,7 @@
 								</a>
 							</div>
 							<div class="swiper-slide">
-								<a href="${pageContext.request.contextPath }/services/news1_detail.jsp">
+								<a href="${pageContext.request.contextPath }/news1_detail">
 									<div class="slide_con">
 										<div class="txt">
 											<h4>
@@ -532,7 +532,7 @@
 								</a>
 							</div>
 							<div class="swiper-slide">
-								<a href="${pageContext.request.contextPath }/services/news1_detail.jsp">
+								<a href="${pageContext.request.contextPath }/news1_detail">
 									<div class="slide_con">
 										<div class="txt">
 											<h4>
@@ -697,8 +697,10 @@
 							  <div class="term">
 								<h5><span>(필수)</span> 개인정보 수집 및 이용에 동의합니다.</h5>
 								<div class="term_box">
-									<pre style=" overflow: auto; white-space: pre-wrap;">뉴스레터 문자 발송을 위한 최소한의 개인정보를 수집 및 이용합니다. 
-수집된 정보는 발송 외 다른 목적으로 이용되지 않으며, 서비스가 종료되거나 발송을 원하지 않을 경우 즉시 파기됩니다.</pre>
+									<pre style=" overflow: auto; white-space: pre-wrap;">
+										뉴스레터 문자 발송을 위한 최소한의 개인정보를 수집 및 이용합니다. 
+										수집된 정보는 발송 외 다른 목적으로 이용되지 않으며, 서비스가 종료되거나 발송을 원하지 않을 경우 즉시 파기됩니다.
+									</pre>
 								</div>
 								<ul class="list_wrap">
 									<li>

@@ -92,7 +92,7 @@
                     <img src="${pageContext.request.contextPath }/assets/images/vr.png" alt="">
                 </div>
                 <div class="apply_btn bordernone flex">
-                    <a href="http://easyvr.co.kr/gachon2/index.jsp" target="_blank">
+                    <a href="http://easyvr.co.kr/gachon2/index.html" target="_blank">
                         <i><img src="${pageContext.request.contextPath }/assets/images/i_box.png" alt=""></i>VR전시실 입장하기
                     </a>
                 </div>

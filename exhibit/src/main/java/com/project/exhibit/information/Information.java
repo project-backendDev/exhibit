@@ -7,10 +7,10 @@ public class Information {
 	private int reserve_Seq;
 	private String name;
 	private String tel;
-	private Date visit_day;
+	private String visit_day;
 	private String visit_time;
 	private String reserve_people;
-	private String transport;
+	private String transfer;
 	private String add_item1;
 	private String add_item2;
 	private String add_item3;
@@ -35,10 +35,10 @@ public class Information {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public Date getVisit_day() {
+	public String getVisit_day() {
 		return visit_day;
 	}
-	public void setVisit_day(Date visit_day) {
+	public void setVisit_day(String visit_day) {
 		this.visit_day = visit_day;
 	}
 	public String getVisit_time() {
@@ -53,11 +53,11 @@ public class Information {
 	public void setReserve_people(String reserve_people) {
 		this.reserve_people = reserve_people;
 	}
-	public String getTransport() {
-		return transport;
+	public String getTransfer() {
+		return transfer;
 	}
-	public void setTransport(String transport) {
-		this.transport = transport;
+	public void setTransfer(String transfer) {
+		this.transfer = transfer;
 	}
 	public String getAdd_item1() {
 		return add_item1;
@@ -93,10 +93,11 @@ public class Information {
 	@Override
 	public String toString() {
 		return "Information [reserve_Seq=" + reserve_Seq + ", name=" + name + ", tel=" + tel + ", visit_day="
-				+ visit_day + ", visit_time=" + visit_time + ", reserve_people=" + reserve_people + ", transport="
-				+ transport + ", add_item1=" + add_item1 + ", add_item2=" + add_item2 + ", add_item3=" + add_item3
+				+ visit_day + ", visit_time=" + visit_time + ", reserve_people=" + reserve_people + ", transfer="
+				+ transfer + ", add_item1=" + add_item1 + ", add_item2=" + add_item2 + ", add_item3=" + add_item3
 				+ ", add_item4=" + add_item4 + ", add_item5=" + add_item5 + "]";
 	}
+	
 	
 	
 }

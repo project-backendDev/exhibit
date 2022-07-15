@@ -39,6 +39,16 @@
     <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+	<script type="text/javascript">
+	$(document).ready(function() {
+
+	});
+		function informationRegist() {
+			//alert($("#visit_day_1").val() + "시" + $("#visit_day_2").val() + "분");
+		$("#reserveRegistForm").attr('action', '/information2.do');
+		$("#reserveRegistForm").submit();
+		}
+	</script>
 </head>
 <body class="Pretendard">
 
@@ -75,24 +85,22 @@
                 </div>
                 <div class="form_wrap">
                     <!-- <h2>관람 예약</h2> -->
-                    <form action="">
+                    <form method="POST" id="reserveRegistForm" action="">
                         <div class="form_box">
                             <div class="form_head">
                                 <i><img src="${pageContext.request.contextPath }/assets/images/i_write.png" alt=""></i>
                                 <p>* <span>&nbsp;20인 이상 단체관람은 </span> 관람일 일주일 이전에 미리 예약해주시기 바랍니다.</p>
-                                
-
                             </div>
                             <div class="form_con one">
                                 <div class="input_wrap ">
                                     <h5>성명<span>*</span></h5>
-                                    <input type="text">
+                                    <input type="text" name="name" id="name"  />
                                 </div>
                             </div>       
                             <div class="form_con tel">
                                 <div class="input_wrap">
                                     <h5>연락처<span>*</span></h5>
-                                    <select name="" id="">
+                                    <select name="tel" id="tel" >
                                         <option value="010">010</option>
                                         <option value="011">011</option>
                                         <option value="016">016</option>
@@ -101,22 +109,22 @@
                                         <option value="019">019</option>
                                     </select>
                                     <span>―</span>
-                                    <input type="text">
+                                    <input type="text" name="tel" value="" />
                                     <span>―</span>
-                                    <input type="text">
+                                    <input type="text" name="tel" value="" />
                                 </div>
                             </div>    
                             <div class="form_con date">
                                 <div class="input_wrap">
                                     <h5>관람일<span>*</span></h5>
-                                    <input type="text" id="date" autocomplete="off" placeholder="선택된 날짜가 없습니다.">
+                                    <input type="text" id="date" name="visit_day" autocomplete="off" value="" placeholder="선택된 날짜가 없습니다."  />
                                 </div>
                             </div>     
                             <div class="form_con time">
                                 <div class="input_wrap">
                                     <h5>관람시간 <span>*</span></h5>
                                     <div class="time_select">
-                                        <select name="" id="">
+                                        <select name="visit_time" id="visit_time">
                                             <option value="00">00</option>
                                             <option value="01">01</option>
                                             <option value="02">02</option>
@@ -144,7 +152,7 @@
                                             <option value="24">24</option>
                                         </select>
                                         <span class="mr">시</span>
-                                        <select name="" id="">
+                                        <select name="visit_time" id="visit_time">
                                             <option value="00">00</option>
                                             <option value="01">01</option>
                                             <option value="02">02</option>
@@ -214,7 +222,7 @@
                             <div class="form_con reserv">
                                 <div class="input_wrap">
                                     <h5>예약인원<span>*</span></h5>
-                                    <select name="" id="">
+                                    <select name="reserve_people" id="reserve_people"  >
                                         <option value="0 명">0 명</option>
                                         <option value="1 명">1 명</option>
                                         <option value="2 명">2 명</option>
@@ -253,23 +261,23 @@
                                     <h5>교통수단<span>*</span></h5>
                                     <ul class="list_wrap">
                                         <li>
-                                            <input type="radio" name="transfer" id="transfer1" checked="">
+                                            <input type="radio" name="transfer" id="transfer1" value="1" checked>
                                             <label for="transfer1"><i><img src="${pageContext.request.contextPath }/assets/images/i_check.png" alt=""></i>자동차</label>
                                         </li>
                                         <li>
-                                            <input type="radio" name="transfer" id="transfer2">
+                                            <input type="radio" name="transfer" id="transfer2" value="2">
                                             <label for="transfer2"><i><img src="${pageContext.request.contextPath }/assets/images/i_check.png" alt=""></i>대중교통</label>
                                         </li>
                                         <li>
-                                            <input type="radio" name="transfer" id="transfer3">
+                                            <input type="radio" name="transfer" id="transfer3" value="3">
                                             <label for="transfer3"><i><img src="${pageContext.request.contextPath }/assets/images/i_check.png" alt=""></i>25인 버스</label>
                                         </li>
                                         <li>
-                                            <input type="radio" name="transfer" id="transfer4">
+                                            <input type="radio" name="transfer" id="transfer4" value="4">
                                             <label for="transfer4"><i><img src="${pageContext.request.contextPath }/assets/images/i_check.png" alt=""></i>45인 버스</label>
                                         </li>
                                         <li>
-                                            <input type="radio" name="transfer" id="transfer5">
+                                            <input type="radio" name="transfer" id="transfer5" value="5">
                                             <label for="transfer5"><i><img src="${pageContext.request.contextPath }/assets/images/i_check.png" alt=""></i>도보</label>
                                         </li>
                                     </ul>
@@ -277,7 +285,7 @@
                             </div>
 
                             <div class="apply_btn bordernone ">
-                                <a href="#">
+                                <a href="javascript:informationRegist();">
                                     저장
                                 </a>
                             </div>

@@ -16,7 +16,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="http://easyvr.co.kr/gachon2/index.jsp" target="_blank">
+				<a href="http://easyvr.co.kr/gachon2/index.html" target="_blank">
 					<i><img src="${pageContext.request.contextPath }/assets/images/i_vr.png" alt=""></i>
 					<p>VR</p>
 				</a>
