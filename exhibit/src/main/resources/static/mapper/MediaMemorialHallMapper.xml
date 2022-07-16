@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper 
+   PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.project.exhibit.mediaMemorialHall.MediaMemorialHallMapper">
+	<resultMap type="com.project.exhibit.mediaMemorialHall.MediaMemorialHall" id="MediaMH">
+		<result property="artcl_Seq"       	column="artcl_Seq"/>
+		<result property="title"       		column="title"/>
+		<result property="content"       	column="content"/>
+		<result property="writer"       	column="writer"/>
+		<result property="reg_date"       	column="reg_date"/>
+		<result property="edit_date"       	column="edit_date"/>
+		<result property="hit"       		column="hit"/>
+		<result property="img_Origin_Nm"    column="img_Origin_Nm"/>
+		<result property="img_File_Nm"      column="img_File_Nm"/>
+		<result property="img_Path"       	column="img_Path"/>
+	</resultMap>
+	
+	<!-- 언론에 비친 기념관 등록 -->
+	<insert id="insertMMH" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall"
+			useGeneratedKeys="true" keyProperty="artcl_Seq">
+		INSERT INTO exhibit_mediaMemorialHall_artcl (
+        	title, content, writer, reg_date, edit_date, hit, img_Origin_Nm, img_File_Nm, img_Path
+        ) VALUES (#{title}, #{content}, #{writer}, now(), now(), 0,
+       		<choose>
+       			<when test="img_Origin_Nm == null or img_Origin_Nm == ''">
+       				null, null, null
+       			</when>
+       			<otherwise>
+       				#{img_Origin_Nm}, #{img_File_Nm}, #{img_Path}
+       			</otherwise>
+       		</choose>
+       		
+        )
+	</insert>
+	
+	<!-- 언론에 비친 기념관 수정 -->
+	<update id="updateMMH" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
+		UPDATE exhibit_mediaMemorialHall_artcl 
+		SET title = #{title},
+			content = #{content},
+			edit_date = #{edit_date},
+			img_Origin_Nm = #{img_Origin_Nm},
+			img_File_Nm = #{img_File_Nm},
+			img_Path = #{img_Path}
+		WHERE artcl_Seq = #{artcl_Seq}
+	</update>		
+	
+	<!-- 언론에 비친 기념관 삭제 -->
+	
+	
+	<!-- 언론에 비친 기념관 리스트 출력 -->
+	
+
+</mapper>
