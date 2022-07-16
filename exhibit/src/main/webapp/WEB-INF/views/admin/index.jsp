@@ -21,21 +21,12 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-	<div class="wrapper">
-		<!-- Navbar -->
-		<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="height: 87px;">
-			<!-- Left navbar links -->
-			<ul class="navbar-nav">
-				<li class="nav-item d-none d-sm-inline-block">
-					<h1>
-						<a href="index3.html" class="nav-link">
-							<strong> 관리자 페이지</strong>
-						</a>
-					</h1>
-				</li>
-			</ul>
-		</nav>
-		<!-- /.navbar -->
+
+	<!-- top 영역 시작 -->
+	<header>
+		<c:import url="${pageContext.request.contextPath }/assets/include/admin_topbar.jsp" />
+	</header>
+	<!-- top 영역 끝 -->
 
 		<!-- Main Sidebar Container -->
 		<aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -121,12 +112,12 @@
 
 			</section>
 		</div>
-		<!-- /.content-wrapper -->
-		<footer class="main-footer">
-			<strong>
-				Copyright &copy; 2022 <a href="https://adminlte.io">by XXXXX </a>
-			</strong>
-		</footer>
+	
+	<!-- footer 영역 시작 -->
+	<footer>
+		<c:import url="${pageContext.request.contextPath }/assets/include/admin_footer.jsp" />
+	</footer>
+	<!-- footer 영역 끝 -->
 	</div>
 	<!-- ./wrapper -->
 
