@@ -69,7 +69,7 @@
 	            </a>
 	            <ul class="nav nav-treeview" style="display: none;">
 	              <li class="nav-item">
-	                <a href="pages/UI/general.html" class="nav-link">
+	                <a href="${pageContext.request.contextPath }/admin/information" class="nav-link">
 	                  <i class="far fa-circle nav-icon"></i>
 	                  <p>단체관람 예약</p>
 	                </a>

@@ -3,14 +3,25 @@ package com.project.exhibit.information;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/admin")
 public class InformationAdminController {
 
 	@Autowired
 	private InformationService info_Service;
 	
 
-//	@RequestMapping(value = "/admin/")
+	/**
+	 * 단체관람 예약 리스트 페이지
+	 * @return
+	 */
+	@RequestMapping(value = "/admin/information")
+	public ModelAndView informationView() {
+		
+		System.out.println("Controller admin information");
+		ModelAndView mav = new ModelAndView("/admin/information/information");
+		
+		return mav;
+	}
 }
