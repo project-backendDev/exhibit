@@ -44,7 +44,7 @@
 
 	});
 		function informationRegist() {
-			//alert($("#visit_day_1").val() + "시" + $("#visit_day_2").val() + "분");
+		//console.log($("#visit_time").val());
 		$("#reserveRegistForm").attr('action', '/information2.do');
 		$("#reserveRegistForm").submit();
 		}
