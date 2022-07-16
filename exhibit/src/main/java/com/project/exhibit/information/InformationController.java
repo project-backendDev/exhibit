@@ -2,15 +2,11 @@ package com.project.exhibit.information;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Date;
-import java.util.Formatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -48,27 +44,15 @@ public class InformationController {
 	@RequestMapping(value = "/information2.do")
 	public String information2Regist(Information info) throws ParseException {
 		
-		System.out.println("======		RegistController information2Regist	Start!!!!!		======");
-		System.out.println("RegistController Line 52 	info.getReserve_Seq()		::	" + info.getReserve_Seq());
-		System.out.println("RegistController Line 53 	info.getName()		::	" + info.getName());
-		System.out.println("RegistController Line 54 	info.getTel()		::	" + info.getTel());
-		System.out.println("RegistController Line 55 	info.getVisit_day()	::	" + info.getVisit_day());
-		System.out.println("RegistController Line 56 	info.getVisit_time()	::	" 	+ info.getVisit_time());
-		System.out.println("RegistController Line 57 	info.getReserve_people()	::	" + info.getReserve_people());
-		System.out.println("RegistController Line 58 	info.getTransfer()	::	" + info.getTransfer());
-		
-		// jsp 파일에 input이 3개여서 같은 name을 받아와서 쉼표(,)를 하이픈(-)으로 변경
+		// jsp 파일에 핸드폰번호 입력 input이 3개여서 같은 name을 받아와서 쉼표(,)를 하이픈(-)으로 변경
 		String tel = info.getTel().replaceAll(",", "-");
 		info.setTel(tel);
-		
-//		RegistController Line 56 	info.getVisit_time()	::	01,01
-		String visitTime = info.getVisit_time().replace(",", "시");	// 01시01
-		System.out.println("RegistController Line 66 	visitTime	::	" + visitTime);
-		
-//		info = info_Service.selectDuplicateTel(info.getTel());
 
-			info_Service.insertReservation(info);
-			System.out.println("InforController Line 47		::	" + info);
+		// jsp 파일에 시/분 입력 select가 2개여서 같은 name을 받아와서 쉼표(,)를 하이픈(-)으로 변경 및 뒤에 '분'을 붙여줌
+		String visitDayStr = info.getVisit_time().replace(",", "시 ") + "분";
+		info.setVisit_time(visitDayStr);
+
+		info_Service.insertReservation(info);
 		
 		return "redirect:/information2";
 	}
