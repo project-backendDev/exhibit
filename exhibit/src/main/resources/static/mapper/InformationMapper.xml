@@ -20,7 +20,9 @@
 		<result property="add_item5"		column="add_item5" />
 	</resultMap>
 	
-	<!-- (사용자) 단체관람 예약 INSERT -->
+	<!-- 사용자 부분 SQL -->
+	
+	<!-- 단체관람 예약 INSERT -->
 	<insert id="insertReservation" parameterType="com.project.exhibit.information.InformationMapper" 
 		useGeneratedKeys="true" keyProperty="reserve_Seq">
 	INSERT INTO EXHIBIT_INFORMATION_RESERVATION (
@@ -31,8 +33,13 @@
 	</insert>
 	
 	
-	<!-- (관리자) 단체관람 예약 확인 -->
+	<!-- 관리자 부분 SQL -->
 	
+	<!-- 단체관람 예약 확인 -->
+	<select id="selectReservationList" resultMap="Information" parameterType="String">
+		SELECT	*
+		FROM	EXHIBIT_INFORMATION_RESERVATION
+	</select>
 	
     <!-- 이미 등록된 핸드폰 번호 중복검사 
     <select id="selectDuplicateTel" resultMap="Information" parameterType="String">
