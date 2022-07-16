@@ -15,5 +15,13 @@ public class Index {
 		return mav;
 	}
 	
+	@RequestMapping("/admin")
+	public ModelAndView admin() {
+		System.out.println("Admin index");
+		ModelAndView mav = new ModelAndView("/admin/index");
+		
+		return mav;
+	}
+	
  
 }

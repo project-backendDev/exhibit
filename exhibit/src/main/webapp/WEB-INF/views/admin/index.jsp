@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -57,8 +56,8 @@
 				<nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 						<li class="nav-item">
-							<a href="javascript:alert('준비중입니다');" class="nav-link active"> <i class="far fa-circle nav-icon"></i>
-								<p>Dashboard v1</p>
+							<a href="${pageContext.request.contextPath }/admin/notice/noticeList" class="nav-link active"> <i class="far fa-circle nav-icon"></i>
+								<p>게시판 관리자</p>
 							</a>
 						</li>
 
@@ -88,11 +87,6 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h4 class="m-0">
-								<strong> 무슨무슨 페이지 </strong>
-								<br />
-								<a href="${pageContext.request.contextPath }/admin/notice/noticeRegistView"> 글 작성</a>
-							</h4>
 						</div>
 						<!-- /.col -->
 					</div>
@@ -146,6 +140,5 @@
 	<script src="${pageContext.request.contextPath }/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="${pageContext.request.contextPath }/dist/js/adminlte.js"></script>
-	
 </body>
 </html>
