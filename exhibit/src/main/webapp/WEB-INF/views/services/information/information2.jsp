@@ -40,13 +40,37 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 	<script type="text/javascript">
-	$(document).ready(function() {
-
-	});
+		var name 			= $("#name").val();
+		var tel_1  			= $("#tel_1").val();
+		var tel_2  			= $("#tel_2").val();
+		var date 			= $("#date").val();
+		var visit_time_hour = $("#visit_time_1").val();
+		var visit_time_min  = $("#visit_time_2").val();
+		var reserve_people	= $("#reserve_people").val();
+	
 		function informationRegist() {
-		//console.log($("#visit_time").val());
-		$("#reserveRegistForm").attr('action', '/information2.do');
-		$("#reserveRegistForm").submit();
+			if (name == "") {
+				alert("이름을 입력해주세요.");
+				return;
+			} else if (tel_1 == "" || tel_2 == "") {
+				alert("연락처를 입력해주세요.");
+				return;
+			} else if (date == "") {
+				alert("관람일을 선택해주세요.");
+				return;
+			} else if (visit_time_hour == "00" || visit_time_hour == "01" || visit_time_hour == "02" || visit_time_hour == "03" || visit_time_hour == "04" || visit_time_hour == "05"  
+						|| visit_time_hour == "06" || visit_time_hour == "07" || visit_time_hour == "08" || visit_time_hour == "18" || visit_time_hour == "19" || visit_time_hour == "20" 
+						|| visit_time_hour == "21" || visit_time_hour == "22" || visit_time_hour == "23" || visit_time_hour == "24") {
+				alert("해당시간은 관람가능한 시간이 아닙니다.");
+				return;
+			} else if ($("#reserve_people").val() == "") {
+				alert("예약인원을 선택해주세요.");
+				return;
+			} else {
+				alert("등록");
+				//$("#reserveRegistForm").attr('action', '/information2.do');
+				//$("#reserveRegistForm").submit();		
+			}
 		}
 	</script>
 </head>
@@ -109,9 +133,9 @@
                                         <option value="019">019</option>
                                     </select>
                                     <span>―</span>
-                                    <input type="text" name="tel" value="" />
+                                    <input type="text" name="tel" id="tel_1" value="" />
                                     <span>―</span>
-                                    <input type="text" name="tel" value="" />
+                                    <input type="text" name="tel" id="tel_2" value="" />
                                 </div>
                             </div>    
                             <div class="form_con date">
@@ -124,7 +148,7 @@
                                 <div class="input_wrap">
                                     <h5>관람시간 <span>*</span></h5>
                                     <div class="time_select">
-                                        <select name="visit_time" id="visit_time">
+                                        <select name="visit_time" id="visit_time_1">
                                             <option value="00">00</option>
                                             <option value="01">01</option>
                                             <option value="02">02</option>
@@ -152,7 +176,7 @@
                                             <option value="24">24</option>
                                         </select>
                                         <span class="mr">시</span>
-                                        <select name="visit_time" id="visit_time">
+                                        <select name="visit_time" id="visit_time_2">
                                             <option value="00">00</option>
                                             <option value="01">01</option>
                                             <option value="02">02</option>
