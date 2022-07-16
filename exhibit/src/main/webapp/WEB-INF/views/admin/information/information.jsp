@@ -62,17 +62,40 @@
     <!-- Main Content -->
 	<section class="content">
 		<div class="container-fluid">
+		<c:forEach var="info" items="${infoList }" varStatus="status">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="card">
 						<div class="card-body">
-							<b> 여기부터 개발 내용 작성 </b>
+							<table>
+								<tbody>
+									<tr>
+										<th> 번호 </th>
+										<th> 이름 </th>
+										<th> 전화번호 </th>
+										<th> 관람일 </th>
+										<th> 관람시간 </th>
+										<th> 관람인원 </th>
+										<th> 교통수단 </th>								
+									</tr>
+									<tr>
+										<td> ${info.reserve_Seq } </td>
+										<td> ${info.name } </td>
+										<td> ${info.tel } </td>
+										<td> ${info.visit_day } </td>
+										<td> ${info.visit_time } </td>
+										<td> ${info.reserve_people } </td>
+										<td> ${info.transfer } </td>
+									</tr>	
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>
 				<!-- /.col-md-6 -->
 			</div>
 			<!-- /.row -->
+			</c:forEach>
 		</div>
 	</section>
   </div>

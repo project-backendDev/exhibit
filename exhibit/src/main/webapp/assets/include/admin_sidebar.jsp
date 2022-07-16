@@ -11,7 +11,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     
-    <a href="index3.html" class="brand-link" style="text-align: center">
+    <a href="${pageContext.request.contextPath }/admin" class="brand-link" style="text-align: center">
     	<h2>
 	    	<strong>
 	      		<span class="brand-text font-weight-light"><b>관리자 페이지</b></span>

@@ -1,5 +1,7 @@
 package com.project.exhibit.information;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,12 @@ public class InformationAdminController {
 		System.out.println("Controller admin information");
 		ModelAndView mav = new ModelAndView("/admin/information/information");
 		
+		ArrayList<Information> infoList = (ArrayList<Information>) info_Service.selectReservationList();
+		
+		mav.addObject("infoList", infoList);
+		
 		return mav;
 	}
+	
+	
 }
