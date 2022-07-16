@@ -58,7 +58,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">단체관람 예약 확인 페이지</h1>
+            <h1 class="m-0">단체관람 예약 확인</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -167,7 +167,11 @@
 <script src="${pageContext.request.contextPath }/assets/dist/js/pages/dashboard.js"></script>
 
 <script type="text/javascript">
-	var table = $("#infoList_table").DataTable();
+	var table = $("#infoList_table").DataTable({
+		"destroy" 	: true,
+		"order" 	: [0, "desc"]
+	});
+	
 	$.ajax({
 		url : '/adin/information',
 		type : 'POST',

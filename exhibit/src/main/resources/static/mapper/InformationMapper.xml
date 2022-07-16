@@ -57,6 +57,7 @@
 	<select id="selectReservationList" resultMap="Information" parameterType="String">
 		SELECT	*
 		FROM	EXHIBIT_INFORMATION_RESERVATION
+		ORDER BY reserve_Seq DESC;
 	</select>
 	
 
