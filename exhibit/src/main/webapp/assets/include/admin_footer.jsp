@@ -9,11 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<!-- /.content-wrapper -->
-		<footer class="main-footer">
-			<strong>
-				Copyright &copy; 2022 <a href="https://adminlte.io">by XXXXX </a>
-			</strong>
-		</footer>
+    	<strong>Copyright &copy; 2022 </strong>&nbsp;All rights reserved.
+    		<div class="float-right d-none d-sm-inline-block">
+      			<b>Dev by</b> Colon B
+    		</div>
 </body>
 </html>
