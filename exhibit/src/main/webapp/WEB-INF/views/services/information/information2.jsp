@@ -40,37 +40,24 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 	<script type="text/javascript">
-		var name 			= $("#name").val();
-		var tel_1  			= $("#tel_1").val();
-		var tel_2  			= $("#tel_2").val();
-		var date 			= $("#date").val();
-		var visit_time_hour = $("#visit_time_1").val();
-		var visit_time_min  = $("#visit_time_2").val();
-		var reserve_people	= $("#reserve_people").val();
-	
 		function informationRegist() {
-			if (name == "") {
-				alert("이름을 입력해주세요.");
-				return;
-			} else if (tel_1 == "" || tel_2 == "") {
-				alert("연락처를 입력해주세요.");
-				return;
-			} else if (date == "") {
-				alert("관람일을 선택해주세요.");
-				return;
-			} else if (visit_time_hour == "00" || visit_time_hour == "01" || visit_time_hour == "02" || visit_time_hour == "03" || visit_time_hour == "04" || visit_time_hour == "05"  
-						|| visit_time_hour == "06" || visit_time_hour == "07" || visit_time_hour == "08" || visit_time_hour == "18" || visit_time_hour == "19" || visit_time_hour == "20" 
-						|| visit_time_hour == "21" || visit_time_hour == "22" || visit_time_hour == "23" || visit_time_hour == "24") {
-				alert("해당시간은 관람가능한 시간이 아닙니다.");
-				return;
-			} else if ($("#reserve_people").val() == "") {
-				alert("예약인원을 선택해주세요.");
-				return;
-			} else {
-				alert("등록");
-				//$("#reserveRegistForm").attr('action', '/information2.do');
-				//$("#reserveRegistForm").submit();		
-			}
+			//if ($("#name").val() == "") {
+			//	alert("이름을 입력해주세요.");
+			//	return;
+			//} else if ($("#tel_1").val() == "" || $("#tel_2").val() == "") {
+			//	alert("연락처를 입력해주세요.");
+			//	return;
+			//} else if ($("#date").val() == "") {
+			//	alert("관람일을 선택해주세요.");
+			//	return;
+			//} else if ($("#reserve_people option:selected").val() == "0 명") {
+			//	alert("예약인원을 선택해주세요.");
+			//	return;
+			//} else {
+			//	alert("관람예약이 완료 되었습니다.");
+				$("#reserveRegistForm").attr('action', '/information2.do');
+				$("#reserveRegistForm").submit();		
+			//}
 		}
 	</script>
 </head>
@@ -149,15 +136,6 @@
                                     <h5>관람시간 <span>*</span></h5>
                                     <div class="time_select">
                                         <select name="visit_time" id="visit_time_1">
-                                            <option value="00">00</option>
-                                            <option value="01">01</option>
-                                            <option value="02">02</option>
-                                            <option value="03">03</option>
-                                            <option value="04">04</option>
-                                            <option value="05">05</option>
-                                            <option value="06">06</option>
-                                            <option value="07">07</option>
-                                            <option value="08">08</option>
                                             <option value="09">09</option>
                                             <option value="10">10</option>
                                             <option value="11">11</option>
@@ -167,13 +145,6 @@
                                             <option value="15">15</option>
                                             <option value="16">16</option>
                                             <option value="17">17</option>
-                                            <option value="18">18</option>
-                                            <option value="19">19</option>
-                                            <option value="20">20</option>
-                                            <option value="21">21</option>
-                                            <option value="22">22</option>
-                                            <option value="23">23</option>
-                                            <option value="24">24</option>
                                         </select>
                                         <span class="mr">시</span>
                                         <select name="visit_time" id="visit_time_2">
@@ -335,7 +306,12 @@
 </html>
 
 <script>
-    
+	function disableAllTheseDays(date) {
+		var day = date.getDay();
+		
+		return [( day != 1)];
+	}
+	
     // 달력
     $(function() {
         //input을 datepicker로 선언
@@ -355,7 +331,10 @@
             ,dayNamesMin: ['S','M','T','W','T','F','S'] //달력의 요일 텍스트
             ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 Tooltip
             ,minDate: "-5Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-            ,maxDate: "+5y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)  
+            ,maxDate: "+5y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)
+        	,beforeShowDay : disableAllTheseDays
         });   
     });
+    
+    
 </script>

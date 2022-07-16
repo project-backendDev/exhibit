@@ -22,11 +22,11 @@ public class InformationAdminController {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = "/admin/information")
+	@RequestMapping(value = "/admin/informationList")
 	public @ResponseBody ModelAndView informationView() {
 		
 		System.out.println("Controller admin information");
-		ModelAndView mav = new ModelAndView("/admin/information/information");
+		ModelAndView mav = new ModelAndView("/admin/information/informationList");
 		
 		ArrayList<Information> infoList = (ArrayList<Information>) info_Service.selectReservationList();
 		

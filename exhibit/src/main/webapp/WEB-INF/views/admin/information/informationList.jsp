@@ -196,22 +196,6 @@
 		}
 	});
 
-	$(function() {
-		$('#infoList_table').DataTable({
-			ajax : {
-				url : "/admin/information",
-			},
-			columns : [
-				{ 'reserve_Seq' 	: 'reserve_Seq' },
-				{ 'name' 			: 'name' },
-				{ 'tel' 			: 'tel' },
-				{ 'visit_day' 		: 'visit_day' },
-				{ 'visit_time' 		: 'visit_time' },
-				{ 'reserve_people' 	: 'reserve_people' },
-				{ 'transfer' 		: 'transfer' }
-			]
-	    });
-	});
 	    
 </script>
 </body>
