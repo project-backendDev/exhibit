@@ -46,7 +46,7 @@
 	                <i class="fas fa-angle-left right"></i>
 	              </p>
 	            </a>
-	            <ul class="nav nav-treeview" style="display: block;">
+	            <ul class="nav nav-treeview" style="display: none;">
 	              <li class="nav-item">
 	                <a href="pages/UI/general.html" class="nav-link">
 	                  <i class="far fa-circle nav-icon"></i>
