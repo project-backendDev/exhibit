@@ -81,18 +81,31 @@
 										<th style="text-align: center;"> 관람일 </th>
 										<th style="text-align: center;"> 관람시간 </th>
 										<th style="text-align: center;"> 관람인원 </th>
-										<th style="text-align: center;"> 교통수단 </th>								
+										<th style="text-align: center;"> 교통수단 </th>	
+										<th style="text-align: center;"> 비고 </th>								
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach var="info" items="${infoList }" varStatus="status">
 										<tr style="text-align: center;">
-											<td> ${info.reserve_Seq } </td>
-											<td> ${info.name } </td>
-											<td> ${info.tel } </td>
-											<td> ${info.visit_day } </td>
-											<td> ${info.visit_time } </td>
-											<td> ${info.reserve_people } </td>
+											<td> 
+												${info.reserve_Seq } 
+											</td>
+											<td> 
+												${info.name }
+											</td>
+											<td> 
+												${info.tel } 
+											</td>
+											<td> 
+												${info.visit_day } 
+											</td>
+											<td> 
+												${info.visit_time } 
+											</td>
+											<td> 
+												${info.reserve_people } 
+											</td>
 											<td>
 												<c:choose>
 													<c:when test="${info.transfer == '1' }">
@@ -111,6 +124,13 @@
 														도보
 													</c:when>
 												</c:choose>										
+											</td>
+											<td>
+												<a href="${pageContext.request.contextPath }/admin/informationEdit?reserve_Seq=${info.reserve_Seq}">
+													<input type="button" class="btn btn-primary" value="수정" />
+												</a>
+												
+												<input type="button" class="btn btn-danger" value="삭제" />
 											</td>
 										</tr>
 									</c:forEach>

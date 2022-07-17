@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import net.sf.json.JSONArray;
 
 @Controller
 public class InformationAdminController {
@@ -41,5 +40,30 @@ public class InformationAdminController {
 		
 		return mav;
 	}
+	
+	
+
+	/**
+	 * 단체관람 예약자 수정 페이지
+	 * @return
+	 */
+	@RequestMapping(value = "/admin/informationEdit")
+	public ModelAndView informationEditView(@RequestParam(value = "reserve_Seq") int reserve_Seq) {
+		
+		ModelAndView mav = new ModelAndView("/amin/information/informationEdit");
+		
+		Information info = info_Service.selectByReserveSeq(reserve_Seq);
+		
+		mav.addObject("info", info);
+		
+		return mav;
+	}
+	
+	
+//	@RequestMapping(value = "/admin/informationEdit.do")
+//	public ModelAndView informationEdit() {
+		
+		
+//	}
 	
 }

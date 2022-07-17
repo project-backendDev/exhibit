@@ -38,7 +38,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
  	          <!-- Add icons to the links using the .nav-icon class
 	               with font-awesome or any other icon font library -->
-			<li class="nav-item menu-is-opening menu-open">
+			<li class="nav-item">
 	            <a href="#" class="nav-link">
 	              <i class="nav-icon fas fa-image"></i>
 	              <p>
@@ -46,7 +46,7 @@
 	                <i class="fas fa-angle-left right"></i>
 	              </p>
 	            </a>
-	            <ul class="nav nav-treeview" style="display: block;">
+	            <ul class="nav nav-treeview" style="display: none;">
 	              <li class="nav-item">
 	                <a href="pages/UI/general.html" class="nav-link">
 	                  <i class="far fa-circle nav-icon"></i>

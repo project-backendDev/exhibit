@@ -41,22 +41,50 @@
 
 	<script type="text/javascript">
 		function informationRegist() {
-			//if ($("#name").val() == "") {
-			//	alert("이름을 입력해주세요.");
-			//	return;
-			//} else if ($("#tel_1").val() == "" || $("#tel_2").val() == "") {
-			//	alert("연락처를 입력해주세요.");
-			//	return;
-			//} else if ($("#date").val() == "") {
-			//	alert("관람일을 선택해주세요.");
-			//	return;
-			//} else if ($("#reserve_people option:selected").val() == "0 명") {
-			//	alert("예약인원을 선택해주세요.");
-			//	return;
-			//} else {
-			//	alert("관람예약이 완료 되었습니다.");
+			if ($("#name").val() == "") {
+				alert("이름을 입력해주세요.");
+				return;
+			} else if ($("#tel_1").val() == "" || $("#tel_2").val() == "") {
+				alert("연락처를 입력해주세요.");
+				return;
+			} else if ($("#date").val() == "") {
+				alert("관람일을 선택해주세요.");
+				return;
+			} else if ($("#reserve_people option:selected").val() == "0 명") {
+				alert("예약인원을 선택해주세요.");
+				return;
+			} else {
+				alert("관람예약이 완료 되었습니다.");
 				$("#reserveRegistForm").attr('action', '/information2.do');
 				$("#reserveRegistForm").submit();		
+			}
+			//if ($("#reserve_people option:selected").val() >= "20 명") {
+				//console.log($("#date").val().replaceAll("-", "").substring(6,8));
+				//var year = $("#date").val().replaceAll("-", "").substring(0,4));
+			//	console.log("year ====== " + $("#date").val().replaceAll("-", "").substring(0,4));
+				//var month = $("#date").val().replaceAll("-", "").substring(4,6));
+			//	console.log("month ====== " + $("#date").val().replaceAll("-", "").substring(4,6));
+				//var day 	= $("#date").val().replaceAll("-", "").substring(6,8));
+			//	console.log("day ====== " + $("#date").val().replaceAll("-", "").substring(6,8));
+				
+				
+			//	var date = new Date();
+			//	new Date($("#date").val().replaceAll("-", "").substring(0,4), $("#date").val().replaceAll("-", "").substring(4,6), $("#date").val().replaceAll("-", "").substring(6,8) - 1).toLocaleDateString();
+			//	console.log(new Date($("#date").val().replaceAll("-", "").substring(0,4), $("#date").val().replaceAll("-", "").substring(4,6) - 1, $("#date").val().replaceAll("-", "").substring(6,8)).toLocaleDateString());
+				
+			//	const year = date.getFullYear();
+				//console.log("year ==== " + year);
+			//	const month = date.getMonth();
+				//console.log("month ==== " + month);
+			//	const day = date.getDate();
+				//console.log("day ==== " + day);
+							
+				
+				//console.log(new Date($("#date").val().replaceAll("-", "").substring(0,4), $("#date").val().replaceAll("-", "").substring(4,6), $("#date").val().replaceAll("-", "").substring(6,8)).toLocaleDateString());
+				
+				//var a = new Date($("#date").val().toLocaleDateString());
+				
+				//console.log("aaaaaa" + a);
 			//}
 		}
 	</script>

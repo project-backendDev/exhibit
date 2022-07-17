@@ -10,7 +10,7 @@
 	<div class="fixed_con">
 		<ul>
 			<li>
-				<a href="${pageContext.request.contextPath }/index.jsp">
+				<a href="${pageContext.request.contextPath }/">
 					<i><img src="${pageContext.request.contextPath }/assets/images/i_main.png" alt=""></i>
 					<p>메인</p>
 				</a>
@@ -22,7 +22,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath }/services/information1.jsp">
+				<a href="${pageContext.request.contextPath }/information1">
 					<i><img src="${pageContext.request.contextPath }/assets/images/i_tour.png" alt=""></i>
 					<p>관람 안내</p>
 				</a>

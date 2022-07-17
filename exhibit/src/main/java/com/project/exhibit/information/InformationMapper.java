@@ -19,4 +19,10 @@ public interface InformationMapper {
 	
 	// (관리자) 단체관람 예약 확인 SELECT 
 	List<Information> selectReservationList();
+	
+	// (관리자) 시퀀스 번호 확인
+	Information selectByReserveSeq(int reserve_Seq);
+	
+	// (관리자) 예약자 이름 확인
+	Information selectByName(String name);
 }
