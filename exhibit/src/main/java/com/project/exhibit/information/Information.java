@@ -1,7 +1,5 @@
 package com.project.exhibit.information;
 
-import java.util.Date;
-
 public class Information {
 
 	private int reserve_Seq;

@@ -60,6 +60,18 @@
 		ORDER BY reserve_Seq DESC;
 	</select>
 	
-
+	<!-- 예약자 시퀀스 번호 확인 -->
+	<select id="selectByReserveSeq" parameterType="int" resultMap="Information">
+		SELECT	*
+		FROM	EXHIBIT_INFORMATION_RESERVATION
+		WHERE	reserve_Seq = #{reserve_Seq}
+	</select>
+	
+	<!-- 예약자 이름 확인 -->
+	<select id="selectByName" resultMap="Information">
+		SELECT	*
+		FROM	EXHIBIT_INFORMATION_RESERVATION
+		WHERE	name = #{name}
+	</select>
     
 </mapper>

@@ -28,8 +28,19 @@ public class InformationService {
 //	}
 	
 	
-	// (관람자) 단체관람 예약 확인 SELECT
-		public List selectReservationList() {
-			return mapper.selectReservationList();
-		}
+	// (관리자) 단체관람 예약 확인 SELECT
+	public List selectReservationList() {
+		return mapper.selectReservationList();
+	}
+	
+	
+	// (관리자) 시퀀스 번호 확인
+	public Information selectByReserveSeq(int reserve_Seq) {
+		return mapper.selectByReserveSeq(reserve_Seq);
+	}
+	
+	// (관리자) 예약자 이름 확인 
+	public Information selectByName(String name) {
+		return mapper.selectByName(name);
+	}
 }
