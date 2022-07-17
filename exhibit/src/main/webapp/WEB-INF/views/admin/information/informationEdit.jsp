@@ -27,6 +27,50 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- summernote -->
   <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/summernote/summernote-bs4.min.css">
+  
+  <script type="text/javascript">
+  	function changeText() {
+  		var txt = $("#transfer").val();
+  		
+  		if (txt == '') {
+  			console.log(txt);
+  			$("#transfer1").val("");
+  		} 
+  		if (txt == '1') {
+  			console.log(txt);
+  			$("#transfer1").val("자동차");
+  		}
+  		if (txt == '2') {
+  			console.log(txt);
+  			$("#transfer1").val("대중교통");
+  		}
+  		if (txt == '3') {
+  			console.log(txt);
+  			$("#transfer1").val("25인 버스");
+  		}
+  		if (txt == '4') {
+  			console.log(txt);
+  			$("#transfer1").val("45인 버스");
+  		}
+  		if (txt == '5') {
+  			console.log(txt);
+  			$("#transfer1").val("도보");
+  		}
+  	}
+  
+  	function updateDate() {
+  		var con = confirm("내용을 수정하시겠습니까?");
+  		
+  		if (con) {
+			alert("내용이 수정되었습니다.");
+			$("#updateForm").attr('action', '/admin/informationEdit.do');
+			$("#updateForm").submit();	
+  		} else {
+  			alert("취소되었습니다.");
+  			return;
+  		}
+  	}
+  </script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -60,21 +104,93 @@
     <!-- /.content-header -->
 
     <!-- Main Content -->
-	<section class="content">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="card">
-						<div class="card-body">
-							<input type="text" name="name" value="${info.name }" />
+    <form method="POST" id="updateForm">
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="form-group">
+						            <label for='name' class="col-md-2">이름</label>
+						            <div class="col-md-10">
+						                <input type="text" name="name" id="name" class="form-control" value="${info.name }" />
+						            </div>
+						        </div>
+						
+						        <div class="form-group">
+						            <label for="tel" class="col-md-2">전화번호</label>
+						            <div class="col-md-10">
+						                <input type="text" name="tel" id="tel" class="form-control" value="${info.tel }" />
+						            </div>
+						        </div>
+						
+						        <div class="form-group">
+						            <label for='visit_day' class="col-md-2">관람일</label>
+						            <div class="col-md-10">
+						                <input type="text" name="visit_day" id="visit_day" class="form-control" value="${info.visit_day }" />
+						            </div>
+						        </div>
+						
+						        <div class="form-group">
+						            <label for='visit_time' class="col-md-2">관람시간</label>
+						            <div class="col-md-10">
+						                <input type="text" name="visit_time" id="visit_time" class="form-control" value="${info.visit_time }" />
+						            </div>
+						        </div>
+						
+						        <div class="form-group">
+						            <label for='reserve_people' class="col-md-2">예약인원</label>
+						            <div class="col-md-10">
+						                <input type="text" name="reserve_people" id="reserve_people" class="form-control" value="${info.reserve_people }" />
+						            </div>
+						        </div>
+						
+						        <div class="form-group">
+						            <label for='transfer' class="col-md-2">교통수단</label>
+						            <div class="col-md-5" style="display: flex;">
+					            		<input type="text" name="transfer" id="transfer" class="form-control" value="${info.transfer }" onkeypress="changeText();" />
+						            	<c:choose>
+							            		<c:when test="${info.transfer == '1' }">
+							            			<input type="text" id="transfer1" class="form-control" value="자동차" readonly />
+							            		</c:when>
+							            		<c:when test="${info.transfer == '2' }">
+							            			<input type="text" id="transfer1" class="form-control" value="대중교통" readonly />
+							            		</c:when>
+							            		<c:when test="${info.transfer == '3' }">
+							            			<input type="text" id="transfer1" class="form-control" value="25인 버스" readonly />
+							            		</c:when>
+							            		<c:when test="${info.transfer == '4' }">
+							            			<input type="text" id="transfer1" class="form-control" value="45인 버스" readonly />
+							            		</c:when>
+							            		<c:when test="${info.transfer == '5' }">
+							            			<input type="text" id="transfer1" class="form-control" value="도보" readonly />
+							            		</c:when>
+							            	</c:choose>
+						            </div>
+						            <div>
+							            <b> ※ 교통수단을 수정 시 번호로 입력해주시기 바랍니다. </b>
+							            <br />
+							            <b> ※ 1 - 자동차 / 2 - 대중교통 / 3 - 25인 버스 / 4 - 45인 버스 / 5 - 도보 </b>
+						            </div>
+						        </div>
+								
+								<div class="form-group">
+									<input type="button" class="btn btn-primary" value="수정하기" onClick="updateDate();" /> &nbsp;&nbsp; <input type="button" class="btn btn-warning" value="뒤로가기" onClick="javascript:history.back();"/> 
+								</div>
+								
+								<input type="hidden" name="reserve_Seq" id="reserve_Seq" value="${info.reserve_Seq }" />
+							</div>
+							
 						</div>
 					</div>
+					
+					<!-- /.col-md-6 -->
 				</div>
-				<!-- /.col-md-6 -->
+				<!-- /.row -->
 			</div>
-			<!-- /.row -->
-		</div>
-	</section>
+		</section>
+	</form>
   </div>
   <!-- /.content-wrapper -->
    <!-- footer 시작 -->

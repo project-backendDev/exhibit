@@ -25,4 +25,10 @@ public interface InformationMapper {
 	
 	// (관리자) 예약자 이름 확인
 	Information selectByName(String name);
+	
+	// (관리자) 예약자 정보 수정
+	void updateReserveData(Information info);
+	
+	// (관리자) 예약자 삭제
+	void deleteReserve(int reserve_Seq);
 }

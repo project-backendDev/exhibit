@@ -24,7 +24,7 @@
 	
 	<!-- 단체관람 예약 INSERT -->
 	<insert id="insertReservation" parameterType="com.project.exhibit.information.InformationMapper" 
-		useGeneratedKeys="true" keyProperty="reserve_Seq">
+		useGeneratedKeys="true" keyProperty="reserve_Seq"> 
 	INSERT INTO EXHIBIT_INFORMATION_RESERVATION (
 		name, tel, visit_day, visit_time, reserve_people, transfer, add_item1, add_item2, add_item3, add_item4, add_item5
 	) VALUES (
@@ -73,5 +73,21 @@
 		FROM	EXHIBIT_INFORMATION_RESERVATION
 		WHERE	name = #{name}
 	</select>
+	
+	
+	<!-- 예약자 내용 수정 -->
+	<update id="updateReserveData"  parameterType="com.project.exhibit.information.Information">
+		UPDATE	EXHIBIT_INFORMATION_RESERVATION
+		SET		name = #{name}, tel = #{tel}, visit_day = #{visit_day}, visit_time = #{visit_time}, 
+				reserve_people = #{reserve_people}, transfer = #{transfer}, add_item1 = null, add_item2 = null,
+				add_item3 = null, add_item4 = null, add_item5 = null
+		WHERE	reserve_Seq = #{reserve_Seq}
+	</update>
+	
+	<!-- 예약자 삭제 -->
+	<delete id="deleteReserve" parameterType="int">
+		DELETE	FROM	EXHIBIT_INFORMATION_RESERVATION
+		WHERE	reserve_Seq = #{reserve_Seq}
+	</delete>
     
 </mapper>

@@ -43,4 +43,14 @@ public class InformationService {
 	public Information selectByName(String name) {
 		return mapper.selectByName(name);
 	}
+	
+	// (관리자) 예약자 정보 수정
+	public void updateReserveData(Information info) {
+		mapper.updateReserveData(info);
+	}
+	
+	// (관리자) 예약자 삭제
+	public void deleteReserve(int reserve_Seq) {
+		mapper.deleteReserve(reserve_Seq);
+	}
 }
