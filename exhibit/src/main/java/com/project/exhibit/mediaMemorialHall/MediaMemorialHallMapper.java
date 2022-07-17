@@ -17,6 +17,6 @@ public interface MediaMemorialHallMapper {
 	void deleteMediaMemorialHall(MediaMemorialHall mmh);
 	
 	// (관리자, 사용자) 언론에 비친 기념관 SELECT(출력)
-	List<MediaMemorialHall> selectMediaMemorialHall();
+	List<MediaMemorialHall> selectMediaMemorialHall(MediaMemorialHall mmh);
 	
 }

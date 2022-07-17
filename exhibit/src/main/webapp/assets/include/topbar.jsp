@@ -60,7 +60,7 @@
 									</div>
 								</li>
 								<li><a href="${pageContext.request.contextPath }/introduce2">설립 목적</a></li>
-								<li><a href="${pageContext.request.contextPath }/introduce3">언론에 비친 기념관</a></li>
+								<li><a href="${pageContext.request.contextPath }/introduce/introduce3">언론에 비친 기념관</a></li>
 							</ul>
 						</div>
 					</li>

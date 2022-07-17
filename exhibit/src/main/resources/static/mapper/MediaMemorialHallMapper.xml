@@ -19,7 +19,7 @@
 	</resultMap>
 	
 	<!-- 언론에 비친 기념관 등록 -->
-	<insert id="insertMMH" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall"
+	<insert id="insertMediaMemorialHall" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall"
 			useGeneratedKeys="true" keyProperty="artcl_Seq">
 		INSERT INTO exhibit_mediaMemorialHall_artcl (
         	title, content, writer, reg_date, edit_date, hit, img_Origin_Nm, img_File_Nm, img_Path
@@ -37,7 +37,7 @@
 	</insert>
 	
 	<!-- 언론에 비친 기념관 수정 -->
-	<update id="updateMMH" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
+	<update id="updateMediaMemorialHall" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
 		UPDATE exhibit_mediaMemorialHall_artcl 
 		SET title = #{title},
 			content = #{content},
@@ -49,9 +49,13 @@
 	</update>		
 	
 	<!-- 언론에 비친 기념관 삭제 -->
+	<delete id="deleteMediaMemorialHall" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
 	
+	</delete>
 	
 	<!-- 언론에 비친 기념관 리스트 출력 -->
-	
+	<select id="selectMediaMemorialHall" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall" >
+		
+	</select>
 
 </mapper>
