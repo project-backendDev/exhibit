@@ -33,6 +33,21 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 	<!-- summernote -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/summernote/summernote-bs4.min.css">
+	
+	<script type="text/javascript">
+		function deleteReserve() {
+			if (confirm("해당 예약자를 삭제하시겠습니까?")) {
+				alert($("#reserve_Seq").val());
+				return;
+				alert("삭제를 완료하였습니다.");
+				$("#deleteForm").attr('action', '/admin/informationDelete.do');
+				$("#deleteForm").submit();
+			} else {
+				alert("취소되었습니다.");
+				return;
+			}
+		}
+	</script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -125,12 +140,14 @@
 													</c:when>
 												</c:choose>										
 											</td>
-											<td>
+											<td style="display:flex;">
 												<a href="${pageContext.request.contextPath }/admin/informationEdit?reserve_Seq=${info.reserve_Seq}">
 													<input type="button" class="btn btn-primary" value="수정" />
 												</a>
-												
-												<input type="button" class="btn btn-danger" value="삭제" />
+												<form method="POST" id="deleteForm">
+													<input type="button" class="btn btn-danger" id="delete" value="삭제" onClick="deleteReserve();" />
+													<input type="hidden" name="reserve_Seq" id="reserve_Seq" value="${info.reserve_Seq }" /> 
+												</form>
 											</td>
 										</tr>
 									</c:forEach>
@@ -193,7 +210,7 @@
 	});
 	
 	$.ajax({
-		url : '/adin/information',
+		url : '/admin/information',
 		type : 'POST',
 		data : 	[
 					{ "reserve_Seq" 	: "reserve_Seq" },
