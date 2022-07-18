@@ -2,19 +2,33 @@ package com.project.exhibit.information;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class InformationAdminController {
 
 	@Autowired
 	private InformationService info_Service;
+	
+	/**
+	 * 관리자 로그인 화면
+	 * @return
+	 */
+	@RequestMapping(value = "/admin/login")
+	public ModelAndView loginView() {
+		
+		ModelAndView mav = new ModelAndView("/admin/login");
+		
+		return mav;
+	}
 	
 
 	/**
@@ -23,9 +37,10 @@ public class InformationAdminController {
 	 */
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/admin/informationList")
-	public @ResponseBody ModelAndView informationView() {
+	public @ResponseBody ModelAndView informationView(HttpServletRequest request) {
 		
-		System.out.println("Controller admin information");
+		HttpSession session = request.getSession(false);
+		
 		ModelAndView mav = new ModelAndView("/admin/information/informationList");
 		
 		ArrayList<Information> infoList = (ArrayList<Information>) info_Service.selectReservationList();
@@ -70,12 +85,13 @@ public class InformationAdminController {
 	@RequestMapping(value = "/admin/informationEdit.do")
 	public String informationEdit(Information info, @RequestParam(value = "reserve_Seq") int reserve_Seq) {
 		
-		System.out.println("updateController	info.getName()	::	" + info.getName());
-		System.out.println("updateController	info.getName()	::	" + info.getTel());
-		System.out.println("updateController	info.getName()	::	" + info.getVisit_day());
-		System.out.println("updateController	info.getName()	::	" + info.getVisit_time());
-		System.out.println("updateController	info.getName()	::	" + info.getReserve_people());
-		System.out.println("updateController	info.getName()	::	" + info.getTransfer());
+		System.out.println("updateController	info.getName()				::	" + info.getName());
+		System.out.println("updateController	info.getTel()				::	" + info.getTel());
+		System.out.println("updateController	info.getVisit_day()			::	" + info.getVisit_day());
+		System.out.println("updateController	info.getVisit_time()		::	" + info.getVisit_time());
+		System.out.println("updateController	info.getReserve_people()	::	" + info.getReserve_people());
+		System.out.println("updateController	info.getTransfer()			::	" + info.getTransfer());
+		
 		
 		info_Service.updateReserveData(info);
 		

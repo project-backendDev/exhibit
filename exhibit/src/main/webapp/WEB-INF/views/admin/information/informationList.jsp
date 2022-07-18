@@ -35,18 +35,40 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/summernote/summernote-bs4.min.css">
 	
 	<script type="text/javascript">
-		function deleteReserve() {
-			if (confirm("해당 예약자를 삭제하시겠습니까?")) {
-				alert($("#reserve_Seq").val());
-				return;
-				alert("삭제를 완료하였습니다.");
-				$("#deleteForm").attr('action', '/admin/informationDelete.do');
-				$("#deleteForm").submit();
-			} else {
-				alert("취소되었습니다.");
-				return;
-			}
+	$(document).ready(function() {
+		//$(".delete-btn").click(function() {
+			//if (confirm("해당 예약자를 삭제하시겠습니까?")) {
+				//alert($(".reserve_Seq").val());
+				//return;
+				//alert("삭제를 완료하였습니다.");
+				//$(".form").attr('action', '/admin/informationDelete.do');
+				//$(".form").submit();
+			//} else {
+				//alert("취소되었습니다.");
+				//return;
+//			}
+		//});
+		
+		$(".edit-btn").click(function() {
+			$(".form").attr('action', '/admin/informationEdit');
+			$(".form").submit();
+		});
+	});
+	
+	function reserveDelete(seq) {
+		if (confirm("해당 예약자를 삭제하시겠습니까?")) {
+			//alert(seq);
+			//return;
+			alert("삭제를 완료하였습니다.");
+			$(".form").attr('action', '/admin/informationDelete.do?reserve_Seq=' + seq);
+			$(".form").submit();
+		} else {
+			alert("취소되었습니다.");
+			return;
 		}
+	}
+	
+		
 	</script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -81,6 +103,7 @@
     <!-- /.content-header -->
 
     <!-- Main Content -->
+    <form method="POST" class="form"> 
 	<section class="content">
 		<div class="container-fluid">
 			<div class="row">
@@ -144,10 +167,17 @@
 												<a href="${pageContext.request.contextPath }/admin/informationEdit?reserve_Seq=${info.reserve_Seq}">
 													<input type="button" class="btn btn-primary" value="수정" />
 												</a>
-												<form method="POST" id="deleteForm">
-													<input type="button" class="btn btn-danger" id="delete" value="삭제" onClick="deleteReserve();" />
+												<a href="javascript:reserveDelete(${info.reserve_Seq })">
+													<input type="button" class="btn btn-danger" id="delete" value="삭제" />
 													<input type="hidden" name="reserve_Seq" id="reserve_Seq" value="${info.reserve_Seq }" /> 
-												</form>
+												</a>
+												<!-- 
+												<a href="${pageContext.request.contextPath }/admin/informationDelete.do?reserve_Seq=${info.reserve_Seq}">
+													<input type="button" class="btn btn-danger" id="delete" value="삭제" />
+													<input type="hidden" name="reserve_Seq" id="reserve_Seq" value="${info.reserve_Seq }" /> 
+												</a>
+												 -->
+												
 											</td>
 										</tr>
 									</c:forEach>
@@ -161,6 +191,7 @@
 			<!-- /.row -->
 		</div>
 	</section>
+	</form>
   </div>
   <!-- /.content-wrapper -->
    <!-- footer 시작 -->

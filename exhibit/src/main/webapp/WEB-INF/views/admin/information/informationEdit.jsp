@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>관리자 페이지</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -29,35 +29,6 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/summernote/summernote-bs4.min.css">
   
   <script type="text/javascript">
-  	function changeText() {
-  		var txt = $("#transfer").val();
-  		
-  		if (txt == '') {
-  			console.log(txt);
-  			$("#transfer1").val("");
-  		} 
-  		if (txt == '1') {
-  			console.log(txt);
-  			$("#transfer1").val("자동차");
-  		}
-  		if (txt == '2') {
-  			console.log(txt);
-  			$("#transfer1").val("대중교통");
-  		}
-  		if (txt == '3') {
-  			console.log(txt);
-  			$("#transfer1").val("25인 버스");
-  		}
-  		if (txt == '4') {
-  			console.log(txt);
-  			$("#transfer1").val("45인 버스");
-  		}
-  		if (txt == '5') {
-  			console.log(txt);
-  			$("#transfer1").val("도보");
-  		}
-  	}
-  
   	function updateDate() {
   		var con = confirm("내용을 수정하시겠습니까?");
   		
@@ -96,7 +67,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">단체관람 예약 수정</h1>
+            <h1 class="m-0">
+            	<strong>
+            		단체관람 예약 수정
+            	</strong>	
+          		</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -112,7 +87,7 @@
 						<div class="card">
 							<div class="card-body">
 								<div class="form-group">
-						            <label for='name' class="col-md-2">이름</label>
+						           	<label for='name' class="col-md-2">이름</label>
 						            <div class="col-md-10">
 						                <input type="text" name="name" id="name" class="form-control" value="${info.name }" />
 						            </div>
@@ -122,6 +97,11 @@
 						            <label for="tel" class="col-md-2">전화번호</label>
 						            <div class="col-md-10">
 						                <input type="text" name="tel" id="tel" class="form-control" value="${info.tel }" />
+						                <div>
+						                	<b> ※ 전화번호 수정 시 하이픈(-)을 같이 입력해주세요</b>
+						                	<br />
+						                	<b> ex) 010-1234-5678</b>
+						                </div>
 						            </div>
 						        </div>
 						
@@ -130,13 +110,23 @@
 						            <div class="col-md-10">
 						                <input type="text" name="visit_day" id="visit_day" class="form-control" value="${info.visit_day }" />
 						            </div>
+						            <div>
+					                	<b> &nbsp;&nbsp;※ 관람일 수정 시 하이픈(-)을 같이 입력해주세요</b>
+					                	<br />
+					                	<b> &nbsp;&nbsp;ex) 2022-07-01</b>
+					                </div>
 						        </div>
 						
 						        <div class="form-group">
-						            <label for='visit_time' class="col-md-2">관람시간</label>
+						           <label for='visit_time' class="col-md-2">관람시간</label>
 						            <div class="col-md-10">
 						                <input type="text" name="visit_time" id="visit_time" class="form-control" value="${info.visit_time }" />
 						            </div>
+						            <div>
+					                	<b> &nbsp;&nbsp;※ 관람시간 수정 시 '시'와 '분' 사이에 공백이 있어야합니다.</b>
+					                	<br />
+					                	<b> &nbsp;&nbsp;ex) 09시00분 (X)   09시 00분 (O) </b>
+					                </div>
 						        </div>
 						
 						        <div class="form-group">
@@ -149,29 +139,12 @@
 						        <div class="form-group">
 						            <label for='transfer' class="col-md-2">교통수단</label>
 						            <div class="col-md-5" style="display: flex;">
-					            		<input type="text" name="transfer" id="transfer" class="form-control" value="${info.transfer }" onkeypress="changeText();" />
-						            	<c:choose>
-							            		<c:when test="${info.transfer == '1' }">
-							            			<input type="text" id="transfer1" class="form-control" value="자동차" readonly />
-							            		</c:when>
-							            		<c:when test="${info.transfer == '2' }">
-							            			<input type="text" id="transfer1" class="form-control" value="대중교통" readonly />
-							            		</c:when>
-							            		<c:when test="${info.transfer == '3' }">
-							            			<input type="text" id="transfer1" class="form-control" value="25인 버스" readonly />
-							            		</c:when>
-							            		<c:when test="${info.transfer == '4' }">
-							            			<input type="text" id="transfer1" class="form-control" value="45인 버스" readonly />
-							            		</c:when>
-							            		<c:when test="${info.transfer == '5' }">
-							            			<input type="text" id="transfer1" class="form-control" value="도보" readonly />
-							            		</c:when>
-							            	</c:choose>
+					            		<input type="text" name="transfer" class="" id="transfer" class="form-control" value="${info.transfer }" />
 						            </div>
 						            <div>
-							            <b> ※ 교통수단을 수정 시 번호로 입력해주시기 바랍니다. </b>
+							            <b> &nbsp;&nbsp;※ 교통수단을 수정 시 번호로 입력해주시기 바랍니다. </b>
 							            <br />
-							            <b> ※ 1 - 자동차 / 2 - 대중교통 / 3 - 25인 버스 / 4 - 45인 버스 / 5 - 도보 </b>
+							            <b> &nbsp;&nbsp;※ 1 - 자동차 / 2 - 대중교통 / 3 - 25인 버스 / 4 - 45인 버스 / 5 - 도보 </b>
 						            </div>
 						        </div>
 								
