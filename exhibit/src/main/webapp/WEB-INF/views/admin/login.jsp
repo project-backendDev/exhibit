@@ -99,7 +99,6 @@
     function loginCheck(){
         var admin_id = $("#admin_id").val();
         var admin_pw = $("#admin_pw").val();
-        var data = {"admin_id" : admin_id , "admin_pw" : admin_pw};
       
         if (admin_id == ""){
             alert("아이디를 입력해 주세요.");
@@ -113,8 +112,10 @@
         	$.ajax({
         		url	 : "/admin/login.do",
         		type : "POST",
-				data : data,
-				
+				data : {
+						"admin_id" : admin_id , 
+						"admin_pw" : admin_pw
+				},
 				success : function(data) {
 					if (admin_id == data.admin_id && admin_pw == data.admin_pw) {
 						location.href="/admin";
