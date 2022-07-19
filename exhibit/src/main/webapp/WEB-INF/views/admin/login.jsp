@@ -87,7 +87,7 @@
 </div>
 <script>
     $(function(){
-        $("#login_id, #passwd").keypress(function(e) {
+        $("#admin_id, #admin_pw").keypress(function(e) {
 
             if (e.keyCode == 13){
                 loginCheck();
@@ -95,35 +95,39 @@
         });
     });
     
+    
     function loginCheck(){
-        var login_id        = $("#login_id").val();
-        var passwd          = $("#passwd").val();
-
-        if (login_id == ""){
+        var admin_id = $("#admin_id").val();
+        var admin_pw = $("#admin_pw").val();
+        var data = {"admin_id" : admin_id , "admin_pw" : admin_pw};
+      
+        if (admin_id == ""){
             alert("아이디를 입력해 주세요.");
-            return;
-        } else if (passwd == ""){
+            $("#admin_id").focus();
+          	return;
+        } else if (admin_pw == ""){
             alert("비밀번호를 입력해 주세요.");
+            $("#admin_pw").focus();
             return;
         } else {
-        	$("#loginForm").attr('action', '/admin/login.do');
-        	$("#loginForm").submit();
+        	$.ajax({
+        		url	 : "/admin/login.do",
+        		type : "POST",
+				data : data,
+				
+				success : function(data) {
+					if (admin_id == data.admin_id && admin_pw == data.admin_pw) {
+						location.href="/admin";
+					} else {
+						alert("아이디 또는 비밀번호를 다시 확인해주세요.");
+						return;
+					}
+				}
+        		
+        	});
         }
-        //    url : "/admin/login/login.do",
-        //    type : "POST",
-        //    dataType : "JSON",
-        //    data : {"login_id" : login_id , "passwd" : passwd},
-        //    success : function(result) {
-        //        if (result.status == 'success'){
-        //            location.href="/admin?event_type=1";
-        //       }else{
-        //            alert("아이디와 패스워드를 다시 확인 바랍니다.");
-        //            return;
-        //        }
-        //    }
-        //});
-
     }
+    
 </script>
 </body>
 </html>

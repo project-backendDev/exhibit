@@ -3,31 +3,30 @@ package com.project.exhibit.admin;
 public class Admin {
 
 	private int num;
-	private String id;
-	private String pwd;
+	private String admin_id;
+	private String admin_pw;
 	private String add_Item1;
 	private String add_Item2;
 	private String add_Item3;
 	private String add_Item4;
 	private String add_Item5;
-	
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public String getId() {
-		return id;
+	public String getAdmin_id() {
+		return admin_id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setAdmin_id(String admin_id) {
+		this.admin_id = admin_id;
 	}
-	public String getPwd() {
-		return pwd;
+	public String getAdmin_pw() {
+		return admin_pw;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setAdmin_pw(String admin_pw) {
+		this.admin_pw = admin_pw;
 	}
 	public String getAdd_Item1() {
 		return add_Item1;
@@ -59,14 +58,14 @@ public class Admin {
 	public void setAdd_Item5(String add_Item5) {
 		this.add_Item5 = add_Item5;
 	}
-	
 	@Override
 	public String toString() {
-		return "Admin [num=" + num + ", id=" + id + ", pwd=" + pwd + ", add_Item1=" + add_Item1 + ", add_Item2="
-				+ add_Item2 + ", add_Item3=" + add_Item3 + ", add_Item4=" + add_Item4 + ", add_Item5=" + add_Item5
-				+ "]";
+		return "Admin [num=" + num + ", admin_id=" + admin_id + ", admin_pw=" + admin_pw + ", add_Item1=" + add_Item1
+				+ ", add_Item2=" + add_Item2 + ", add_Item3=" + add_Item3 + ", add_Item4=" + add_Item4 + ", add_Item5="
+				+ add_Item5 + "]";
 	}
 	
+
 	
 	
 	

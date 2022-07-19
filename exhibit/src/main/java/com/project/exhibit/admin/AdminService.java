@@ -9,7 +9,7 @@ public class AdminService {
 	@Autowired
 	private AdminMapper mapper;
 	
-	Admin selectAdminCheck(String admin_id, String admin_pw) {
-		return mapper.selectAdminCheck(admin_id, admin_pw);
+	Admin selectAdminCheck(String admin_id) {
+		return mapper.selectAdminCheck(admin_id);
 	}
 }
