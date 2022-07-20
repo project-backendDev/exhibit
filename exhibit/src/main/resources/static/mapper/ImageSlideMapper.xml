@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper 
+   PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.project.exhibit.imageslide.ImageSlideMapper">
+	<resultMap type="com.project.exhibit.imageslide.ImageSlide" id="ImageSlide">
+		<result property="artcl_seq"		column="artcl_seq" />
+		<result property="image_Nm"			column="image_Nm" />
+		<result property="origin_Nm"		column="origin_Nm" />
+		<result property="change_Nm"		column="change_Nm" />
+		<result property="url"				column="url" />
+		<result property="reg_date"			column="reg_date" />
+		<result property="add_item1"		column="add_item1" />
+		<result property="add_item2"		column="add_item2" />
+		<result property="add_item3"		column="add_item3" />
+		<result property="add_item4"		column="add_item4" />
+		<result property="add_item5"		column="add_item5" />
+	</resultMap>
+	
+	
+	<!-- 이미지 슬라이드 INSERT -->
+	<insert id="insertImageSlide" parameterType="com.project.exhibit.imageslide.ImageSlideMapper" 
+		useGeneratedKeys="true" keyProperty="artcl_Seq"> 
+	INSERT INTO EXHIBIT_IMAGESLIDE_ARTCL (
+		image_Nm, origin_Nm, change_Nm, url, reg_date, add_item1, add_item2, add_item3, add_item4, add_item5
+	) VALUES (
+		#{image_Nm}, #{origin_Nm}, #{change_Nm}, 
+		<choose>
+			<when test="url != null or url == ''">
+				null,
+			</when>
+			<otherwise>
+				#{url},
+			</otherwise>
+		</choose>
+		now(), null, null, null, null, null
+	)
+	</insert>
+</mapper>

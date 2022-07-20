@@ -27,6 +27,86 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- summernote -->
   <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/summernote/summernote-bs4.min.css">
+  <!-- Jquery -->
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <style type="text/css">
+  	.imgs_wrap {
+  		width: 900px;
+  		margin-top : 50px;
+  		padding-bottom: 50px;
+  	}
+  	
+  	.imgs_wrap img {
+  		max-width: 300px;
+  		max-height: 500px;
+  	}
+  </style>
+  <script type="text/javascript">
+  	var sel_files = [];
+  	var fileNum = 0;
+  	
+  	$(document).ready(function() {
+  		$("#input_img").on("change", handleImgsFilesSelect);
+  	});
+  	
+  	function handleImgsFilesSelect(e) {
+  		sel_files = [];
+  		$(".imgs_wrap").empty();
+  		var files = e.target.files;
+  		var filesArr = Array.prototype.slice.call(files);
+  		
+  		filesArr.forEach(function(f) {
+  			if (!f.type.match("image.*")) {
+  				alert("이미지 확장자만 등록 가능합니다.");
+  				return;
+  			}
+  			sel_files.push(f);
+  			
+  			var reader = new FileReader();
+  			reader.onload = function(e) {
+  				var img_html = "<img src=\"" + e.target.result + "\" />";
+  				$(".imgs_wrap").append(img_html);	
+  			}
+  			reader.readAsDataURL(f);
+  		});
+  	}
+  	
+  	
+  	function insertImg() {
+  		var form = $("form")[0];
+  		var formData = new FormData(form);
+  		
+  		for (var x = 0; x < sel_files.lentgh; x++) {
+  			if (sel_files[x].is_delete) {
+  				formData.append("artcl_file", sel_files[x]);
+  			}
+  		}
+  		
+  		$.ajax ({
+  			type : "POST",
+  			url : "/admin/imgRegist.do",
+  			enctype : "multipart/form-data",
+  			data : formData,
+  			processData : false,
+  			contentType : false,
+  			
+  			success : function(data) {
+  				if (JSON.parse(data)['result'] == "OK") {
+  					alert("파일 업로드가 완료되었습니다.");
+  				} else {
+  					alert("오류가 발생했습니다.\n잠시 후 다시 시도해줒세요");
+  					return;
+  				}
+  			},
+  			error : function(xhr, status, error) {
+  				alert("오류가 발생했습니다.");
+  				return;
+  			}
+  		});
+  		//$(".imageSlideForm").attr("action", "/admin/imgRegist");
+  		//$(".imageSlideForm").submit();
+  	}
+  </script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -52,7 +132,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">이미지 슬라이드 페이지</h1>
+            <h1 class="m-0">이미지 슬라이드 관리</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -60,21 +140,33 @@
     <!-- /.content-header -->
 
     <!-- Main Content -->
-	<section class="content">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="card">
-						<div class="card-body">
-							<b> 여기부터 개발 내용 작성 </b>
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="container">
+									<form name="dataForm" id="dataForm">
+										<p><b> 이미지 업로드 </b>
+										<div>
+											<input type="file" id="input_img" name="artcl_file" multiple />
+										</div>
+										
+										<div class="imgs_wrap">
+											<img id="img" />
+										</div>
+									</form>
+									<input type="button" class="btn btn-primary" value="등록하기" onClick="insertImg();"/>
+									</div>
+							</div>
 						</div>
 					</div>
+					<!-- /.col-md-6 -->
 				</div>
-				<!-- /.col-md-6 -->
+				<!-- /.row -->
 			</div>
-			<!-- /.row -->
-		</div>
-	</section>
+		</section>
   </div>
   <!-- /.content-wrapper -->
    <!-- footer 시작 -->
