@@ -19,19 +19,6 @@ public class InformationAdminController {
 	private InformationService info_Service;
 	
 	/**
-	 * 관리자 로그인 화면
-	 * @return
-	 */
-	@RequestMapping(value = "/admin/login")
-	public ModelAndView loginView() {
-		
-		ModelAndView mav = new ModelAndView("/admin/login");
-		
-		return mav;
-	}
-	
-
-	/**
 	 * 단체관람 예약 리스트 페이지
 	 * @return
 	 */

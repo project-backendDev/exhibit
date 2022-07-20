@@ -260,7 +260,7 @@
 												이길여 산부인과 기념관 단체 관람을 위해<br/>
 												사전 예약이 필요합니다.<br/><br/>						
 											</p>
-											<a class="btn1" href="${pageContext.request.contextPath }/information2.jsp">신청하기</a>
+											<a class="btn1" href="${pageContext.request.contextPath }/information2">신청하기</a>
 										</div>
 									</div>
 								</div>
@@ -279,7 +279,7 @@
 												인증기관입니다.
 																					
 											</p>
-											<a class="btn1" href="${pageContext.request.contextPath }/news5.jsp">신청하기</a>
+											<a class="btn1" href="${pageContext.request.contextPath }/news5">신청하기</a>
 										</div>
 									</div>
 								</div>
@@ -371,7 +371,7 @@
 			<div class="swiper sec4_slide">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a href="${pageContext.request.contextPath }/foundation2.jsp">
+						<a href="${pageContext.request.contextPath }/foundation2">
 							<div class="slide_con" style="background: url(${pageContext.request.contextPath }/assets/images/sec4_slide_bg1.png) no-repeat center center;">
 								<div class="txt" >
 									<h1>봉사(奉仕)</h1>
@@ -388,7 +388,7 @@
 						</a>
 					</div>
 					<div class="swiper-slide">
-						<a href="${pageContext.request.contextPath }/foundation2.jsp">
+						<a href="${pageContext.request.contextPath }/foundation2">
 							<div class="slide_con" style="background: url(${pageContext.request.contextPath }/assets/images/sec4_slide_bg2.png) no-repeat center center;">
 								<div class="txt">
 									<h1 class="orange">박애(博愛)</h1>
