@@ -22,20 +22,38 @@
 	
 	<!-- 이미지 슬라이드 INSERT -->
 	<insert id="insertImageSlide" parameterType="com.project.exhibit.imageslide.ImageSlideMapper" 
-		useGeneratedKeys="true" keyProperty="artcl_Seq"> 
+		useGeneratedKeys="true" keyProperty="artcl_seq"> 
 	INSERT INTO EXHIBIT_IMAGESLIDE_ARTCL (
 		image_Nm, origin_Nm, change_Nm, url, reg_date, add_item1, add_item2, add_item3, add_item4, add_item5
 	) VALUES (
 		#{image_Nm}, #{origin_Nm}, #{change_Nm}, 
 		<choose>
-			<when test="url != null or url == ''">
-				null,
+			<when test="url != null or url != ''">
+				#{url},
 			</when>
 			<otherwise>
-				#{url},
+				null,
 			</otherwise>
 		</choose>
 		now(), null, null, null, null, null
 	)
 	</insert>
+	
+	<!-- 이미지 슬라이드 SELECT -->
+	<select id="selectImageSlideList" resultMap="ImageSlide">
+		SELECT	*
+		FROM	EXHIBIT_IMAGESLIDE_ARTCL
+	</select>
+	
+	<!-- 이미지 슬라이드 INSERT 시 데이터를 새로 쓰기 위한 DELETE -->
+	<delete id="deleteImageSlide">
+		DELETE	FROM EXHIBIT_IMAGESLIDE_ARTCL
+	</delete>
+	
+	
+	<!-- 관리자 페이지에서 1개씩 삭제하기 위한 DELETE -->
+	<delete id="deleteImageSlideBySeq" parameterType="int">
+		DELETE	FROM EXHIBIT_IMAGESLIDE_ARTCL
+		WHERE	artcl_seq = #{artcl_seq}
+	</delete>
 </mapper>

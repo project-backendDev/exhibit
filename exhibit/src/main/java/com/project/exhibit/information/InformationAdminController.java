@@ -86,6 +86,11 @@ public class InformationAdminController {
 	}
 	
 	
+	/**
+	 * 단체관람 예약자 삭제 동작 메소드
+	 * @param reserve_Seq
+	 * @return
+	 */
 	@RequestMapping(value = "/admin/informationDelete.do")
 	public String informationDelete(@RequestParam(value = "reserve_Seq") int reserve_Seq) {
 		

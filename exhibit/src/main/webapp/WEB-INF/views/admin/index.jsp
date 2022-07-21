@@ -146,8 +146,8 @@
 					<div class="col-lg-12">
 						<div class="card">
 							<div class="card-body">
-								<div class="container">
-									<form name="dataForm" id="dataForm">
+								<div style="width: 1140px;">
+									<form name="dataForm" id="dataForm" style="width: 1630px;">
 										<p><b> 이미지 업로드 </b>
 										<div>
 											<input type="file" id="input_img" name="artcl_file" multiple />
@@ -161,6 +161,25 @@
 									</div>
 							</div>
 						</div>
+						<form name="imgForm" class="imgForm">
+							<div class="card" style=>
+								<h2 style="padding: 15px 0px 15px 20px;">
+									<span>현재 등록 중인 이미지</span>
+								</h2>
+								<hr />
+								<div class="img_container" style="width: 1630px;">
+										<c:forEach var="img" items="${imgList }" varStatus="status">
+										<!-- 
+											<a class="img_area" href="javascript:imgDelete('${img.artcl_seq }');">
+												<img class="imgList" src="${img.url }" />
+												<input type="hidden" class="artcl_seq" name="artcl_seq" value="${img.artcl_seq }" />  
+											</a>
+										 -->
+										 <img class="imgList" src="${img.url }" />
+										</c:forEach>
+								</div>
+							</div>
+						</form>
 					</div>
 					<!-- /.col-md-6 -->
 				</div>
