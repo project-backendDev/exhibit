@@ -31,13 +31,18 @@
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <style type="text/css">
   	.imgs_wrap {
-  		width: 900px;
+  		width: 1630px;
   		margin-top : 50px;
   		padding-bottom: 50px;
   	}
   	
   	.imgs_wrap img {
-  		max-width: 300px;
+  		max-width: 400px;
+  		max-height: 500px;
+  	}
+  	
+  	.imgList {
+  		max-width: 400px;
   		max-height: 500px;
   	}
   </style>
@@ -92,9 +97,17 @@
   			
   			success : function(data) {
   				if (JSON.parse(data)['result'] == "OK") {
-  					alert("파일 업로드가 완료되었습니다.");
+  					var con = confirm("파일을 등록하시겠습니까?");
+  					
+  					if (con) {
+  						alert("파일 업로드가 완료되었습니다.");
+  	  					location.reload();	
+  					} else {
+						alert("파일 업로드가 취소되었습니다");
+						return;
+  					}
   				} else {
-  					alert("오류가 발생했습니다.\n잠시 후 다시 시도해줒세요");
+  					alert("오류가 발생했습니다.\n잠시 후 다시 시도해주세요");
   					return;
   				}
   			},
@@ -103,8 +116,16 @@
   				return;
   			}
   		});
-  		//$(".imageSlideForm").attr("action", "/admin/imgRegist");
-  		//$(".imageSlideForm").submit();
+  	}
+  	
+  	function imgDelete(seq) {
+  		var con = confirm("해당 이미지를 삭제하시겠습니까?");
+  		
+  		if (con) {
+  			alert("삭제!" + seq);
+  			$(".imgForm").attr('action', '/admin/imgDelete.do?artcl_seq=' + seq);
+  			$(".imgForm").submit();
+  		}
   	}
   </script>
 </head>
@@ -161,7 +182,7 @@
 									</div>
 							</div>
 						</div>
-						<form name="imgForm" class="imgForm">
+						<form method="POST" name="imgForm" class="imgForm">
 							<div class="card" style=>
 								<h2 style="padding: 15px 0px 15px 20px;">
 									<span>현재 등록 중인 이미지</span>
@@ -169,13 +190,10 @@
 								<hr />
 								<div class="img_container" style="width: 1630px;">
 										<c:forEach var="img" items="${imgList }" varStatus="status">
-										<!-- 
-											<a class="img_area" href="javascript:imgDelete('${img.artcl_seq }');">
+											<a href="javascript:imgDelete(${img.artcl_seq })" class="img_area" >
 												<img class="imgList" src="${img.url }" />
-												<input type="hidden" class="artcl_seq" name="artcl_seq" value="${img.artcl_seq }" />  
+												<input type="hidden" name="artcl_seq" id="artcl_seq" value="${img.artcl_seq }" />
 											</a>
-										 -->
-										 <img class="imgList" src="${img.url }" />
 										</c:forEach>
 								</div>
 							</div>

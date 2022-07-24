@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +35,8 @@ public class ImageSlideController {
 	@ResponseBody
 	@RequestMapping(value = "/admin/imgRegist.do", method = RequestMethod.POST)
 	public String imgRegist(HttpServletRequest request, @RequestParam("artcl_file") List<MultipartFile> multipartFile) {
-		
-		System.out.println("imgRegist Controller Start!!!");
+
+		//HttpSession session = request.getSession(false);
 		
 		String result = "{ \"result\" : \"FAIL\" }";
 		String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
@@ -124,7 +125,9 @@ public class ImageSlideController {
 	 * @return
 	 */
 	@RequestMapping(value = "/admin/imgDelete.do")
-	public String imgDelete(@RequestParam(value = "artcl_seq") int artcl_seq) {
+	public String imgDelete(HttpServletRequest request, @RequestParam(value = "artcl_seq") int artcl_seq) {
+		
+		HttpSession session = request.getSession(false);
 		
 		System.out.println("DeleteController	artcl_seq		::	" + artcl_seq);
 		img_Service.deleteImageSlideBySeq(artcl_seq);
