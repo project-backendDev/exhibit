@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.project.exhibit.util.SearchPageVO;
+
 @Mapper
 public interface MediaMemorialHallMapper {
 	
@@ -17,6 +19,12 @@ public interface MediaMemorialHallMapper {
 	void deleteMediaMemorialHall(MediaMemorialHall mmh);
 	
 	// (관리자, 사용자) 언론에 비친 기념관 SELECT(출력)
-	List<MediaMemorialHall> selectMediaMemorialHall(MediaMemorialHall mmh);
+	List<MediaMemorialHall> selectMediaMemorialHall(SearchPageVO vo);
+	
+	// (관리자, 사용자) 언론에 비친 기념관 Count SELECT(출력)
+	int selectMediaMemorialHallCount(SearchPageVO vo);
+	
+	// (관리자, 사용자) 언론에 비친 기념관 상세글 SELECT(출력)
+	MediaMemorialHall selectMediaMemorialHallView(MediaMemorialHall mmh);
 	
 }

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.exhibit.util.SearchPageVO;
+
 @Controller
 @RequestMapping("/introduce")
 public class MediaMemorialHallController {
@@ -23,6 +25,9 @@ public class MediaMemorialHallController {
 			@ModelAttribute("mmh") MediaMemorialHall mmh,
 			Model model
 			) {
+		
+		SearchPageVO vo = new SearchPageVO();
+		
 		System.out.println("MediaMemorialHallController introduce3");
 		
 		System.out.println("");
@@ -31,7 +36,7 @@ public class MediaMemorialHallController {
 		System.out.println(mmh.getTitle());
 		
 		
-		List<MediaMemorialHall> mediaMemorialHallList = mediaMH_Service.selectMediaMemorialHall(mmh);
+		List<MediaMemorialHall> mediaMemorialHallList = mediaMH_Service.selectMediaMemorialHall(vo);
 		
 		ModelAndView mav = new ModelAndView("/services/introduce/introduce3");
 		

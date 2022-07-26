@@ -14,7 +14,7 @@ public class SearchPageVO {
 	private int start; // start, end - 페이지 분할 값
 	private int end;
 	private int cntPage = 5;
-
+	
 	public SearchPageVO() {
 	}
 
@@ -152,6 +152,6 @@ public class SearchPageVO {
 	public String toString() {
 		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
 				+ ", cntPerPage=" + cntPerPage + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
-				+ ", cntPage=" + cntPage + ", searchValue=" + searchValue + ", searchType=" + searchType + "]";
+				+ ", cntPage=" + cntPage + ", searchType=" + searchType + ", searchValue=" + searchValue + "]";
 	}
 }

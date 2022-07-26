@@ -21,7 +21,7 @@
 	<!-- 언론에 비친 기념관 등록 -->
 	<insert id="insertMediaMemorialHall" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall"
 			useGeneratedKeys="true" keyProperty="artcl_Seq">
-		INSERT INTO exhibit_mediaMemorialHall_artcl (
+		INSERT INTO exhibit_media_memorial_hall_artcl (
         	title, content, writer, reg_date, edit_date, hit, img_Origin_Nm, img_File_Nm, img_Path
         ) VALUES (#{title}, #{content}, #{writer}, now(), now(), 0,
        		<choose>
@@ -38,7 +38,7 @@
 	
 	<!-- 언론에 비친 기념관 수정 -->
 	<update id="updateMediaMemorialHall" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
-		UPDATE exhibit_mediaMemorialHall_artcl 
+		UPDATE exhibit_media_memorial_hall_artcl 
 		SET title = #{title},
 			content = #{content},
 			edit_date = #{edit_date},
@@ -50,12 +50,43 @@
 	
 	<!-- 언론에 비친 기념관 삭제 -->
 	<delete id="deleteMediaMemorialHall" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
-	
+		
 	</delete>
 	
 	<!-- 언론에 비친 기념관 리스트 출력 -->
-	<select id="selectMediaMemorialHall" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall" >
-		
+	<select id="selectMediaMemorialHall" parameterType="com.project.exhibit.util.SearchPageVO" resultType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall" >
+		select * from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from exhibit_media_Memorial_Hall_artcl
+		<if test="searchType != null">
+	      <where>
+	         <choose>
+	         	<when test="searchType == 3"> writer like CONCAT('%',#{searchValue},'%')</when>
+	            <when test="searchType == 2"> content like CONCAT('%',#{searchValue},'%')</when>
+	            <when test="searchType == 1"> title like CONCAT('%',#{searchValue},'%')</when>
+	         </choose>
+	      </where>
+	   	</if>
+		order by artcl_Seq desc ) AS m) AS T		
 	</select>
-
+	
+	<!-- 언론에 비친 기념관 리스트 카운트 출력 -->
+	<select id="selectMediaMemorialHallCount" parameterType="com.project.exhibit.util.SearchPageVO" resultType="int" >
+		select count(*) from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from exhibit_media_Memorial_Hall_artcl
+		<if test="searchType != null">
+	      <where>
+	         <choose>
+	         	<when test="searchType == 3"> writer like CONCAT('%',#{searchValue},'%')</when>
+	            <when test="searchType == 2"> content like CONCAT('%',#{searchValue},'%')</when>
+	            <when test="searchType == 1"> title like CONCAT('%',#{searchValue},'%')</when>
+	         </choose>
+	      </where>
+   		</if>
+		order by artcl_Seq desc ) AS m) AS T		
+	</select>
+	
+	<!-- 언론에 비친 기념관 상세글 출력 -->
+	<select id="selectMediaMemorialHallView" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall" resultType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
+		SELECT * 
+		FROM   exhibit_media_Memorial_Hall_artcl 
+		WHERE  artcl_Seq = #{artcl_Seq}
+	</select>
 </mapper>

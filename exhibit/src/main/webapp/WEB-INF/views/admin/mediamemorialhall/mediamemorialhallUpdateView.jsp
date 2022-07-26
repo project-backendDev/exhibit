@@ -27,7 +27,6 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- summernote -->
   <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/summernote/summernote-bs4.min.css">
-
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -67,87 +66,21 @@
 				<div class="col-lg-12">
 					<div class="card">
 						<div class="card-body">
-							<b> 언론에 비친 기념관 게시글 </b>
-							<form name="viewForm" method="post" >
-								<c:set var="searchType" value="${paging.searchType}" />
-								<input type="hidden" name="nowPage" value="${paging.nowPage}">
-								<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
-								<input type="hidden" name="searchType" value="${searchType }">
-								<input type="hidden" name="searchValue" value="${paging.searchValue }">
-								
-								
-								<table>
-									<colgroup>
-										<col class="">
-										<col class="">
-										<col class="">
-										<col class="">
-										<col class="">
-										<col class="">
-										<col class="">
-									</colgroup>
-									<thead>
-										<tr>
-											<th>번호</th>
-											<th>제목</th>
-											<th>내용</th>
-											<th>작성자</th>
-											<th>조회수</th>
-											<th>등록일</th>
-											<th>첨부파일</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach items="${artclList }" var="list" >
-											<tr>
-												<td><c:out value="${list.artcl_Seq }"/></td>
-												<td><c:out value="${list.title }"/></td>
-												<td>
-													<a onclick="artclView(${list.artcl_Seq})" style="cursor: pointer;">
-													<c:out value="${list.content }"/>
-													</a>
-												</td>
-												<td><c:out value="${list.writer }"/></td>
-												<td><c:out value="${list.hit }"/></td>
-												<td><c:out value="${list.reg_date }"/></td>
-												<td>
-													<c:if test="${list.img_Path }">첨부파일存</c:if>
-												</td>
-											</tr>
-										</c:forEach>
-									</tbody>
-									
-								</table>
-								
+							<b> 언론에 비친 기념관 수정창 </b>
+							<form method="POST" id="registForm">
+								제목 <input type="text" name="title" id="title" />
+								<br />
+								내용 <textarea rows="20" cols="50" name="content" id="content">
+								</textarea>
+								<br />
+								작성자 <input type="text" name="writer" id="writer" value="관리자" />
+								<br />
+								이미지 <input type="file" name="img_Origin_Nm" id="Img_Origin_Nm" />
+								<br />
+								<input type="button" id="regist_btn" value="등록" />		
 							</form>
-							<%-- 페이징 처리 및 검색 --%>
-							<table>
-								<tr>
-									<td>
-										<%-- page 처리 --%> <%@include file="pageProcess.jsp"%>
-										<%--이부분만 있어도 페이징 처리 됨 --%>
-									</td>
-								</tr>
-								<tr>
-									<th colspan="6">
-										<form id="artclListForm" method="post">
-										
-											<input type="hidden" name="nowPage" value="${paging.nowPage}">
-											<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
-											
-											<select name="searchType" >
-												<option value="1" <c:if test="${searchType eq '1' }">selected</c:if> >제목</option>
-												<option value="2" <c:if test="${searchType eq '2' }">selected</c:if> >내용</option>
-												<option value="3" <c:if test="${searchType eq '3' }">selected</c:if> >작성자</option>
-											</select>&nbsp; 
-											<input name="searchValue" value="${paging.searchValue }"> 
-											<input type="submit" value="search" id="search_Btn">
-										</form>
-									</th>
-								</tr>
-							</table>
+							<a href="${pageContext.request.contextPath }/admin/mediaMemorialHall/artclList" class="nav-link"><input type="button" id="list_btn" value="목록"></a>
 						</div>
-						<input type="button" id="registView_Btn" value="등록">
 					</div>
 				</div>
 				<!-- /.col-md-6 -->
@@ -180,24 +113,17 @@
   $.widget.bridge('uibutton', $.ui.button)
   
   	$(document).ready(function() {
-		$("#search_Btn").click(function() {
+		$("#regist_btn").click(function() {
+			$("#registForm").attr('action', '/admin/mediaMemorialHall/regist');
+			$("#registForm").submit();
+			alert("공지등록이 완료되었습니다.");
+		});
+		
+		$("#list_btn").click(function(){
 			$("#artclListForm").attr('action', '/admin/mediaMemorialHall/artclList');
 			$("#artclListForm").submit();
 		});
-		
-		$("#registView_Btn").click(function(){
-			$("#artclListForm").attr('action', '/admin/mediaMemorialHall/registView');
-			$("#artclListForm").submit();
-		});
-		
 	});
-  
-  function artclView(artcl_Seq){
-		alert("상세보기로 이동 ok? : "+artcl_Seq);
-		$("form[name=viewForm]").attr('action', '/admin/mediaMemorialHall/'+ artcl_Seq +'/artclView');
-		$("form[name=viewForm]").submit();
-	}
-  
 </script>
 <!-- Bootstrap 4 -->
 <script src="${pageContext.request.contextPath }/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
