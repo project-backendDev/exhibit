@@ -127,11 +127,11 @@ public class ImageSlideController {
 	@RequestMapping(value = "/admin/imgDelete.do")
 	public String imgDelete(HttpServletRequest request, @RequestParam(value = "artcl_seq") int artcl_seq) {
 		
-		HttpSession session = request.getSession(false);
+//		HttpSession session = request.getSession(false);
 		
 		System.out.println("DeleteController	artcl_seq		::	" + artcl_seq);
 		img_Service.deleteImageSlideBySeq(artcl_seq);
 		
-		return "redirect/admin";
+		return "redirect:/admin";
 	}
 }
