@@ -149,13 +149,13 @@
 				<div class="wrap">
 					<ul>
 						<li>
-							<a href="${pageContext.request.contextPath }/information1.jsp"><i><img src="${pageContext.request.contextPath }/assets/images/i_preview.png" alt=""></i>관람안내</a>
+							<a href="${pageContext.request.contextPath }/information1"><i><img src="${pageContext.request.contextPath }/assets/images/i_preview.png" alt=""></i>관람안내</a>
 						</li>
 						<li>
-							<a href="${pageContext.request.contextPath }/information4.jsp"><i><img src="${pageContext.request.contextPath }/assets/images/i_location.png" alt=""></i>오시는길</a>
+							<a href="${pageContext.request.contextPath }/information4"><i><img src="${pageContext.request.contextPath }/assets/images/i_location.png" alt=""></i>오시는길</a>
 						</li>
 						<li>
-							<a href="${pageContext.request.contextPath }/exhibition6.jsp"><i><img src="${pageContext.request.contextPath }/assets/images/i_vr.png" alt=""></i>VR 전시실</a>
+							<a href="${pageContext.request.contextPath }/exhibition6"><i><img src="${pageContext.request.contextPath }/assets/images/i_vr.png" alt=""></i>VR 전시실</a>
 						</li>
 					</ul>
 				</div>
