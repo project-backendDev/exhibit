@@ -36,19 +36,6 @@
 	
 	<script type="text/javascript">
 	$(document).ready(function() {
-		//$(".delete-btn").click(function() {
-			//if (confirm("해당 예약자를 삭제하시겠습니까?")) {
-				//alert($(".reserve_Seq").val());
-				//return;
-				//alert("삭제를 완료하였습니다.");
-				//$(".form").attr('action', '/admin/informationDelete.do');
-				//$(".form").submit();
-			//} else {
-				//alert("취소되었습니다.");
-				//return;
-//			}
-		//});
-		
 		$(".edit-btn").click(function() {
 			$(".form").attr('action', '/admin/informationEdit');
 			$(".form").submit();
@@ -57,8 +44,6 @@
 	
 	function reserveDelete(seq) {
 		if (confirm("해당 예약자를 삭제하시겠습니까?")) {
-			//alert(seq);
-			//return;
 			alert("삭제를 완료하였습니다.");
 			$(".form").attr('action', '/admin/informationDelete.do?reserve_Seq=' + seq);
 			$(".form").submit();
@@ -171,13 +156,6 @@
 													<input type="button" class="btn btn-danger" id="delete" value="삭제" />
 													<input type="hidden" name="reserve_Seq" id="reserve_Seq" value="${info.reserve_Seq }" /> 
 												</a>
-												<!-- 
-												<a href="${pageContext.request.contextPath }/admin/informationDelete.do?reserve_Seq=${info.reserve_Seq}">
-													<input type="button" class="btn btn-danger" id="delete" value="삭제" />
-													<input type="hidden" name="reserve_Seq" id="reserve_Seq" value="${info.reserve_Seq }" /> 
-												</a>
-												 -->
-												
 											</td>
 										</tr>
 									</c:forEach>
@@ -240,34 +218,18 @@
 		"order" 	: [0, "desc"]
 	});
 	
-	$.ajax({
-		url : '/admin/information',
-		type : 'POST',
-		data : 	[
-					{ "reserve_Seq" 	: "reserve_Seq" },
-					{ "name" 			: "name" },
-					{ 'tel' 			: 'tel' },
-					{ 'visit_day' 		: 'visit_day' },
-					{ 'visit_time' 		: 'visit_time' },
-					{ 'reserve_people' 	: 'reserve_people' },
-					{ 'transfer' 		: 'transfer' }
-		],
-		success:function(data) {
-			$("#infoList_table").dataTable({
-				data : data,
-				columns : [
-					{ data : 'reser_Seq' },
-					{ data : 'name' },
-					{ data : 'tel' },
-					{ data : 'visit_day' },
-					{ data : 'visit_time' },
-					{ data : 'reserve_people' },
-					{ data : 'transfer' }
-				]
-			});
-		}
+	$("#infoList_table").dataTable({
+		data : data,
+		columns : [
+			{ data : 'reser_Seq' },
+			{ data : 'name' },
+			{ data : 'tel' },
+			{ data : 'visit_day' },
+			{ data : 'visit_time' },
+			{ data : 'reserve_people' },
+			{ data : 'transfer' }
+		]
 	});
-
 	    
 </script>
 </body>
