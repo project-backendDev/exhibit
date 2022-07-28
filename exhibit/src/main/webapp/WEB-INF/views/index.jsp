@@ -191,28 +191,28 @@
 				<div class="sec_bottom">
 					<ul class="gallery">
 						<li data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
-							<a href="${pageContext.request.contextPath }/exhibition2.jsp" style="background: url(${pageContext.request.contextPath }/assets/images/preview_1.png) no-repeat center center;">
+							<a href="${pageContext.request.contextPath }/exhibition2" style="background: url(${pageContext.request.contextPath }/assets/images/preview_1.png) no-repeat center center;">
 								<div class="bg"></div>
 								<h5>1 전시실</h5>
 								<p>관람하기 <i><img src="${pageContext.request.contextPath }/assets/images/i_view.png" alt=""></i></p>
 							</a>
 						</li>
 						<li data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="100">
-							<a href="${pageContext.request.contextPath }/exhibition3.jsp" style="background: url(${pageContext.request.contextPath }/assets/images/preview_2.png) no-repeat center center;">
+							<a href="${pageContext.request.contextPath }/exhibition3" style="background: url(${pageContext.request.contextPath }/assets/images/preview_2.png) no-repeat center center;">
 								<div class="bg"></div>
 								<h5>2 전시실</h5>
 								<p>관람하기 <i><img src="${pageContext.request.contextPath }/assets/images/i_view.png" alt=""></i></p>
 							</a>
 						</li>
 						<li data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="200">
-							<a href="${pageContext.request.contextPath }/exhibition4.jsp" style="background: url(${pageContext.request.contextPath }/assets/images/preview_3.png) no-repeat center center;">
+							<a href="${pageContext.request.contextPath }/exhibition4" style="background: url(${pageContext.request.contextPath }/assets/images/preview_3.png) no-repeat center center;">
 								<div class="bg"></div>
 								<h5>3 전시실</h5>
 								<p>관람하기 <i><img src="${pageContext.request.contextPath }/assets/images/i_view.png" alt=""></i></p>
 							</a>
 						</li>
 						<li data-aos="fade-up" data-aos-once="true" data-aos-duration="1000" data-aos-delay="300">
-							<a href="${pageContext.request.contextPath }/exhibition5.jsp" style="background: url(${pageContext.request.contextPath }/assets/images/preview_4.png) no-repeat center center;">
+							<a href="${pageContext.request.contextPath }/exhibition5" style="background: url(${pageContext.request.contextPath }/assets/images/preview_4.png) no-repeat center center;">
 								<div class="bg"></div>
 								<h5>주요 전시물</h5>
 								<p>관람하기 <i><img src="${pageContext.request.contextPath }/assets/images/i_view.png" alt=""></i></p>
@@ -406,7 +406,7 @@
 
 					</div>
 					<div class="swiper-slide">
-						<a href="${pageContext.request.contextPath }/foundation2.jsp">
+						<a href="${pageContext.request.contextPath }/foundation2">
 							<div class="slide_con" style="background: url(${pageContext.request.contextPath }/assets/images/sec4_slide_bg3.png) no-repeat center center;">
 								<div class="txt">
 									<h1 class="blue">애국(愛國)</h1>

@@ -91,61 +91,61 @@
                             </tr>
                             <tr>
                                 <td>10</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail.jsp"><p>가천대, 국내 10대·세계 100대 대학 도약 비전 선포</p><i class="i_new"><img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt=""></i></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail"><p>가천대, 국내 10대·세계 100대 대학 도약 비전 선포</p><i class="i_new"><img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt=""></i></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>9</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail.jsp"><p>가천대 통합 10년…</p><i class="i_new"><img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt=""></i></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail"><p>가천대 통합 10년…</p><i class="i_new"><img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt=""></i></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>8</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail.jsp"><p>이길여 가천대 총장 “10년內 글로벌 100대 대학으로 키우겠다”</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail"><p>이길여 가천대 총장 “10년內 글로벌 100대 대학으로 키우겠다”</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>7</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail.jsp"><p>코로나19 확진 베트남 이주여성, 길병원서 아들 순산 감사 메시지</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail"><p>코로나19 확진 베트남 이주여성, 길병원서 아들 순산 감사 메시지</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>6</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail.jsp"><p>뇌 영상 1만 배 선명하게</p><i class="i_new"><img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt=""></i></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail"><p>뇌 영상 1만 배 선명하게</p><i class="i_new"><img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt=""></i></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail.jsp"><p>가천대, 비교과 통합관리 프로그램 ‘윈드’ 운영</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail"><p>가천대, 비교과 통합관리 프로그램 ‘윈드’ 운영</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail.jsp"><p>심장 6차례나 멎었던 중학생의 기적... 한 달 만에 건강하게 퇴원</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail"><p>심장 6차례나 멎었던 중학생의 기적... 한 달 만에 건강하게 퇴원</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail.jsp"><p>가천문화재단, "정월대보름 오행시 짓기" 수상작 발표</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail"><p>가천문화재단, "정월대보름 오행시 짓기" 수상작 발표</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail.jsp"><p>2021년 5월 석가탄신일 정상운영 안내</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail"><p>2021년 5월 석가탄신일 정상운영 안내</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail.jsp"><p>이길여 총장 자서전 ‘아름다운 바람개비’ 아랍어판 출판</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news2_detail"><p>이길여 총장 자서전 ‘아름다운 바람개비’ 아랍어판 출판</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>

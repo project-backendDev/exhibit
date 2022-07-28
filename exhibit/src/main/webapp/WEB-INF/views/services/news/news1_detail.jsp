@@ -97,13 +97,13 @@
                             </div>
                         </div>
                         <div class="apply_btn list">
-                            <a class="grey" href="${pageContext.request.contextPath }/services/news/news1_detail.jsp">
+                            <a class="grey" href="${pageContext.request.contextPath }/services/news/news1_detail">
                                 이전
                             </a>
-                            <a href="${pageContext.request.contextPath }/services/news/news_1.jsp">
+                            <a href="${pageContext.request.contextPath }/services/news/news_1">
                                 목록으로
                             </a>
-                            <a class="grey" href="${pageContext.request.contextPath }/services/news/news1_detail.jsp">
+                            <a class="grey" href="${pageContext.request.contextPath }/services/news/news1_detail">
                                 다음
                             </a>
                         </div>                        

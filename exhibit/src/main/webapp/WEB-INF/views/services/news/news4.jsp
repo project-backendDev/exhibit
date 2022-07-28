@@ -91,61 +91,61 @@
                             </tr>
                             <tr>
                                 <td>10</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail.jsp"><p>뉴스피디아 <가천 이길여 산부인과 기념관을 찾아서></p><i class="i_new"><img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt=""></i></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail"><p>뉴스피디아 <가천 이길여 산부인과 기념관을 찾아서></p><i class="i_new"><img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt=""></i></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>9</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail.jsp"><p>인천시 인터넷신문 i-view <1960년대 산부인과는 어땠을까?></p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail"><p>인천시 인터넷신문 i-view <1960년대 산부인과는 어땠을까?></p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>8</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail.jsp"><p>KFM경기방송 모닝와이드 <인천에 산부인과 기념관이 있다></p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail"><p>KFM경기방송 모닝와이드 <인천에 산부인과 기념관이 있다></p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>7</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail.jsp"><p>인천시 공식블로그가 소개하는 가천 이길여 산부인과 기념관 -1960년대 산부인과는 어땠을까?</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail"><p>인천시 공식블로그가 소개하는 가천 이길여 산부인과 기념관 -1960년대 산부인과는 어땠을까?</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>6</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail.jsp"><p>인천 가볼만한 곳! 이길여 산부인과 기념관 (1층)</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail"><p>인천 가볼만한 곳! 이길여 산부인과 기념관 (1층)</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail.jsp"><p>60년대 산부인과의 모습을 재현한 기념관</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail"><p>60년대 산부인과의 모습을 재현한 기념관</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail.jsp"><p>여름방학에 가볼 만한 곳! 가천 이길여 산부인과 기념관</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail"><p>여름방학에 가볼 만한 곳! 가천 이길여 산부인과 기념관</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail.jsp"><p>1,000년에 한 번 나타날까한 이길여 박사님</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail"><p>1,000년에 한 번 나타날까한 이길여 박사님</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail.jsp"><p>원장님 감사합니다. 정말 감사합니다.</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail"><p>원장님 감사합니다. 정말 감사합니다.</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail.jsp"><p>여름방학에 가볼 만한 곳! 가천 이길여 산부인과 기념관</p></a></td>
+                                <td><a href="${pageContext.request.contextPath }/services/news/news4_detail"><p>여름방학에 가볼 만한 곳! 가천 이길여 산부인과 기념관</p></a></td>
                                 <td>2022-00-00</td>
                                 <td>589</td>
                             </tr>
@@ -164,7 +164,7 @@
                     </div>
                 </div>
                 <div class="apply_btn bordernone">
-                    <a href="${pageContext.request.contextPath }/services/news/news4_write.jsp">
+                    <a href="${pageContext.request.contextPath }/services/news/news4_write">
                         글쓰기
                     </a>
                 </div>                

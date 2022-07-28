@@ -92,61 +92,61 @@
 	                            </tr>
 	                            <tr>
 	                                <td>10</td>
-	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail.jsp"><p>단체관람 재개 안내</p><i class="i_new"><img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt=""></i></a></td>
+	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail"><p>단체관람 재개 안내</p><i class="i_new"><img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt=""></i></a></td>
 	                                <td>2022-00-00</td>
 	                                <td>589</td>
 	                            </tr>
 	                            <tr>
 	                                <td>9</td>
-	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail.jsp"><p>2022년 3월 운영안내 (3/1(화) 3.1절 정상운영)</p></a></td>
+	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail"><p>2022년 3월 운영안내 (3/1(화) 3.1절 정상운영)</p></a></td>
 	                                <td>2022-00-00</td>
 	                                <td>589</td>
 	                            </tr>
 	                            <tr>
 	                                <td>8</td>
-	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail.jsp"><p>2021년 가천문화재단 10대뉴스</p></a></td>
+	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail"><p>2021년 가천문화재단 10대뉴스</p></a></td>
 	                                <td>2022-00-00</td>
 	                                <td>589</td>
 	                            </tr>
 	                            <tr>
 	                                <td>7</td>
-	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail.jsp"><p>2022년 1월 1일(신정) 휴관 안내</p></a></td>
+	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail"><p>2022년 1월 1일(신정) 휴관 안내</p></a></td>
 	                                <td>2022-00-00</td>
 	                                <td>589</td>
 	                            </tr>
 	                            <tr>
 	                                <td>6</td>
-	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail.jsp"><p>2021년 10월 운영안내 (개천절, 한글날 정상운영)</p></a></td>
+	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail"><p>2021년 10월 운영안내 (개천절, 한글날 정상운영)</p></a></td>
 	                                <td>2022-00-00</td>
 	                                <td>589</td>
 	                            </tr>
 	                            <tr>
 	                                <td>5</td>
-	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail.jsp"><p>2021년 9월 (추석 연휴기간) 운영안내</p></a></td>
+	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail"><p>2021년 9월 (추석 연휴기간) 운영안내</p></a></td>
 	                                <td>2022-00-00</td>
 	                                <td>589</td>
 	                            </tr>
 	                            <tr>
 	                                <td>4</td>
-	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail.jsp"><p>2021년 8월 운영안내 (8/15(일) 광복절 정상운영)</p></a></td>
+	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail"><p>2021년 8월 운영안내 (8/15(일) 광복절 정상운영)</p></a></td>
 	                                <td>2022-00-00</td>
 	                                <td>589</td>
 	                            </tr>
 	                            <tr>
 	                                <td>3</td>
-	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail.jsp"><p>2021년 6월 운영안내 (6/6(일) 현충일 정상운영)</p></a></td>
+	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail"><p>2021년 6월 운영안내 (6/6(일) 현충일 정상운영)</p></a></td>
 	                                <td>2022-00-00</td>
 	                                <td>589</td>
 	                            </tr>
 	                            <tr>
 	                                <td>2</td>
-	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail.jsp"><p>2021년 5월 석가탄신일 정상운영 안내</p></a></td>
+	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail"><p>2021년 5월 석가탄신일 정상운영 안내</p></a></td>
 	                                <td>2022-00-00</td>
 	                                <td>589</td>
 	                            </tr>
 	                            <tr>
 	                                <td>1</td>
-	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail.jsp"><p>2021년 5월 운영안내 (어린이날, 석가탄신일 정상운영)</p></a></td>
+	                                <td><a href="${pageContext.request.contextPath }/services/news/news1_detail"><p>2021년 5월 운영안내 (어린이날, 석가탄신일 정상운영)</p></a></td>
 	                                <td>2022-00-00</td>
 	                                <td>589</td>
 	                            </tr>

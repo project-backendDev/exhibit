@@ -92,7 +92,7 @@
                         <div id="tab-1" class="tab-content current">
                             <ul class="list">
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -103,7 +103,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -114,7 +114,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -125,7 +125,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -136,7 +136,7 @@
                                     </a>
                                 </li>     
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -147,7 +147,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -158,7 +158,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -169,7 +169,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -180,7 +180,7 @@
                                     </a>
                                 </li>  
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -191,7 +191,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -202,7 +202,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -213,7 +213,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -224,7 +224,7 @@
                                     </a>
                                 </li>    
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -235,7 +235,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -246,7 +246,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -257,7 +257,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -272,7 +272,7 @@
                         <div id="tab-2" class="tab-content ">
                             <ul class="list">
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -283,7 +283,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -294,7 +294,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -305,7 +305,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -316,7 +316,7 @@
                                     </a>
                                 </li> 
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -327,7 +327,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -338,7 +338,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -349,7 +349,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -360,7 +360,7 @@
                                     </a>
                                 </li>     
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -371,7 +371,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -382,7 +382,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -393,7 +393,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -404,7 +404,7 @@
                                     </a>
                                 </li>  
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -415,7 +415,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -426,7 +426,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -437,7 +437,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -452,7 +452,7 @@
                         <div id="tab-3" class="tab-content ">
                             <ul class="list">
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -463,7 +463,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -474,7 +474,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -485,7 +485,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -496,7 +496,7 @@
                                     </a>
                                 </li> 
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -507,7 +507,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -518,7 +518,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -529,7 +529,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -540,7 +540,7 @@
                                     </a>
                                 </li>     
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -551,7 +551,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -562,7 +562,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -573,7 +573,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -584,7 +584,7 @@
                                     </a>
                                 </li>  
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -595,7 +595,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -606,7 +606,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -617,7 +617,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -632,7 +632,7 @@
                         <div id="tab-4" class="tab-content ">
                             <ul class="list">
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -643,7 +643,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -654,7 +654,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -665,7 +665,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -676,7 +676,7 @@
                                     </a>
                                 </li> 
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -687,7 +687,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -698,7 +698,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -709,7 +709,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -720,7 +720,7 @@
                                     </a>
                                 </li>     
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -731,7 +731,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -742,7 +742,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -753,7 +753,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -764,7 +764,7 @@
                                     </a>
                                 </li>  
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -775,7 +775,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -786,7 +786,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
@@ -797,7 +797,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail.jsp">
+                                    <a href="${pageContext.request.contextPath }/services/news/news3_detail">
                                         <div class="img_box">
                                             <div class="img" style="background: url(${pageContext.request.contextPath }/assets/images/monthly.png) no-repeat center center; background-size: cover;"></div>
                                         </div>
