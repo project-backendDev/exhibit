@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,7 +33,19 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/scripts/script.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <script type="text/javascript" src="examples.js"></script> -->
-
+<script>
+	function artclView(artcl_Seq){
+		$("form[name=viewForm]").attr('action', '/introduce/'+ artcl_Seq +'/artclView');
+		$("form[name=viewForm]").submit();
+	}
+	
+	$(document).ready(function() {
+		$("#search_Btn").click(function() {
+			$("#artclListForm").attr('action', '/introduce/introduce3');
+			$("#artclListForm").submit();
+		});
+	});
+</script>
 
 
 </head>
@@ -77,7 +90,57 @@
                                     언론에 비친 기념관
                                 </h3>
                             </div>
-
+                            <input type="hidden" value="${pageContext.request.contextPath }/assets/images/memorial1.png">
+                            <form name="viewForm" method="post">
+                            	<c:set var="searchType" value="${paging.searchType}" />
+								<input type="hidden" name="nowPage" value="${paging.nowPage}">
+								<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+								<input type="hidden" name="searchType" value="${searchType }">
+								<input type="hidden" name="searchValue" value="${paging.searchValue }">
+                            
+                            	<div class="memorial">
+                            		<ul>
+                            			<c:choose>
+	                            			<c:when test="${artclList != null }">
+		                            			<c:forEach items="${artclList }" var="list" >
+		                            			<c:set value="${pageContext.request.contextPath }${list.img_Path}/${list.img_File_Nm }" var="thumbPath" />
+			                            			<li>
+			                            				<a onclick="artclView(${list.artcl_Seq})" target="_blank" style="cursor: pointer;">
+			                            					<div class="con">
+				                                                <div class="img" style="background:url(${thumbPath}); background-size: cover;"></div>
+				                                                <div class="txt">
+				                                                	등록일 : <fmt:formatDate value="${list.reg_date}" pattern="yyyy-MM-dd"/>
+				                                                    <h5><c:out value="${list.title }"/></h5>
+				                                                    <p>
+																		<c:out value="${list.content }"/>
+				                                                    </p>
+				                                                    
+				                                                </div>
+				                                            </div>
+			                            				</a>
+													</li>                            			
+		                            			</c:forEach>
+	                            			</c:when>
+	                            			<c:otherwise>
+	                            				게시물이 없습니다.
+	                            			</c:otherwise>
+                            			</c:choose>
+                            		</ul>
+                            	</div>
+                            </form>
+                            <form id="artclListForm" method="post">
+								<input type="hidden" name="nowPage" value="${paging.nowPage}">
+								<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+								
+								<select name="searchType" >
+									<option value="1" <c:if test="${searchType eq '1' }">selected</c:if> >제목</option>
+									<option value="2" <c:if test="${searchType eq '2' }">selected</c:if> >내용</option>
+									<%-- <option value="3" <c:if test="${searchType eq '3' }">selected</c:if> >작성자</option> --%>
+								</select>&nbsp; 
+								<input name="searchValue" value="${paging.searchValue }"> 
+								<input type="submit" value="search" id="search_Btn">
+							</form>
+<%-- 
                             <div class="memorial">
                                 <ul>
                                     <li>
@@ -151,8 +214,10 @@
                                     </li>
                                 </ul>
                             </div>
+--%>
                             <!-- pager -->
-                            <div class="boardPager">
+                            <%@include file="pageProcess.jsp"%>
+                            <%-- <div class="boardPager">
                                 <ul>
                                     <li class="pager on"><a href="#!"><img src="${pageContext.request.contextPath }/assets/images/pager_prev.png" alt=""></a></li>
                                     <li class="pagerNum on"><a href="#!">1</a></li>
@@ -163,6 +228,7 @@
                                     <li class="pager"><a href="#!"><img src="${pageContext.request.contextPath }/assets/images/pager_next.png" alt=""></a></li>
                                 </ul>
                             </div>
+                            --%>
                         </li>                                                   
                     </ul>                 
                 </div>            

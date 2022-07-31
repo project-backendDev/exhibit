@@ -15,7 +15,8 @@ public class MediaMemorialHall {
 	private String img_File_Nm;
 	private String img_Path;
 	
-	
+	private MediaMemorialHall preView;
+	private MediaMemorialHall nextView;
 	
 	public Integer getArtcl_Seq() {
 		return artcl_Seq;
@@ -76,6 +77,20 @@ public class MediaMemorialHall {
 	}
 	public void setImg_Path(String img_Path) {
 		this.img_Path = img_Path;
+	}
+	
+	
+	public MediaMemorialHall getPreView() {
+		return preView;
+	}
+	public void setPreView(MediaMemorialHall preView) {
+		this.preView = preView;
+	}
+	public MediaMemorialHall getNextView() {
+		return nextView;
+	}
+	public void setNextView(MediaMemorialHall nextView) {
+		this.nextView = nextView;
 	}
 	
 	
