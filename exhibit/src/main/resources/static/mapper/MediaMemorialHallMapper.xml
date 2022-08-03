@@ -50,7 +50,7 @@
 	
 	<!-- 언론에 비친 기념관 삭제 -->
 	<delete id="deleteMediaMemorialHall" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
-		
+		DELETE FROM exhibit_media_memorial_hall_artcl WHERE artcl_Seq = #{artcl_Seq}
 	</delete>
 	
 	<!-- 언론에 비친 기념관 리스트 출력 -->
@@ -96,4 +96,40 @@
 		FROM   exhibit_media_Memorial_Hall_artcl 
 		WHERE  artcl_Seq = #{artcl_Seq}
 	</select>
+	
+	<!-- 언론에 비친 기념관 상세글 출력시 이전 글 가져오기 -->
+	<select id="selectMMH_Preview" parameterType="int" resultType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
+		SELECT artcl_Seq, title
+		FROM   exhibit_media_Memorial_Hall_artcl
+		<where>
+			artcl_Seq=( SELECT max(artcl_Seq)
+						FROM   exhibit_media_Memorial_Hall_artcl
+						<where>
+							artcl_Seq &lt; #{artcl_Seq}
+						</where>
+		</where>
+		)
+	</select>
+	
+	<!-- 언론에 비친 기념관 상세글 출력시 다음 글 가져오기 -->
+	<select id="selectMMH_Nextview" parameterType="int" resultType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
+		SELECT artcl_Seq, title
+		FROM   exhibit_media_Memorial_Hall_artcl
+		<where>
+			artcl_Seq=( SELECT min(artcl_Seq)
+						FROM   exhibit_media_Memorial_Hall_artcl
+						<where>
+							artcl_Seq &gt; #{artcl_Seq}
+						</where>
+		</where>
+		)
+	</select>
+	
+	
+	<!-- 조회수 업데이트 -->
+	<update id="hitUpMMH" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
+		UPDATE exhibit_media_memorial_hall_artcl 
+		SET hit = #{hit}
+		WHERE artcl_Seq = #{artcl_Seq}
+	</update>
 </mapper>

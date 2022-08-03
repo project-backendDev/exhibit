@@ -129,9 +129,10 @@ public class MediaMemorialHallController {
     		}
 	    }
 	    
+	    	    
 	    artclView.setHit(artclView.getHit()+1); // 조회수 업데이트
 	    System.out.println("조회수 : " + artclView.getHit());
-	    mediaMH_Service.updateMediaMemorialHall(artclView);
+	    mediaMH_Service.hitUpMMH(artclView);
 	    
 		model.addAttribute("artclView", artclView);
 		model.addAttribute("paging", paging);

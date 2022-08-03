@@ -52,8 +52,36 @@ public class MediaMemorialHallService {
 	public MediaMemorialHall selectMediaMemorialHallView(MediaMemorialHall mmh) {
 		System.out.println("(관리자, 사용자) 언론에 비친 기념관 상세글 SELECT(출력)");
 		System.out.println("시퀀스 번호 : " + mmh.getArtcl_Seq());
+		//System.out.println(" 이전/다음 쿼리문 " + mapper.selectMMH_Preview(mmh.getArtcl_Seq()).getArtcl_Seq());
 		
-		return mapper.selectMediaMemorialHallView(mmh);
+		//mmh.setPreView(mapper.selectMMH_Preview(mmh.getArtcl_Seq())); // (관리자, 사용자) 언론에 비친 기념관 상세글 SELECT 시, 이전 글 정보(출력)
+		//mmh.setNextView(mapper.selectMMH_Nextview(mmh.getArtcl_Seq())); // (관리자, 사용자) 언론에 비친 기념관 상세글 SELECT 시, 다음 글 정보(출력)
+		
+		//System.out.println("이전글 : "+mmh.getPreView().getArtcl_Seq());
+		//System.out.println("다음글 : "+mmh.getNextView().getArtcl_Seq());
+		
+		MediaMemorialHall artclView = mapper.selectMediaMemorialHallView(mmh);
+		
+		artclView.setPreView(mapper.selectMMH_Preview(mmh.getArtcl_Seq()));
+		artclView.setNextView(mapper.selectMMH_Nextview(mmh.getArtcl_Seq()));
+		
+		return artclView;
+	}
+	
+	// (관리자, 사용자) 언론에 비친 기념관 상세글 SELECT 시, 이전 글 정보(출력)
+	public MediaMemorialHall selectMMH_Preview(int artcl_Seq) {
+		return mapper.selectMMH_Preview(artcl_Seq);
+	}
+		
+	// (관리자, 사용자) 언론에 비친 기념관 상세글 SELECT 시, 다음 글 정보(출력)
+	public MediaMemorialHall selectMMH_Nextview(int artcl_Seq) {
+		return mapper.selectMMH_Nextview(artcl_Seq);
+	}
+	
+	// (사용자) 언론에 비친 기념관 조회수 업데이트
+	public void hitUpMMH(MediaMemorialHall artclView) {
+		System.out.println("조회수 업데이트");
+		mapper.hitUpMMH(artclView);
 	}
 	
 }

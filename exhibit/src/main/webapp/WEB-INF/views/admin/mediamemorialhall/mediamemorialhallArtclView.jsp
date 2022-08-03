@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -27,6 +28,11 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- summernote -->
   <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/summernote/summernote-bs4.min.css">
+
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/reset.css" /> 
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/common.css">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/sub.css">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/swiper/css/swiper.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -61,33 +67,60 @@
 
     <!-- Main Content -->
 	<section class="content">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="card">
-						<div class="card-body">
-							<b> 언론에 비친 기념관 상세글 </b>
-							<form method="POST" id="registForm">
-								제목 <input type="text" name="title" id="title" value="${artclView.title }"/>
-								<br />
-								내용 <textarea rows="20" cols="50" name="content" id="content" >
-								<c:out value="${artclView.content }" />
-								</textarea>
-								<br />
-								작성자 <input type="text" name="writer" id="writer" value="${artclView.writer }" />
-								<br />
-								이미지 <input type="file" name="img_Origin_Nm" id="Img_Origin_Nm" />
-								<br />
-								<input type="button" id="regist_btn" value="등록" />		
-							</form>
-							<a href="${pageContext.request.contextPath }/admin/mediaMemorialHall/artclList" class="nav-link"><input type="button" id="list_btn" value="목록"></a>
-						</div>
-					</div>
-				</div>
-				<!-- /.col-md-6 -->
-			</div>
-			<!-- /.row -->
-		</div>
+		<div class="board_detail">
+                	<form method="POST" id="registForm">
+	                	<c:set var="searchType" value="${paging.searchType}" />
+						<input type="hidden" name="nowPage" value="${paging.nowPage}">
+						<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+						<input type="hidden" name="searchType" value="${searchType }">
+						<input type="hidden" name="searchValue" value="${paging.searchValue }">
+                	
+	                    <h3><c:out value="${artclView.title }"/></h3>
+	                    <div class="detail_box">
+	                        <div class="head">
+	                            <!-- <div class="left">
+	                                <h5>첨부파일</h5>
+	                                <a href="" download="">
+	                                    <h6>가천문화재단-뉴스레터-제32호(2022년-5월호).jpg  </h6>
+	                                    <img src="${pageContext.request.contextPath }/assets/images/i_download.png" alt="">
+	                                </a>
+	                            </div> -->
+	                            <div class="right">
+	                                <ul>
+	                                    <li><span>작성자</span> <c:out value="${artclView.writer }"/> </li>
+	                                    <li>|</li>
+	                                    <li><span>조회</span> <c:out value="${artclView.hit }"/> </li>
+	                                    <li>|</li>
+	                                    <li><span>등록일</span> <fmt:formatDate value="${artclView.reg_date}" pattern="yyyy년 MM월 dd일"/></li>
+	                                	<li>|</li>
+	                                	<li><span>수정일</span> <fmt:formatDate value="${artclView.edit_date}" pattern="yyyy년 MM월 dd일"/></li>
+	                                </ul>
+	                            </div>
+	                        </div>
+	                        <div class="content">
+	                            <div class="con_img" style="text-align: center;">
+	                                <img src="${pageContext.request.contextPath }${artclView.img_Path}/${artclView.img_File_Nm }" alt="">
+	                            </div>
+	                            <div>
+	                            	<c:out value="${artclView.content }"/>
+	                            </div>
+	                        </div>
+	                        
+	                        <div class="apply_btn list">
+	                            <a class="grey" href="${pageContext.request.contextPath }/services/news/news1_detail.jsp">
+	                                이전
+	                            </a>
+	                            <%-- <a href="${pageContext.request.contextPath }/services/news/news_1.jsp"> --%>
+	                            <a id="list_btn" style="cursor: pointer;">
+	                                목록으로
+	                            </a>
+	                            <a class="grey" href="${pageContext.request.contextPath }/services/news/news1_detail.jsp">
+	                                다음
+	                            </a>
+	                        </div>                        
+	                    </div>
+                    </form>
+                </div>
 	</section>
   </div>
   <!-- /.content-wrapper -->
@@ -121,8 +154,8 @@
 		});
 		
 		$("#list_btn").click(function(){
-			$("#artclListForm").attr('action', '/admin/mediaMemorialHall/artclList');
-			$("#artclListForm").submit();
+			$("#registForm").attr('action', '/admin/mediaMemorialHall/artclList');
+			$("#registForm").submit();
 		});
 	});
 </script>

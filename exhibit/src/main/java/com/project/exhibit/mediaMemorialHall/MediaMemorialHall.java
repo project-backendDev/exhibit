@@ -10,7 +10,7 @@ public class MediaMemorialHall {
 	private String writer;
 	private Date reg_date;
 	private Date edit_date;
-	private String hit;
+	private int hit;
 	private String img_Origin_Nm;
 	private String img_File_Nm;
 	private String img_Path;
@@ -54,10 +54,10 @@ public class MediaMemorialHall {
 	public void setEdit_date(Date edit_date) {
 		this.edit_date = edit_date;
 	}
-	public String getHit() {
+	public int getHit() {
 		return hit;
 	}
-	public void setHit(String hit) {
+	public void setHit(int hit) {
 		this.hit = hit;
 	}
 	public String getImg_Origin_Nm() {

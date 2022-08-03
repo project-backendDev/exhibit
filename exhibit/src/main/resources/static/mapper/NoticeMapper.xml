@@ -37,8 +37,101 @@
         )
    	</insert>
    	
-   	<select id="getNoticeList" resultMap="Notice" >
-   		SELECT * FROM exhibit_notice_artcl
-   	</select>
+   	<!-- 공지사항 수정 -->
+   	<update id="updateNotice" parameterType="com.project.exhibit.notice.Notice">
+		UPDATE exhibit_notice_artcl 
+		SET title = #{title},
+			content = #{content},
+			edit_date = #{edit_date},
+			img_Origin_Nm = #{img_Origin_Nm},
+			img_File_Nm = #{img_File_Nm},
+			img_Path = #{img_Path}
+		WHERE artcl_Seq = #{artcl_Seq}
+	</update>	
+   	
+   	<!-- 공지사항 삭제 -->
+	<delete id="deleteNotice" parameterType="com.project.exhibit.notice.Notice">
+		DELETE FROM exhibit_notice_artcl WHERE artcl_Seq = #{artcl_Seq}
+	</delete>
+   	
+   	<!-- 공지사항 리스트 출력 -->
+	<select id="selectNotice" parameterType="com.project.exhibit.util.SearchPageVO" resultType="com.project.exhibit.notice.Notice" >
+		select * from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from exhibit_notice_artcl
+		<if test="searchType != null">
+	      <where>
+	         <choose>
+	         	<when test="searchType == 3"> writer like CONCAT('%',#{searchValue},'%')</when>
+	            <when test="searchType == 2"> content like CONCAT('%',#{searchValue},'%')</when>
+	            <when test="searchType == 1"> title like CONCAT('%',#{searchValue},'%')</when>
+	         </choose>
+	      </where>
+	   	</if>
+		order by artcl_Seq desc ) AS m 
+		<where>
+			(@ROWNUM:=0)=0)
+		</where>
+		AS T 
+		<where>
+			ROWNUM between #{start} and #{end}	
+		</where>
+	</select>
+	
+	<!-- 공지사항 리스트 카운트 출력 -->
+	<select id="selectNoticeCount" parameterType="com.project.exhibit.util.SearchPageVO" resultType="int" >
+		select count(*) from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from exhibit_notice_artcl
+		<if test="searchType != null">
+	      <where>
+	         <choose>
+	         	<when test="searchType == 3"> writer like CONCAT('%',#{searchValue},'%')</when>
+	            <when test="searchType == 2"> content like CONCAT('%',#{searchValue},'%')</when>
+	            <when test="searchType == 1"> title like CONCAT('%',#{searchValue},'%')</when>
+	         </choose>
+	      </where>
+   		</if>
+		order by artcl_Seq desc ) AS m) AS T		
+	</select>
+	
+	<!-- 공지사항 상세글 출력 -->
+	<select id="selectNoticeView" parameterType="com.project.exhibit.notice.Notice" resultType="com.project.exhibit.notice.Notice">
+		SELECT * 
+		FROM   exhibit_notice_artcl 
+		WHERE  artcl_Seq = #{artcl_Seq}
+	</select>
+	
+	<!-- 공지사항 상세글 출력시 이전 글 가져오기 -->
+	<select id="selectMMH_Preview" parameterType="int" resultType="com.project.exhibit.notice.Notice">
+		SELECT artcl_Seq, title
+		FROM   exhibit_notice_artcl
+		<where>
+			artcl_Seq=( SELECT max(artcl_Seq)
+						FROM   exhibit_notice_artcl
+						<where>
+							artcl_Seq &lt; #{artcl_Seq}
+						</where>
+		</where>
+		)
+	</select>
+	
+	<!-- 공지사항 상세글 출력시 다음 글 가져오기 -->
+	<select id="selectMMH_Nextview" parameterType="int" resultType="com.project.exhibit.notice.Notice">
+		SELECT artcl_Seq, title
+		FROM   exhibit_notice_artcl
+		<where>
+			artcl_Seq=( SELECT min(artcl_Seq)
+						FROM   exhibit_notice_artcl
+						<where>
+							artcl_Seq &gt; #{artcl_Seq}
+						</where>
+		</where>
+		)
+	</select>
+	
+	
+	<!-- 조회수 업데이트 -->
+	<update id="hitUpMMH" parameterType="com.project.exhibit.notice.Notice">
+		UPDATE exhibit_notice_artcl 
+		SET hit = #{hit}
+		WHERE artcl_Seq = #{artcl_Seq}
+	</update>
    	
 </mapper>

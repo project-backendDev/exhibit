@@ -1,190 +1,337 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<c:set var="now" value="<%=new java.util.Date()%>" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>관리자 페이지</title>
-	<!-- Jquery -->
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<!-- Google Font: Source Sans Pro -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/fontawesome-free/css/all.min.css">
-	<!-- Ionicons -->
-	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-	<!-- Tempusdominus Bootstrap 4 -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-	<!-- Theme style -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/dist/css/adminlte.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Dashboard</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/summernote/summernote-bs4.min.css">
+  
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/reset.css" /> 
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/common.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/sub.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/swiper/css/swiper.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-	<div class="wrapper">
-		<!-- Navbar -->
-		<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="height: 87px;">
-			<!-- Left navbar links -->
-			<ul class="navbar-nav">
-				<li class="nav-item d-none d-sm-inline-block">
-					<h1>
-						<a href="index3.html" class="nav-link">
-							<strong> 관리자 페이지</strong>
-						</a>
-					</h1>
-				</li>
-			</ul>
-		</nav>
-		<!-- /.navbar -->
+<div class="wrapper">
 
-		<!-- Main Sidebar Container -->
-		<aside class="main-sidebar sidebar-dark-primary elevation-4">
-			<!-- Brand Logo -->
-			<a href="index3.html" class="brand-link"> 
-				<!-- 
-       				<img src="${pageContext.request.contextPath }/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-       			-->
-	       		<br /> 
-	       		<span class="brand-text font-weight-light">이미지 부분</span>
-			</a> 
-			
-			<br />
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="${pageContext.request.contextPath }/assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
 
-			<!-- Sidebar -->
-			<div class="sidebar">
-				<!-- Sidebar Menu -->
-				<nav class="mt-2">
-					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-						<li class="nav-item">
-							<a href="${pageContext.request.contextPath }/admin/notice/noticeList" class="nav-link active"> <i class="far fa-circle nav-icon"></i>
-								<p>Dashboard v1</p>
-							</a>
-						</li>
+   	<!-- Navbar 시작 -->
+	<c:import url="${pageContext.request.contextPath }/assets/include/admin_navbar.jsp" />
+	<!-- // Navbar 끝 -->
+	
+   	<!-- sidebar 시작 -->
+	<c:import url="${pageContext.request.contextPath }/assets/include/admin_sidebar.jsp" />
+	<!-- // sidebar 끝 -->
 
-						<li class="nav-item">
-							<a href="javascript:alert('준비중입니다');" class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Dashboard v2</p>
-							</a>
-						</li>
 
-						<li class="nav-item">
-							<a href="javascript:alert('준비중입니다');" class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Dashboard v3</p>
-							</a>
-						</li>
-					</ul>
-				</nav>
-				<!-- /.sidebar-menu -->
-			</div>
-			<!-- /.sidebar -->
-		</aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">언론에 비친 기념관</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-		<!-- Content Wrapper. Contains page content -->
-		<div class="content-wrapper">
-			<!-- Content Header (Page header) -->
-			<br /><br /><br />
-			<div class="content-header">
-				<div class="container-fluid">
-					<div class="row mb-2">
-						<div class="col-sm-6">
-							<h4 class="m-0">
-								<strong> 게시판 컨트롤러 </strong>
-								<br />
-								<a href="${pageContext.request.contextPath }/admin/notice/noticeRegistView"> 글 작성</a>
-							</h4>
-							<form action="" method="post" >
-								<table>
-									<colgroup>
-										<col class="">
-										<col class="">
-										<col class="">
-										<col class="">
-										<col class="">
-										<col class="">
-										<col class="">
-									</colgroup>
-									<thead>
-										<tr>
-											<th>번호</th>
-											<th>제목</th>
-											<th>내용</th>
-											<th>작성자</th>
-											<th>조회수</th>
-											<th>등록일</th>
-											<th>첨부파일</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach items="${getNoticeList }" var="noticeList">
-											<tr>
-												<td><c:out value="${noticeList.artcl_Seq }"/></td>
-												<td><c:out value="${noticeList.title }"/></td>
-												<td><c:out value="${noticeList.content }"/></td>
-												<td><c:out value="${noticeList.writer }"/></td>
-												<td><c:out value="${noticeList.hit }"/></td>
-												<td><c:out value="${noticeList.reg_date }"/></td>
-												<td>
-													<c:if test="${noticeList.img_Path }">첨부파일存</c:if>
-												</td>
-											</tr>
-										</c:forEach>
-									</tbody>
-									
-								</table>
-							</form>
+    <!-- Main Content -->
+	<section class="content">
+		
+		<div class="content">
+            <div class="board">
+                <form id="artclListForm" method="post">
+                	<div class="search_box">
+						<input type="hidden" name="nowPage" value="${paging.nowPage}">
+						<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+						
+						<select class="white" name="searchType" >
+							<option value="1" <c:if test="${searchType eq '1' }">selected</c:if> >제목</option>
+							<option value="2" <c:if test="${searchType eq '2' }">selected</c:if> >내용</option>
+							<option value="3" <c:if test="${searchType eq '3' }">selected</c:if> >작성자</option>
+						</select>
+					 	<div class="search">
+							<input type="text" name="searchValue" value="${paging.searchValue }"> 
+							<button type="submit" id="search_Btn"><img src="${pageContext.request.contextPath }/assets/images/i_search_b.png" alt=""></button>
 						</div>
-						<!-- /.col -->
 					</div>
-					<!-- /.row -->
-				</div>
-				<!-- /.container-fluid -->
-			</div>
-			<!-- /.content-header -->
-
-			<br /><br />
-
-			<!-- Main Content -->
-			<section class="content">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="card">
-								<div class="card-body">
-									<h5 class="card-title">Card title</h5>
-									<p class="card-text">
-										Some quick example text to build on the card title and make up the bulk of the card's content.
-									</p>
-									<a href="#" class="card-link">Card link</a> 
-									<a href="#" class="card-link">Another link</a>
-								</div>
+				</form>
+            </div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-body">
+								<%-- <h5 class="card-title">Card title</h5>
+								<p class="card-text">
+									Some quick example text to build on the card title and make up the bulk of the card's content.
+								</p>
+								<a href="#" class="card-link">Card link</a> 
+								<a href="#" class="card-link">Another link</a> --%>
+								<div class="table type_board">
+		                        <h6>총 <span>81</span>건 검색되었습니다.</h6>
+		                        <table>
+		                            <tbody>
+			                            <tr>
+			                                <th style="width: 12%;">번호</th>
+			                                <th style="width: 50%;">제목</th>
+			                                <th style="width: 26%;">작성일</th>
+			                                <th style="width: 12%;">조회</th>
+			                            </tr>
+			                            <c:choose>
+	                            			<c:when test="${artclList != null }">
+		                            			<c:forEach items="${artclList }" var="list" >
+		                            			<%-- <fmt:parseDate var="nowDate" value="${now }" pattern="yyyy-MM-dd"/>
+		                            			<fmt:parseDate var="regD" value="${list.reg_date }" pattern="yyyy-MM-dd"/>
+		                            			<fmt:parseNumber var="nowDate_N" value="${nowDate.time / (1000*60*60*24)}" integerOnly="true" />
+		                            			<fmt:parseNumber var="regD_N" value="${regD.time / (1000*60*60*24)}" integerOnly="true" />
+		                            			--%>
+		                            			<input type="hidden" name="artcl_Seq" value="${list.artcl_Seq}">
+		                            			
+						                            <tr>
+						                                <td><c:out value="${list.artcl_Seq }"/></td>
+						                                <td>
+							                                <a onclick="artclView(${list.artcl_Seq})" target="_blank" style="cursor: pointer;">
+							                                	<p>
+							                                		<c:choose>
+																        <c:when test="${fn:length(list.title) gt 26}">
+																        	<c:out value="${fn:substring(list.title, 0, 25)} ..."/>
+																        </c:when>
+																        <c:otherwise>
+																        	<c:out value="${list.title}"/>
+																        </c:otherwise>
+																    </c:choose>	
+							                                	</p>
+							                                	<%-- <c:if test="${regD_N > (nowDate_N + 3) }">
+								                                	<i class="i_new">
+								                                		<img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt="새글">
+								                                	</i>
+							                                	</c:if>
+							                                	--%>
+							                                </a>
+							                            </td>
+						                                <%-- <td><c:out value="${regD }"/></td> --%>
+						                                <td><fmt:formatDate value="${list.reg_date }" pattern="yyyy-MM-dd"/> </td>
+						                                <td><c:out value="${list.hit }"/></td>
+						                            </tr>
+				                        		</c:forEach>
+				                        	</c:when>
+				                        </c:choose>
+		                        	</tbody>
+		                       	</table>
+	                            <!-- pager -->
+	                            <%@include file="pageProcess.jsp"%>                        
+		                    </div>
 							</div>
 						</div>
-						<!-- /.col-md-6 -->
 					</div>
-					<!-- /.row -->
+					<!-- /.col-md-6 -->
 				</div>
-
-			</section>
+				<!-- /.row -->
+			</div>
 		</div>
-		<!-- /.content-wrapper -->
-		<footer class="main-footer">
-			<strong>
-				Copyright &copy; 2022 <a href="https://adminlte.io">by XXXXX </a>
-			</strong>
-		</footer>
+	</section>
 	</div>
-	<!-- ./wrapper -->
+	<%--
+	<section class="content">
+		
+		<div class="content">
+        <div class="wrap">
+            <div class="cont">
+                <div class="information">
+                    <ul class="list type1">
+                        <li>
+                            <input type="hidden" value="${pageContext.request.contextPath }/assets/images/memorial1.png">
+                            <form id="artclListForm" method="post">
+				                <div class="board">
+				                	<div class="search_box">
+										<input type="hidden" name="nowPage" value="${paging.nowPage}">
+										<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+										
+										<select class="white" name="searchType" >
+											<option value="1" <c:if test="${searchType eq '1' }">selected</c:if> >제목</option>
+											<option value="2" <c:if test="${searchType eq '2' }">selected</c:if> >내용</option>
+											<option value="3" <c:if test="${searchType eq '3' }">selected</c:if> >작성자</option>
+										</select>
+									 	<div class="search">
+											<input type="text" name="searchValue" value="${paging.searchValue }"> 
+											<button type="submit" id="search_Btn"><img src="${pageContext.request.contextPath }/assets/images/i_search_b.png" alt=""></button>
+										</div>
+									</div>
+				                </div>
+			                </form>
+                            <form name="viewForm" method="post">
+                            	<c:set var="searchType" value="${paging.searchType}" />
+								<input type="hidden" name="nowPage" value="${paging.nowPage}">
+								<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+								<input type="hidden" name="searchType" value="${searchType }">
+								<input type="hidden" name="searchValue" value="${paging.searchValue }">
+                            	
+                            	<div class="memorial">
+                            		<ul>
+                            			<c:choose>
+	                            			<c:when test="${artclList != null }">
+		                            			<c:forEach items="${artclList }" var="list" >
+		                            			<input type="hidden" name="artcl_Seq" value="${list.artcl_Seq}">
+		                            			<c:set value="${pageContext.request.contextPath }${list.img_Path}/${list.img_File_Nm }" var="thumbPath" />	
+			                            			<li>
+			                            				 <a onclick="artclView(${list.artcl_Seq})" target="_blank" style="cursor: pointer;">
+			                            					<div class="con">
+				                                                <div class="img" style="background:url(${thumbPath}); background-size: cover;"></div>
+				                                                <div class="txt">
+				                                                	등록일 : <fmt:formatDate value="${list.reg_date}" pattern="yyyy-MM-dd"/>
+				                                                    <h5>
+				                                                    	<c:choose>
+																	        <c:when test="${fn:length(list.title) gt 26}">
+																	        	<c:out value="${fn:substring(list.title, 0, 25)} ..."/>
+																	        </c:when>
+																	        <c:otherwise>
+																	        	<c:out value="${list.title}"/>
+																	        </c:otherwise>
+																	    </c:choose>	
+				                                                    </h5>
+				                                                    <p>
+																		<c:choose>
+																	        <c:when test="${fn:length(list.content) gt 26}">
+																	        	<c:out value="${fn:substring(list.content, 0, 25)} ..."/>
+																	        </c:when>
+																	        <c:otherwise>
+																	        	<c:out value="${list.content}"/>
+																	        </c:otherwise>
+																	    </c:choose>	
+				                                                    </p>
+				                                                    
+				                                                </div>
+				                                            </div>
+			                            				</a>
+			                            			
+													</li>                            			
+		                            			</c:forEach>
+	                            			</c:when>
+	                            			<c:otherwise>
+	                            				게시물이 없습니다.
+	                            			</c:otherwise>
+                            			</c:choose>
+                            		</ul>
+                            	</div>
+                            </form>
+                         	 <form id="artclListForm" method="post">
+								<input type="hidden" name="nowPage" value="${paging.nowPage}">
+								<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+								
+								<select name="searchType" >
+									<option value="1" <c:if test="${searchType eq '1' }">selected</c:if> >제목</option>
+									<option value="2" <c:if test="${searchType eq '2' }">selected</c:if> >내용</option>
+									<option value="3" <c:if test="${searchType eq '3' }">selected</c:if> >작성자</option>
+								</select>&nbsp; 
+								<input name="searchValue" value="${paging.searchValue }"> 
+								<input type="submit" value="search" id="search_Btn">
+								<input type="button" id="registView_Btn" value="등록">
+							</form>
+                            <!-- pager -->
+                            <%@include file="pageProcess.jsp"%>
+                        </li>                                                   
+                    </ul>                 
+                </div>            
+            </div>            
+        </div>
+	</div>
+		
+	</section>
+  </div>
+   --%>
+  <!-- /.content-wrapper -->
+   <!-- footer 시작 -->
+	<footer class="main-footer">
+		<c:import url="${pageContext.request.contextPath }/assets/include/admin_footer.jsp" />
+	</footer>
+<!-- // footer 끝 -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
 
 	<!-- jQuery -->
-	<script src="${pageContext.request.contextPath }/plugins/jquery/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath }/assets/plugins/jquery/jquery.min.js"></script>
 	<!-- jQuery UI 1.11.4 -->
-	<script src="${pageContext.request.contextPath }/plugins/jquery-ui/jquery-ui.min.js"></script>
-	<!-- Bootstrap 4 -->
-	<script src="${pageContext.request.contextPath }/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- Tempusdominus Bootstrap 4 -->
-	<script src="${pageContext.request.contextPath }/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-	<!-- AdminLTE App -->
-	<script src="${pageContext.request.contextPath }/dist/js/adminlte.js"></script>
+	<script src="${pageContext.request.contextPath }/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+  
+  	$(document).ready(function() {
+		$("#search_Btn").click(function() {
+			$("#artclListForm").attr('action', '/admin/notice/artclList');
+			$("#artclListForm").submit();
+		});
+		
+		$("#registView_Btn").click(function(){
+			$("#artclListForm").attr('action', '/admin/notice/registView');
+			$("#artclListForm").submit();
+		});
+		
+	});
+  
+  function artclView(artcl_Seq){
+		$("form[name=viewForm]").attr('action', '/admin/notice/'+ artcl_Seq +'/artclView');
+		$("form[name=viewForm]").submit();
+	}
+  
+</script>
+<!-- Bootstrap 4 -->
+<script src="${pageContext.request.contextPath }/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Sparkline -->
+<script src="${pageContext.request.contextPath }/assets/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="${pageContext.request.contextPath }/assets/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="${pageContext.request.contextPath }/assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="${pageContext.request.contextPath }/assets/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="${pageContext.request.contextPath }/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="${pageContext.request.contextPath }/assets/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="${pageContext.request.contextPath }/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="${pageContext.request.contextPath }/assets/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="${pageContext.request.contextPath }/assets/dist/js/pages/dashboard.js"></script>
 </body>
 </html>

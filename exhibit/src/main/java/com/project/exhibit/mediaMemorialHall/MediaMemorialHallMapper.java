@@ -27,4 +27,14 @@ public interface MediaMemorialHallMapper {
 	// (관리자, 사용자) 언론에 비친 기념관 상세글 SELECT(출력)
 	MediaMemorialHall selectMediaMemorialHallView(MediaMemorialHall mmh);
 	
+	// (관리자, 사용자) 언론에 비친 기념관 상세글 SELECT 시, 이전 글 정보(출력)
+	MediaMemorialHall selectMMH_Preview(int artcl_Seq);
+	
+	// (관리자, 사용자) 언론에 비친 기념관 상세글 SELECT 시, 다음 글 정보(출력)
+	MediaMemorialHall selectMMH_Nextview(int artcl_Seq);
+	
+	// (사용자) 언론에 비친 기념관 조회수 업데이트
+	void hitUpMMH(MediaMemorialHall artclView);
+	
+	
 }

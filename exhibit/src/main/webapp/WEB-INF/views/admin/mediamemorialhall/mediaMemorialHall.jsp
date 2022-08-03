@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -75,29 +76,71 @@
                     <ul class="list type1">
                         <li>
                             <input type="hidden" value="${pageContext.request.contextPath }/assets/images/memorial1.png">
+                            <form id="artclListForm" method="post">
+				                <div class="board">
+				                	<div class="search_box">
+										<input type="hidden" name="nowPage" value="${paging.nowPage}">
+										<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+										
+										<select class="white" name="searchType" >
+											<option value="1" <c:if test="${searchType eq '1' }">selected</c:if> >제목</option>
+											<option value="2" <c:if test="${searchType eq '2' }">selected</c:if> >내용</option>
+											<%-- <option value="3" <c:if test="${searchType eq '3' }">selected</c:if> >작성자</option> --%>
+										</select>
+									 	<div class="search">
+											<input type="text" name="searchValue" value="${paging.searchValue }"> 
+											<button type="submit" id="search_Btn"><img src="${pageContext.request.contextPath }/assets/images/i_search_b.png" alt=""></button>
+										</div>
+									</div>
+				                </div>
+			                </form>
                             <form name="viewForm" method="post">
                             	<c:set var="searchType" value="${paging.searchType}" />
 								<input type="hidden" name="nowPage" value="${paging.nowPage}">
 								<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
 								<input type="hidden" name="searchType" value="${searchType }">
 								<input type="hidden" name="searchValue" value="${paging.searchValue }">
-								<input type="hidden" name="artcl_Seq" value="${list.artcl_Seq}">
-                            
+                            	
                             	<div class="memorial">
                             		<ul>
                             			<c:choose>
 	                            			<c:when test="${artclList != null }">
 		                            			<c:forEach items="${artclList }" var="list" >
+		                            			<input type="hidden" name="artcl_Seq" value="${list.artcl_Seq}">
 		                            			<c:set value="${pageContext.request.contextPath }${list.img_Path}/${list.img_File_Nm }" var="thumbPath" />
+		                            			<c:choose>
+											        <c:when test="${fn:length(list.title) gt 26}">
+											        	<c:out value="${fn:substring(list.title, 0, 25)}">...</c:out>
+											        </c:when>
+											        <c:otherwise>
+											        	<c:out value="${list.title}"/>
+											        </c:otherwise>
+												</c:choose>	
 			                            			<li>
 			                            				<a onclick="artclView(${list.artcl_Seq})" target="_blank" style="cursor: pointer;">
 			                            					<div class="con">
 				                                                <div class="img" style="background:url(${thumbPath}); background-size: cover;"></div>
 				                                                <div class="txt">
 				                                                	등록일 : <fmt:formatDate value="${list.reg_date}" pattern="yyyy-MM-dd"/>
-				                                                    <h5><c:out value="${list.title }"/></h5>
+				                                                    <h5>
+				                                                    	<c:choose>
+																	        <c:when test="${fn:length(list.title) gt 26}">
+																	        	<c:out value="${fn:substring(list.title, 0, 25)} ..."/>
+																	        </c:when>
+																	        <c:otherwise>
+																	        	<c:out value="${list.title}"/>
+																	        </c:otherwise>
+																	    </c:choose>	
+				                                                    </h5>
 				                                                    <p>
-																		<c:out value="${list.content }"/>
+																		<c:choose>
+																	        <c:when test="${fn:length(list.content) gt 26}">
+																	        	<c:out value="${fn:substring(list.content, 0, 25)} ..."/>
+																	        </c:when>
+																	        <c:otherwise>
+																	        	<c:out value="${list.content}"/>
+																	        </c:otherwise>
+																	    </c:choose>	
 				                                                    </p>
 				                                                    
 				                                                </div>
@@ -113,7 +156,7 @@
                             		</ul>
                             	</div>
                             </form>
-                            <form id="artclListForm" method="post">
+                           <%-- <form id="artclListForm" method="post">
 								<input type="hidden" name="nowPage" value="${paging.nowPage}">
 								<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
 								
@@ -125,9 +168,10 @@
 								<input name="searchValue" value="${paging.searchValue }"> 
 								<input type="submit" value="search" id="search_Btn">
 								<input type="button" id="registView_Btn" value="등록">
-							</form>
+							</form>  --%>
                             <!-- pager -->
                             <%@include file="pageProcess.jsp"%>
+                            <input type="button" id="registView_Btn" value="등록">
                         </li>                                                   
                     </ul>                 
                 </div>            

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -42,6 +43,11 @@
 				$("#registForm").submit();
 			});
 		});
+		
+		function artclView(artcl_Seq){
+			$("form[name=viewForm]").attr('action', '/introduce/'+ artcl_Seq +'/artclView');
+			$("form[name=viewForm]").submit();
+		}
 	</script>
 
 
@@ -80,7 +86,7 @@
                     </ul>
                 </div>
                 <div class="board_detail">
-                	<form method="POST" id="registForm">
+                	<form method="POST" name="viewForm" id="registForm">
 	                	<c:set var="searchType" value="${paging.searchType}" />
 						<input type="hidden" name="nowPage" value="${paging.nowPage}">
 						<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
@@ -111,23 +117,61 @@
 	                        </div>
 	                        <div class="content">
 	                            <div class="con_img" style="text-align: center;">
-	                                <img src="${pageContext.request.contextPath }${artclView.img_Path}/${artclView.img_File_Nm }" alt="">
+	                            	
+	                                	<img style="width: 100%;" src="${pageContext.request.contextPath }${artclView.img_Path}/${artclView.img_File_Nm }" alt="">
+	                            	
 	                            </div>
 	                            <div>
 	                            	<c:out value="${artclView.content }"/>
 	                            </div>
 	                        </div>
 	                        <div class="apply_btn list">
-	                            <a class="grey" href="${pageContext.request.contextPath }/services/news/news1_detail.jsp">
-	                                이전
-	                            </a>
+	                        	<c:set var="preView" value="${artclView.preView }" />
+	                        	<c:set var="nextView" value="${artclView.nextView }" />
+	                        	<c:choose>
+	                        		<c:when test="${preView.artcl_Seq != null }">
+	                        			<a onclick="artclView(${preView.artcl_Seq})" target="_blank" style="cursor: pointer;">이전</a>
+	                        			<c:choose>
+									        <c:when test="${fn:length(preView.title) gt 26}">
+									        	<c:out value="${fn:substring(preView.title, 0, 25)} ..."/>
+									        </c:when>
+									        <c:otherwise>
+									        	<c:out value="${preView.title}"/>
+									        </c:otherwise>
+									    </c:choose>	
+	                        		</c:when>
+	                        		<c:otherwise>
+	                        			<a class="grey">
+	                        				이전
+	                        			</a>
+	                        			이전글이 없습니다.
+	                        		</c:otherwise>
+	                        	</c:choose>
 	                            <%-- <a href="${pageContext.request.contextPath }/services/news/news_1.jsp"> --%>
 	                            <a id="list_btn" style="cursor: pointer;">
 	                                목록으로
 	                            </a>
-	                            <a class="grey" href="${pageContext.request.contextPath }/services/news/news1_detail.jsp">
-	                                다음
-	                            </a>
+	                            <input type="hidden" name="pre" value="${preView.artcl_Seq }">
+	                            <input type="hidden" name="next" value="${nextView.artcl_Seq }">
+	                            <c:choose>
+	                        		<c:when test="${nextView.artcl_Seq != null }">
+	                        			<c:choose>
+									        <c:when test="${fn:length(nextView.title) gt 26}">
+									        	<c:out value="${fn:substring(nextView.title, 0, 25)} ..."/>
+									        </c:when>
+									        <c:otherwise>
+									        	<c:out value="${nextView.title}"/>
+									        </c:otherwise>
+									    </c:choose>	
+	                        			<a onclick="artclView(${nextView.artcl_Seq})" target="_blank" style="cursor: pointer;">다음</a>
+	                        		</c:when>
+	                        		<c:otherwise>
+	                        		다음글이 없습니다.
+	                        			<a class="grey">
+	                        				다음
+	                        			</a>
+	                        		</c:otherwise>
+	                        	</c:choose>
 	                        </div>                        
 	                    </div>
                     </form>

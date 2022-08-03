@@ -80,6 +80,12 @@
 	                  <p>언론에 비친 기념관</p>
 	                </a>
 	              </li>
+	              <li class="nav-item">
+	                <a href="${pageContext.request.contextPath }/admin/notice/artclList" class="nav-link">
+	                  <i class="far fa-circle nav-icon"></i>
+	                  <p>공지사항</p>
+	                </a>
+	              </li>
 	            </ul>
 	          </li>
         </ul>

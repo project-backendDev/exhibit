@@ -27,6 +27,12 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- summernote -->
   <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/plugins/summernote/summernote-bs4.min.css">
+  
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/reset.css" /> 
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/common.css">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/css/sub.css">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/assets/swiper/css/swiper.css">
+  
   <!-- Jquery -->
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
@@ -150,6 +156,7 @@ $(function(){
     <!-- /.content-header -->
 
     <!-- Main Content -->
+	<%--
 	<section class="content">
 		<div class="container-fluid">
 			<div class="row">
@@ -186,6 +193,49 @@ $(function(){
 			<!-- /.row -->
 		</div>
 	</section>
+	--%>
+	<section class="content">
+		<div class="container-fluid">
+			<div class="board_detail">
+				<form method="POST" id="registForm" enctype="multipart/form-data">
+					<c:set var="searchType" value="${paging.searchType}" />
+					<input type="hidden" name="nowPage" value="${paging.nowPage}">
+					<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+					<input type="hidden" name="searchType" value="${searchType }">
+					<input type="hidden" name="searchValue" value="${paging.searchValue }">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="card">
+								<div class="card-body">
+									<div>
+										제목 <input type="text" name="title" id="title" class="form-control" />
+									</div>
+									<div>
+										작성자 <input type="text" name="writer" id="writer" class="form-control" value="관리자" />
+									</div>
+									<div>
+										내용 <textarea name="content" id="content" class="form-control" rows="8" ></textarea>
+									</div>
+									<div class="con_img">
+										썸네일	<input type="file" id="img_file_artcl" name="img_file_artcl" multiple />
+									</div>
+									<div class="img_wrap">
+												
+									</div>
+									<div class="right">
+										<input type="button" id="regist_btn" class="btn btn-primary" value="등록" />	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<a href="${pageContext.request.contextPath }/admin/mediaMemorialHall/artclList">
+                 목록으로
+	        </a>
+		</div>
+	</section>
   </div>
   <!-- /.content-wrapper -->
    <!-- footer 시작 -->
@@ -210,13 +260,6 @@ $(function(){
 <script>
   $.widget.bridge('uibutton', $.ui.button)
   
-  	$(document).ready(function() {
-		
-		$("#list_btn").click(function(){
-			$("#artclListForm").attr('action', '/admin/mediaMemorialHall/artclList');
-			$("#artclListForm").submit();
-		});
-	});
 </script>
 <!-- Bootstrap 4 -->
 <script src="${pageContext.request.contextPath }/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

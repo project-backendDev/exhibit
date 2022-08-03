@@ -1,4 +1,4 @@
-package com.project.exhibit.mediaMemorialHall;
+package com.project.exhibit.notice;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,72 +20,49 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.exhibit.util.FileUtil;
 import com.project.exhibit.util.SearchPageVO;
 
+
+
 @Controller
-@RequestMapping("/admin/mediaMemorialHall")
-public class MediaMemorialHallAdminController {
+@RequestMapping("/admin/notice")
+public class NoticeAdminController {
 
 	@Autowired
-	private MediaMemorialHallService mediaMH_Service;
-	
-	/*
-	//첨부파일을 보관하는 폴더를 연/월/일 계층 형태로 생성하기 위함
-	private String getFolder() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = new Date();
-		String str = sdf.format(date);
-		return str.replace("-", File.separator);
-	}
-	
-	//특정한 파일이 이미지 타입인지 검사해주는 메소드
-	private boolean checkImageType(File file) {
-		try {
-			//file.toPath() : 파일의 전체 경로
-			System.out.println("file.toPath() : " + file.toPath());
-			String contentType = Files.probeContentType(file.toPath());
-			System.out.println("contentType : " + contentType);
-			//contentType이 image로 시작하면 이미지 타입이므로 true를 리턴함
-			return contentType.startsWith("image");
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-	*/
+	private NoticeService notice_Service;
 	
 	/**
-	 * 언론에 비친 기념관 관리자 등록 페이지 이동
-	 * @return mediaMemorialHallRegistView
+	 * 공지사항 관리자 등록 페이지 이동
+	 * @return noticeRegistView
 	 * */
 	@RequestMapping("/registView")
 	public ModelAndView RegistView(
-			@ModelAttribute("mmh") MediaMemorialHall mmh,
+			@ModelAttribute("notice") Notice notice,
 			@ModelAttribute("vo") SearchPageVO vo,
 			String nowPage,
 			String cntPerPage
 			) {
 		
 		
-		ModelAndView mav = new ModelAndView("/admin/mediamemorialhall/mediaMemorialHallRegistView");
+		ModelAndView mav = new ModelAndView("/admin/notice/noticeRegistView");
 		
 		return mav;
 	}
 	
 	/**
-	 * 언론에 비친 기념관 관리자 등록
-	 * @return mediaMemorialHallRegistView
+	 * 공지사항 관리자 등록
+	 * @return noticeRegist
 	 * */
 	@RequestMapping("/regist")
 	public String Regist(
-			@ModelAttribute("mmh") MediaMemorialHall mmh,
+			@ModelAttribute("notice") Notice notice,
 			HttpServletRequest request,
 			@RequestParam("img_file_artcl") MultipartFile[] uploadFile
 			) {
-		System.out.println("언론에 비친 기념관 관리자 등록 /regist");
+		System.out.println("공지사항 관리자 등록 /regist");
 		
 		// 파일 저장경로 
 		String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
 		System.out.println("(1) contextRoot => " + contextRoot);
-		contextRoot = contextRoot + "assets\\thumbnail\\mediaMemorialHall\\";
+		contextRoot = contextRoot + "assets\\thumbnail\\notice\\";
 		System.out.println("(2) contextRoot => " + contextRoot);
 		
 		File uploadPath = new File(contextRoot, FileUtil.getFolder());
@@ -130,9 +107,9 @@ public class MediaMemorialHallAdminController {
 					upfile.transferTo(saveFile);
 					
 					
-					mmh.setImg_Path(uploadPath.getPath());
-					mmh.setImg_Origin_Nm(upfile.getOriginalFilename());
-					mmh.setImg_File_Nm(uploadFileName);
+					notice.setImg_Path(uploadPath.getPath());
+					notice.setImg_Origin_Nm(upfile.getOriginalFilename());
+					notice.setImg_File_Nm(uploadFileName);
 				}else {
 					System.out.println("이미지 파일 = false");
 				}
@@ -143,25 +120,25 @@ public class MediaMemorialHallAdminController {
 			} 			
 		}
 		
-		mediaMH_Service.insertMediaMemorialHall(mmh);
+		notice_Service.insertNotice(notice);
 		
-		return "redirect:/admin/mediaMemorialHall/artclList";
+		return "redirect:/admin/notice/artclList";
 	}
 	
 	/**
-	 * 언론에 비친 기념관 관리자 등록글 상세페이지
-	 * @return mediaMemorialHallRegistView
+	 * 공지사항 관리자 등록글 상세페이지
+	 * @return noticeRegistView
 	 * */
 	@RequestMapping("/{artcl_Seq}/artclView")
 	public ModelAndView artclView(
-			@ModelAttribute("mmh") MediaMemorialHall mmh,
+			@ModelAttribute("notice") Notice notice,
 			@ModelAttribute("vo") SearchPageVO vo,
 			String nowPage,
 			String cntPerPage,
 			Model model
 			) {
-		System.out.println("언론에 비친 기념관 관리자 등록글 상세페이지");
-		System.out.println("artcl_Seq => " + mmh.getArtcl_Seq());
+		System.out.println("공지사항 관리자 등록글 상세페이지");
+		System.out.println("artcl_Seq => " + notice.getArtcl_Seq());
 		System.out.println("nowPage => " + nowPage);
 		System.out.println("cntPerPage => " + cntPerPage);
 		
@@ -172,7 +149,7 @@ public class MediaMemorialHallAdminController {
 	    if (cntPerPage == null) {
 	        cntPerPage = "5"; // 보여줄 라인 수 10줄 보여주겠다
     	}
-	    int total = mediaMH_Service.selectMediaMemorialHallCount(vo);
+	    int total = notice_Service.selectNoticeCount(vo);
 		
 	    System.out.println("카운트 => " + total);
 	    
@@ -180,7 +157,7 @@ public class MediaMemorialHallAdminController {
 	    paging.setSearchType(vo.getSearchType());
 	    paging.setSearchValue(vo.getSearchValue());
 	    
-	    MediaMemorialHall artclView = mediaMH_Service.selectMediaMemorialHallView(mmh);
+	    Notice artclView = notice_Service.selectNoticeView(notice);
 	
 	    if(artclView.getImg_Path() == null) {
     	System.out.println("이미지 없음");
@@ -202,41 +179,41 @@ public class MediaMemorialHallAdminController {
 		model.addAttribute("artclView", artclView);
 		model.addAttribute("paging", paging);
 	    
-		ModelAndView mav = new ModelAndView("admin/mediamemorialhall/mediamemorialhallArtclView");
+		ModelAndView mav = new ModelAndView("admin/notice/noticeArtclView");
 		
 		return mav;
 	}
 	
 	/**
-	 * 언론에 비친 기념관 관리자 수정 페이지 이동
-	 * @return mediaMemorialHallRegistView
+	 * 공지사항 관리자 수정 페이지 이동
+	 * @return noticeRegistView
 	 * */
 	@RequestMapping("/updateView")
 	public ModelAndView UpdateView(
-			@ModelAttribute("mmh") MediaMemorialHall mmh
+			@ModelAttribute("notice") Notice notice
 			) {
 		System.out.println("수정 페이지 이동");
-		System.out.println(mmh.getArtcl_Seq());
-		mediaMH_Service.updateMediaMemorialHall(mmh);
+		System.out.println(notice.getArtcl_Seq());
+		notice_Service.updateNotice(notice);
 		
-		ModelAndView mav = new ModelAndView("admin/mediamemorialhall/mediamemorialhallUpdateView");
+		ModelAndView mav = new ModelAndView("admin/notice/noticeUpdateView");
 		
 		return mav;
 	}
 	
 	/**
-	 * 언론에 비친 기념관 관리자 페이지
-	 * @return mediaMemorialHall
+	 * 공지사항 관리자 페이지
+	 * @return notice
 	 * */
 	@RequestMapping("/artclList")
 	public ModelAndView getAdminArclList(
-			@ModelAttribute("mmh") MediaMemorialHall mmh,
+			@ModelAttribute("notice") Notice notice,
 			@ModelAttribute("vo") SearchPageVO vo,
 			String nowPage,
 			String cntPerPage,
 			Model model
 			) {
-		System.out.println("mediaMemorialHall 어드민 시작");
+		System.out.println("notice 어드민 시작");
 		System.out.println("nowPage 스트링타입 => " + nowPage);
 		System.out.println("cntPerPage 스트링타입 => " + cntPerPage);
 		System.out.println("searchType ==> " + vo.getSearchType());
@@ -247,19 +224,19 @@ public class MediaMemorialHallAdminController {
 		       spage = Integer.parseInt(nowPage); // nowPage가 없다면 기존 페이지인 1페이지
 	    }
 	    if (cntPerPage == null) {
-	        cntPerPage = "5"; // 보여줄 라인 수 10줄 보여주겠다
+	        cntPerPage = "10"; // 보여줄 라인 수 10줄 보여주겠다
     	}
-	    int total = mediaMH_Service.selectMediaMemorialHallCount(vo);
+	    int total = notice_Service.selectNoticeCount(vo);
 		
 	    System.out.println("카운트 => " + total);
 	    
 	    SearchPageVO paging = new SearchPageVO(total, spage, Integer.parseInt(cntPerPage)); // 토탈값, 현재페이지, 보여줄 라인 수
 	    paging.setSearchType(vo.getSearchType());
 	    paging.setSearchValue(vo.getSearchValue());
-	    List<MediaMemorialHall> artclList = mediaMH_Service.selectMediaMemorialHall(paging);
+	    List<Notice> artclList = notice_Service.selectNotice(paging);
 	    
 	    System.out.println("리스트 출력");
-	    for(MediaMemorialHall e : artclList) {
+	    for(Notice e : artclList) {
 	    	System.out.println("순번 : " + e.getArtcl_Seq());
 	    	System.out.println("제목 : " + e.getTitle());
 	    	//System.out.println("내용 : " + e.getContent());
@@ -285,7 +262,7 @@ public class MediaMemorialHallAdminController {
 	    
 	    model.addAttribute("artclList", artclList);
 	    model.addAttribute("paging", paging);
-		ModelAndView mav = new ModelAndView("/admin/mediamemorialhall/mediaMemorialHall");
+		ModelAndView mav = new ModelAndView("/admin/notice/noticeList");
 		
 		return mav;
 	}

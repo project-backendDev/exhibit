@@ -71,15 +71,17 @@
                     </ul>
                 </div>
                 <div class="board">
-                    <div class="search_box">
-                        <select class="white" name="" id="">
-                            <option value="">전체</option>
-                        </select>
-                        <div class="search">
-                            <input type="text" placeholder="검색어를 입력해 주세요.">
-                            <button type="submit"><img src="${pageContext.request.contextPath }/assets/images/i_search_b.png" alt=""></button>
-                        </div>
-                    </div>
+                	<form >
+	                    <div class="search_box">
+	                        <select class="white" name="" id="">
+	                            <option value="">전체</option>
+	                        </select>
+	                        <div class="search">
+	                            <input type="text" placeholder="검색어를 입력해 주세요.">
+	                            <button type="submit"><img src="${pageContext.request.contextPath }/assets/images/i_search_b.png" alt=""></button>
+	                        </div>
+	                   	</div>
+                    </form>
                     <div class="table type_board">
                         <h6>총 <span>81</span>건 검색되었습니다.</h6>
                         <table>
