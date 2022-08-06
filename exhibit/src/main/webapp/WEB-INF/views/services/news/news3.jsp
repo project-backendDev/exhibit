@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,7 +36,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <script type="text/javascript" src="examples.js"></script> -->
 
-
+<script>
+	function artclView(artcl_Seq){
+		$("form[name=viewForm]").attr('action', '/newsletter/'+ artcl_Seq +'/artclView');
+		$("form[name=viewForm]").submit();
+	}
+	
+	$(document).ready(function() {
+		$("#search_Btn").click(function() {
+			$("#artclListForm").attr('action', '/newsletter/news3');
+			$("#artclListForm").submit();
+		});
+	});
+</script>
 
 </head>
 <body class="Pretendard">
@@ -71,15 +85,22 @@
                     </ul>
                 </div>
                 <div class="board">
-                    <div class="search_box">
-                        <select class="white" name="" id="">
-                            <option value="">전체</option>
-                        </select>
-                        <div class="search">
-                            <input type="text" placeholder="검색어를 입력해 주세요.">
-                            <button type="submit"><img src="${pageContext.request.contextPath }/assets/images/i_search_b.png" alt=""></button>
-                        </div>
-                    </div>
+                    <form id="artclListForm" method="post">
+	                    <div class="search_box">
+							<input type="hidden" name="nowPage" value="${paging.nowPage}">
+							<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+							
+							<select class="white" name="searchType" >
+								<option value="1" <c:if test="${searchType eq '1' }">selected</c:if> >제목</option>
+								<option value="2" <c:if test="${searchType eq '2' }">selected</c:if> >내용</option>
+								<%-- <option value="3" <c:if test="${searchType eq '3' }">selected</c:if> >작성자</option> --%>
+							</select>
+						 	<div class="search">
+								<input type="text" name="searchValue" value="${paging.searchValue }"> 
+								<button type="submit" id="search_Btn"><img src="${pageContext.request.contextPath }/assets/images/i_search_b.png" alt=""></button>
+							</div>
+						</div>
+                    </form>
                     <div class="image_board ">
                         <!-- 탭창  -->
                         <ul class="tabs type4">

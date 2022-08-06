@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,7 +36,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <script type="text/javascript" src="examples.js"></script> -->
 
-
+<script>
+	function artclView(artcl_Seq){
+		$("form[name=viewForm]").attr('action', '/notice/'+ artcl_Seq +'/artclView');
+		$("form[name=viewForm]").submit();
+	}
+	
+	$(document).ready(function() {
+		$("#search_Btn").click(function() {
+			$("#artclListForm").attr('action', '/notice/news1');
+			$("#artclListForm").submit();
+		});
+	});
+</script>
 
 </head>
 <body class="Pretendard">
@@ -71,18 +85,87 @@
                     </ul>
                 </div>
                 <div class="board">
-                	<form >
+                	<form id="artclListForm" method="post">
 	                    <div class="search_box">
-	                        <select class="white" name="" id="">
-	                            <option value="">전체</option>
-	                        </select>
-	                        <div class="search">
-	                            <input type="text" placeholder="검색어를 입력해 주세요.">
-	                            <button type="submit"><img src="${pageContext.request.contextPath }/assets/images/i_search_b.png" alt=""></button>
-	                        </div>
-	                   	</div>
+							<input type="hidden" name="nowPage" value="${paging.nowPage}">
+							<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+							
+							<select class="white" name="searchType" >
+								<option value="1" <c:if test="${searchType eq '1' }">selected</c:if> >제목</option>
+								<option value="2" <c:if test="${searchType eq '2' }">selected</c:if> >내용</option>
+								<%-- <option value="3" <c:if test="${searchType eq '3' }">selected</c:if> >작성자</option> --%>
+							</select>
+						 	<div class="search">
+								<input type="text" name="searchValue" value="${paging.searchValue }"> 
+								<button type="submit" id="search_Btn"><img src="${pageContext.request.contextPath }/assets/images/i_search_b.png" alt=""></button>
+							</div>
+						</div>
                     </form>
                     <div class="table type_board">
+                    	<form name="viewForm" method="post">
+	                            	<c:set var="searchType" value="${paging.searchType}" />
+									<input type="hidden" name="nowPage" value="${paging.nowPage}">
+									<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+									<input type="hidden" name="searchType" value="${searchType }">
+									<input type="hidden" name="searchValue" value="${paging.searchValue }">
+									
+			                        <h6>총 <span><c:out value="${paging.total }" /></span>건 검색되었습니다.</h6>
+			                        <table>
+			                            <tbody>
+				                            <tr>
+				                                <th style="width: 12%;">번호</th>
+				                                <th style="width: 50%;">제목</th>
+				                                <th style="width: 26%;">작성일</th>
+				                                <th style="width: 12%;">조회</th>
+				                            </tr>
+				                            <c:choose>
+		                            			<c:when test="${artclList != null }">
+			                            			<c:forEach items="${artclList }" var="list" >
+			                            			<%-- <fmt:parseDate var="nowDate" value="${now }" pattern="yyyy-MM-dd"/>
+			                            			<fmt:parseDate var="regD" value="${list.reg_date }" pattern="yyyy-MM-dd"/>
+			                            			<fmt:parseNumber var="nowDate_N" value="${nowDate.time / (1000*60*60*24)}" integerOnly="true" />
+			                            			<fmt:parseNumber var="regD_N" value="${regD.time / (1000*60*60*24)}" integerOnly="true" />
+			                            			--%>
+			                            			<input type="hidden" name="artcl_Seq" value="${list.artcl_Seq}">
+			                            			
+							                            <tr>
+							                                <td><c:out value="${list.artcl_Seq }"/></td>
+							                                <td>
+								                                <a onclick="artclView(${list.artcl_Seq})" target="_blank" style="cursor: pointer;">
+								                                	<p>
+								                                		<c:choose>
+																	        <c:when test="${fn:length(list.title) gt 26}">
+																	        	<c:out value="${fn:substring(list.title, 0, 25)} ..."/>
+																	        </c:when>
+																	        <c:otherwise>
+																	        	<c:out value="${list.title}"/>
+																	        </c:otherwise>
+																	    </c:choose>	
+								                                	</p>
+								                                	<%-- <c:if test="${regD_N > (nowDate_N + 3) }">
+									                                	<i class="i_new">
+									                                		<img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt="새글">
+									                                	</i>
+								                                	</c:if>
+								                                	--%>
+								                                </a>
+								                            </td>
+							                                <%-- <td><c:out value="${regD }"/></td> --%>
+							                                <td><fmt:formatDate value="${list.reg_date }" pattern="yyyy-MM-dd"/> </td>
+							                                <td><c:out value="${list.hit }"/></td>
+							                            </tr>
+					                        		</c:forEach>
+					                        	</c:when>
+					                        	<c:otherwise>
+		                            				<h5>게시물이 없습니다.</h5>
+		                            			</c:otherwise>
+					                        </c:choose>
+			                        	</tbody>
+			                       	</table>
+		                       	</form>
+	                            <!-- pager -->
+	                            <%@include file="pageProcess.jsp"%> 
+                        <%--
                         <h6>총 <span>81</span>건 검색되었습니다.</h6>
                         <table>
                             <tbody>
@@ -164,7 +247,7 @@
                                 <li class="pagerNum"><a href="#!">5</a></li>
                                 <li class="pager"><a href="#!"><img src="${pageContext.request.contextPath }/assets/images/pager_next.png" alt=""></a></li>
                             </ul>
-                        </div>                            
+                        </div> --%>                           
                     </div>
                 </div>
             </div>            

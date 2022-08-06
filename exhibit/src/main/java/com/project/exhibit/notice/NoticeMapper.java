@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.project.exhibit.mediaMemorialHall.MediaMemorialHall;
 import com.project.exhibit.util.SearchPageVO;
 
 @Mapper

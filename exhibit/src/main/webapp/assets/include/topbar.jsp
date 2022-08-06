@@ -92,10 +92,12 @@
 						<a href="${pageContext.request.contextPath }/news1">알림/참여</a>
 						<div class="depth2">
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/news1">공지사항</a></li>
+								<%-- <li><a href="${pageContext.request.contextPath }news/news1">공지사항</a></li> --%>
+								<li><a href="/notice/news1">공지사항</a></li>
+								
 								<li><a href="${pageContext.request.contextPath }/news2">언론보도</a></li>
-								<li><a href="${pageContext.request.contextPath }/news3">뉴스레터</a></li>
-								<li><a href="${pageContext.request.contextPath }/news4">사연남기기</a></li>
+								<li><a href="${pageContext.request.contextPath }/newsletter/news3">뉴스레터</a></li>
+								<li><a href="${pageContext.request.contextPath }/sayeon/news4">사연남기기</a></li>
 								<li><a href="${pageContext.request.contextPath }/news5">자원봉사</a></li>
 							</ul>
 						</div>	

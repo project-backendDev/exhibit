@@ -164,7 +164,8 @@
                     </div>
                 </div>
                 <div class="apply_btn bordernone">
-                    <a href="${pageContext.request.contextPath }/services/news/news4_write">
+                    <%-- <a href="${pageContext.request.contextPath }/services/news/news4_write" --%>
+                    <a href="${pageContext.request.contextPath }/sayeon/registView">
                         글쓰기
                     </a>
                 </div>                

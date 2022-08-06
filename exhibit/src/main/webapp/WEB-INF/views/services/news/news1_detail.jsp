@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,7 +36,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <script type="text/javascript" src="examples.js"></script> -->
 
-
+	<script>
+		$(document).ready(function() {
+			$("#list_btn").click(function(){
+				$("#registForm").attr('action', '/notice/news1');
+				$("#registForm").submit();
+			});
+		});
+		
+		function artclView(artcl_Seq){
+			$("form[name=viewForm]").attr('action', '/notice/'+ artcl_Seq +'/artclView');
+			$("form[name=viewForm]").submit();
+		}
+	</script>
 
 </head>
 <body class="Pretendard">
@@ -71,6 +85,95 @@
                     </ul>
                 </div>
                 <div class="board_detail">
+                	<form method="POST" name="viewForm" id="registForm">
+	                	<c:set var="searchType" value="${paging.searchType}" />
+						<input type="hidden" name="nowPage" value="${paging.nowPage}">
+						<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+						<input type="hidden" name="searchType" value="${searchType }">
+						<input type="hidden" name="searchValue" value="${paging.searchValue }">
+                	
+	                    <h3><c:out value="${artclView.title }"/></h3>
+	                    <div class="detail_box">
+	                        <div class="head">
+	                            <!-- <div class="left">
+	                                <h5>첨부파일</h5>
+	                                <a href="" download="">
+	                                    <h6>가천문화재단-뉴스레터-제32호(2022년-5월호).jpg  </h6>
+	                                    <img src="${pageContext.request.contextPath }/assets/images/i_download.png" alt="">
+	                                </a>
+	                            </div> -->
+	                            <div class="right">
+	                                <ul>
+	                                    <li><span>작성자</span> <c:out value="${artclView.writer }"/> </li>
+	                                    <li>|</li>
+	                                    <li><span>조회</span> <c:out value="${artclView.hit }"/> </li>
+	                                    <li>|</li>
+	                                    <li><span>등록일</span> <fmt:formatDate value="${artclView.reg_date}" pattern="yyyy년 MM월 dd일"/></li>
+	                                	<li>|</li>
+	                                	<li><span>수정일</span> <fmt:formatDate value="${artclView.edit_date}" pattern="yyyy년 MM월 dd일"/></li>
+	                                </ul>
+	                            </div>
+	                        </div>
+	                        <div class="content">
+	                            <div class="con_img" style="text-align: center;">
+	                                <img src="${pageContext.request.contextPath }${artclView.img_Path}/${artclView.img_File_Nm }" style="width: 100%; alt="썸네일">
+	                            </div>
+	                            <div>
+	                            	<c:out value="${artclView.content }"/>
+	                            </div>
+	                        </div>
+	                        
+	                        <div class="apply_btn list">
+	                        	<c:set var="preView" value="${artclView.preView }" />
+	                        	<c:set var="nextView" value="${artclView.nextView }" />
+	                        	<c:choose>
+	                        		<c:when test="${preView.artcl_Seq != null }">
+	                        			<a onclick="artclView(${preView.artcl_Seq})" target="_blank" style="cursor: pointer;">이전</a>
+	                        			<c:choose>
+									        <c:when test="${fn:length(preView.title) gt 26}">
+									        	<c:out value="${fn:substring(preView.title, 0, 25)} ..."/>
+									        </c:when>
+									        <c:otherwise>
+									        	<c:out value="${preView.title}"/>
+									        </c:otherwise>
+									    </c:choose>	
+	                        		</c:when>
+	                        		<c:otherwise>
+	                        			<a class="grey">
+	                        				이전
+	                        			</a>
+	                        			이전글이 없습니다.
+	                        		</c:otherwise>
+	                        	</c:choose>
+	                            <%-- <a href="${pageContext.request.contextPath }/services/news/news_1.jsp"> --%>
+	                            <a id="list_btn" style="cursor: pointer;">
+	                                목록으로
+	                            </a>
+	                            <input type="hidden" name="pre" value="${preView.artcl_Seq }">
+	                            <input type="hidden" name="next" value="${nextView.artcl_Seq }">
+	                            <c:choose>
+	                        		<c:when test="${nextView.artcl_Seq != null }">
+	                        			<c:choose>
+									        <c:when test="${fn:length(nextView.title) gt 26}">
+									        	<c:out value="${fn:substring(nextView.title, 0, 25)} ..."/>
+									        </c:when>
+									        <c:otherwise>
+									        	<c:out value="${nextView.title}"/>
+									        </c:otherwise>
+									    </c:choose>	
+	                        			<a onclick="artclView(${nextView.artcl_Seq})" target="_blank" style="cursor: pointer;">다음</a>
+	                        		</c:when>
+	                        		<c:otherwise>
+	                        		다음글이 없습니다.
+	                        			<a class="grey">
+	                        				다음
+	                        			</a>
+	                        		</c:otherwise>
+	                        	</c:choose>
+	                        </div>                                         
+	                    </div>
+                    </form>
+                    <%--
                     <h3>단체관람 재개 안내</h3>
                     <div class="detail_box">
                         <div class="head">
@@ -107,8 +210,8 @@
                                 다음
                             </a>
                         </div>                        
-                    </div>
-                </div>
+                    </div>--%>
+                </div> 
             </div>            
         </div>
 

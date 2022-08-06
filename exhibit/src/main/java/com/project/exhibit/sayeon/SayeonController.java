@@ -1,4 +1,4 @@
-package com.project.exhibit.notice;
+package com.project.exhibit.sayeon;
 
 import java.util.List;
 
@@ -12,26 +12,26 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.exhibit.util.SearchPageVO;
 
 @Controller
-@RequestMapping("/notice")
-public class NoticeController {
-
+@RequestMapping("/sayeon")
+public class SayeonController {
+	
 	@Autowired
-	private NoticeService notice_Service;
+	private SayeonService sayeon_Service;
 	
 	/**
-	 * 공지사항 페이지
-	 * @return news1
+	 * 사연남기기 페이지
+	 * @return news4
 	 * */
-	@RequestMapping("/news1")
+	@RequestMapping("/news4")
 	public ModelAndView getArtclList(
-			@ModelAttribute("notice") Notice notice,
+			@ModelAttribute("Sayeon") Sayeon Sayeon,
 			@ModelAttribute("vo") SearchPageVO vo,
 			String nowPage,
 			String cntPerPage,
 			Model model
 			) {
 		
-		System.out.println("notice 사용자 게시판 시작");
+		System.out.println("Sayeon 사용자 게시판 시작");
 		System.out.println("nowPage 스트링타입 => " + nowPage);
 		System.out.println("cntPerPage 스트링타입 => " + cntPerPage);
 		System.out.println("searchType ==> " + vo.getSearchType());
@@ -44,17 +44,17 @@ public class NoticeController {
 	    if (cntPerPage == null) {
 	        cntPerPage = "10"; // 보여줄 라인 수 ex.) 5줄 보여주겠다
     	}
-	    int total = notice_Service.selectNoticeCount(vo);
+	    int total = sayeon_Service.selectSayeonCount(vo);
 		
 	    System.out.println("카운트 => " + total);
 	    
 	    SearchPageVO paging = new SearchPageVO(total, spage, Integer.parseInt(cntPerPage)); // 토탈값, 현재페이지, 보여줄 라인 수
 	    paging.setSearchType(vo.getSearchType());
 	    paging.setSearchValue(vo.getSearchValue());
-	    List<Notice> artclList = notice_Service.selectNotice(paging);
+	    List<Sayeon> artclList = sayeon_Service.selectSayeon(paging);
 	    
 	    System.out.println("리스트 출력");
-	    for(Notice e : artclList) {
+	    for(Sayeon e : artclList) {
 	    	System.out.println("순번 : " + e.getArtcl_Seq());
 	    	System.out.println("제목 : " + e.getTitle());
 	    	//System.out.println("내용 : " + e.getContent());
@@ -76,26 +76,44 @@ public class NoticeController {
 	    
 	    model.addAttribute("artclList", artclList);
 	    model.addAttribute("paging", paging);
-		ModelAndView mav = new ModelAndView("/services/news/news1");
+		ModelAndView mav = new ModelAndView("/services/news/news4");
 		
 		return mav;
 		
 	}
 	
 	/**
-	 * 공지사항 상세페이지
-	 * @return news1_detail
+	 * 사연남기기 사용자 등록 페이지 이동
+	 * @return sayeonRegistView
+	 * */
+	@RequestMapping("/registView")
+	public ModelAndView RegistView(
+			@ModelAttribute("sayeon") Sayeon sayeon,
+			@ModelAttribute("vo") SearchPageVO vo,
+			String nowPage,
+			String cntPerPage
+			) {
+		
+		
+		ModelAndView mav = new ModelAndView("/services/news/news4_write");
+		
+		return mav;
+	}
+	
+	/**
+	 * 사연남기기 상세페이지
+	 * @return news4_detail
 	 * */
 	@RequestMapping("/{artcl_Seq}/artclView")
 	public ModelAndView artclView(
-			@ModelAttribute("notice") Notice notice,
+			@ModelAttribute("Sayeon") Sayeon sayeon,
 			@ModelAttribute("vo") SearchPageVO vo,
 			String nowPage,
 			String cntPerPage,
 			Model model
 			) {
-		System.out.println("공지사항 등록글 상세페이지");
-		System.out.println("artcl_Seq => " + notice.getArtcl_Seq());
+		System.out.println("사연남기기 등록글 상세페이지");
+		System.out.println("artcl_Seq => " + sayeon.getArtcl_Seq());
 		System.out.println("nowPage => " + nowPage);
 		System.out.println("cntPerPage => " + cntPerPage);
 		
@@ -106,7 +124,7 @@ public class NoticeController {
 	    if (cntPerPage == null) {
 	        cntPerPage = "5"; // 보여줄 라인 수 10줄 보여주겠다
     	}
-	    int total = notice_Service.selectNoticeCount(vo);
+	    int total = sayeon_Service.selectSayeonCount(vo);
 		
 	    System.out.println("카운트 => " + total);
 	    
@@ -114,7 +132,7 @@ public class NoticeController {
 	    paging.setSearchType(vo.getSearchType());
 	    paging.setSearchValue(vo.getSearchValue());
 	    
-	    Notice artclView = notice_Service.selectNoticeView(notice);
+	    Sayeon artclView = sayeon_Service.selectSayeonView(sayeon);
 	    
 	    /*if(artclView.getImg_Path() == null) {
 	    	System.out.println("이미지 없음");
@@ -136,14 +154,13 @@ public class NoticeController {
 	    	    
 	    artclView.setHit(artclView.getHit()+1); // 조회수 업데이트
 	    System.out.println("조회수 : " + artclView.getHit());
-	    notice_Service.hitUpMMH(artclView);
+	    sayeon_Service.hitUp(artclView);
 	    
 		model.addAttribute("artclView", artclView);
 		model.addAttribute("paging", paging);
 	    
-		ModelAndView mav = new ModelAndView("services/news/news1_detail");
+		ModelAndView mav = new ModelAndView("services/news/news4_detail");
 		
 		return mav;
 	}
-	
 }

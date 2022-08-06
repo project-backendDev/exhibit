@@ -82,6 +82,10 @@ public class MediaMemorialHallController {
 		
 	}
 	
+	/**
+	 * 언론에 비친 기념관 상세페이지
+	 * @return introduce3_detail
+	 * */
 	@RequestMapping("/{artcl_Seq}/artclView")
 	public ModelAndView artclView(
 			@ModelAttribute("mmh") MediaMemorialHall mmh,

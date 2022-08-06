@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper 
+   PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.project.exhibit.newsletter.NewsLetterMapper">
+	<resultMap type="com.project.exhibit.newsletter.NewsLetter" id="NewsLetter">
+		<result property="artcl_Seq"       	column="artcl_Seq"/>
+		<result property="title"       		column="title"/>
+		<result property="content"       	column="content"/>
+		<result property="writer"       	column="writer"/>
+		<result property="reg_date"       	column="reg_date"/>
+		<result property="edit_date"       	column="edit_date"/>
+		<result property="hit"       		column="hit"/>
+		<result property="img_Origin_Nm"    column="img_Origin_Nm"/>
+		<result property="img_File_Nm"      column="img_File_Nm"/>
+		<result property="img_Path"       	column="img_Path"/>
+	</resultMap>
+	
+	<!-- 뉴스레터 등록 -->
+   	<insert id="insertNewsLetter" parameterType="com.project.exhibit.newsletter.NewsLetter"
+   			useGeneratedKeys="true" keyProperty="artcl_Seq">
+        INSERT INTO exhibit_newsletter_artcl (
+        	title, content, writer, reg_date, edit_date, hit, img_Origin_Nm, img_File_Nm, img_Path
+        ) VALUES (#{title}, #{content}, #{writer}, now(), now(), 0,
+       		<choose>
+       			<when test="img_Origin_Nm == null or img_Origin_Nm == ''">
+       				null, null, null
+       			</when>
+       			<otherwise>
+       				#{img_Origin_Nm}, #{img_File_Nm}, #{img_Path}
+       			</otherwise>
+       		</choose>
+       		
+        )
+   	</insert>
+   	
+   	<!--뉴스레터 수정 -->
+   	<update id="updateNewsLetter" parameterType="com.project.exhibit.newsletter.NewsLetter">
+		UPDATE exhibit_newsletter_artcl 
+		SET title = #{title},
+			content = #{content},
+			edit_date = #{edit_date},
+			img_Origin_Nm = #{img_Origin_Nm},
+			img_File_Nm = #{img_File_Nm},
+			img_Path = #{img_Path}
+		WHERE artcl_Seq = #{artcl_Seq}
+	</update>	
+   	
+   	<!-- 뉴스레터 삭제 -->
+	<delete id="deleteNewsLetter" parameterType="com.project.exhibit.newsletter.NewsLetter">
+		DELETE FROM exhibit_newsletter_artcl WHERE artcl_Seq = #{artcl_Seq}
+	</delete>
+   	
+   	<!-- 뉴스레터 리스트 출력 -->
+	<select id="selectNewsLetter" parameterType="com.project.exhibit.util.SearchPageVO" resultType="com.project.exhibit.newsletter.NewsLetter" >
+		select * from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from exhibit_newsletter_artcl
+		<if test="searchType != null">
+	      <where>
+	         <choose>
+	         	<when test="searchType == 3"> writer like CONCAT('%',#{searchValue},'%')</when>
+	            <when test="searchType == 2"> content like CONCAT('%',#{searchValue},'%')</when>
+	            <when test="searchType == 1"> title like CONCAT('%',#{searchValue},'%')</when>
+	         </choose>
+	      </where>
+	   	</if>
+		order by artcl_Seq desc ) AS m 
+		<where>
+			(@ROWNUM:=0)=0)
+		</where>
+		AS T 
+		<where>
+			ROWNUM between #{start} and #{end}	
+		</where>
+	</select>
+	
+	<!-- 뉴스레터 리스트 카운트 출력 -->
+	<select id="selectNewsLetterCount" parameterType="com.project.exhibit.util.SearchPageVO" resultType="int" >
+		select count(*) from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from exhibit_newsletter_artcl
+		<if test="searchType != null">
+	      <where>
+	         <choose>
+	         	<when test="searchType == 3"> writer like CONCAT('%',#{searchValue},'%')</when>
+	            <when test="searchType == 2"> content like CONCAT('%',#{searchValue},'%')</when>
+	            <when test="searchType == 1"> title like CONCAT('%',#{searchValue},'%')</when>
+	         </choose>
+	      </where>
+   		</if>
+		order by artcl_Seq desc ) AS m) AS T		
+	</select>
+	
+	<!-- 뉴스레터 상세글 출력 -->
+	<select id="selectNewsLetterView" parameterType="com.project.exhibit.newsletter.NewsLetter" resultType="com.project.exhibit.newsletter.NewsLetter">
+		SELECT * 
+		FROM   exhibit_newsletter_artcl 
+		WHERE  artcl_Seq = #{artcl_Seq}
+	</select>
+	
+	<!-- 뉴스레터 상세글 출력시 이전 글 가져오기 -->
+	<select id="select_Preview" parameterType="int" resultType="com.project.exhibit.newsletter.NewsLetter">
+		SELECT artcl_Seq, title
+		FROM   exhibit_newsletter_artcl
+		<where>
+			artcl_Seq=( SELECT max(artcl_Seq)
+						FROM   exhibit_newsletter_artcl
+						<where>
+							artcl_Seq &lt; #{artcl_Seq}
+						</where>
+		</where>
+		)
+	</select>
+	
+	<!-- 뉴스레터 상세글 출력시 다음 글 가져오기 -->
+	<select id="select_Nextview" parameterType="int" resultType="com.project.exhibit.newsletter.NewsLetter">
+		SELECT artcl_Seq, title
+		FROM   exhibit_newsletter_artcl
+		<where>
+			artcl_Seq=( SELECT min(artcl_Seq)
+						FROM   exhibit_newsletter_artcl
+						<where>
+							artcl_Seq &gt; #{artcl_Seq}
+						</where>
+		</where>
+		)
+	</select>
+	
+	
+	<!-- 조회수 업데이트 -->
+	<update id="hitUp" parameterType="com.project.exhibit.newsletter.NewsLetter">
+		UPDATE exhibit_newsletter_artcl 
+		SET hit = #{hit}
+		WHERE artcl_Seq = #{artcl_Seq}
+	</update>
+	
+</mapper>

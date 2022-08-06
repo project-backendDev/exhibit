@@ -100,59 +100,73 @@
 								</p>
 								<a href="#" class="card-link">Card link</a> 
 								<a href="#" class="card-link">Another link</a> --%>
+								
+									
 								<div class="table type_board">
-		                        <h6>총 <span>81</span>건 검색되었습니다.</h6>
-		                        <table>
-		                            <tbody>
-			                            <tr>
-			                                <th style="width: 12%;">번호</th>
-			                                <th style="width: 50%;">제목</th>
-			                                <th style="width: 26%;">작성일</th>
-			                                <th style="width: 12%;">조회</th>
-			                            </tr>
-			                            <c:choose>
-	                            			<c:when test="${artclList != null }">
-		                            			<c:forEach items="${artclList }" var="list" >
-		                            			<%-- <fmt:parseDate var="nowDate" value="${now }" pattern="yyyy-MM-dd"/>
-		                            			<fmt:parseDate var="regD" value="${list.reg_date }" pattern="yyyy-MM-dd"/>
-		                            			<fmt:parseNumber var="nowDate_N" value="${nowDate.time / (1000*60*60*24)}" integerOnly="true" />
-		                            			<fmt:parseNumber var="regD_N" value="${regD.time / (1000*60*60*24)}" integerOnly="true" />
-		                            			--%>
-		                            			<input type="hidden" name="artcl_Seq" value="${list.artcl_Seq}">
-		                            			
-						                            <tr>
-						                                <td><c:out value="${list.artcl_Seq }"/></td>
-						                                <td>
-							                                <a onclick="artclView(${list.artcl_Seq})" target="_blank" style="cursor: pointer;">
-							                                	<p>
-							                                		<c:choose>
-																        <c:when test="${fn:length(list.title) gt 26}">
-																        	<c:out value="${fn:substring(list.title, 0, 25)} ..."/>
-																        </c:when>
-																        <c:otherwise>
-																        	<c:out value="${list.title}"/>
-																        </c:otherwise>
-																    </c:choose>	
-							                                	</p>
-							                                	<%-- <c:if test="${regD_N > (nowDate_N + 3) }">
-								                                	<i class="i_new">
-								                                		<img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt="새글">
-								                                	</i>
-							                                	</c:if>
-							                                	--%>
-							                                </a>
-							                            </td>
-						                                <%-- <td><c:out value="${regD }"/></td> --%>
-						                                <td><fmt:formatDate value="${list.reg_date }" pattern="yyyy-MM-dd"/> </td>
-						                                <td><c:out value="${list.hit }"/></td>
-						                            </tr>
-				                        		</c:forEach>
-				                        	</c:when>
-				                        </c:choose>
-		                        	</tbody>
-		                       	</table>
+		                        <form name="viewForm" method="post">
+	                            	<c:set var="searchType" value="${paging.searchType}" />
+									<input type="hidden" name="nowPage" value="${paging.nowPage}">
+									<input type="hidden" name="cntPerPage" value="${paging.cntPerPage}">
+									<input type="hidden" name="searchType" value="${searchType }">
+									<input type="hidden" name="searchValue" value="${paging.searchValue }">
+									
+			                        <h6>총 <span><c:out value="${paging.total }" /></span>건 검색되었습니다.</h6>
+			                        <table>
+			                            <tbody>
+				                            <tr>
+				                                <th style="width: 12%;">번호</th>
+				                                <th style="width: 50%;">제목</th>
+				                                <th style="width: 26%;">작성일</th>
+				                                <th style="width: 12%;">조회</th>
+				                            </tr>
+				                            <c:choose>
+		                            			<c:when test="${artclList != null }">
+			                            			<c:forEach items="${artclList }" var="list" >
+			                            			<%-- <fmt:parseDate var="nowDate" value="${now }" pattern="yyyy-MM-dd"/>
+			                            			<fmt:parseDate var="regD" value="${list.reg_date }" pattern="yyyy-MM-dd"/>
+			                            			<fmt:parseNumber var="nowDate_N" value="${nowDate.time / (1000*60*60*24)}" integerOnly="true" />
+			                            			<fmt:parseNumber var="regD_N" value="${regD.time / (1000*60*60*24)}" integerOnly="true" />
+			                            			--%>
+			                            			<input type="hidden" name="artcl_Seq" value="${list.artcl_Seq}">
+			                            			
+							                            <tr>
+							                                <td><c:out value="${list.artcl_Seq }"/></td>
+							                                <td>
+								                                <a onclick="artclView(${list.artcl_Seq})" target="_blank" style="cursor: pointer;">
+								                                	<p>
+								                                		<c:choose>
+																	        <c:when test="${fn:length(list.title) gt 26}">
+																	        	<c:out value="${fn:substring(list.title, 0, 25)} ..."/>
+																	        </c:when>
+																	        <c:otherwise>
+																	        	<c:out value="${list.title}"/>
+																	        </c:otherwise>
+																	    </c:choose>	
+								                                	</p>
+								                                	<%-- <c:if test="${regD_N > (nowDate_N + 3) }">
+									                                	<i class="i_new">
+									                                		<img src="${pageContext.request.contextPath }/assets/images/i_new.png" alt="새글">
+									                                	</i>
+								                                	</c:if>
+								                                	--%>
+								                                </a>
+								                            </td>
+							                                <%-- <td><c:out value="${regD }"/></td> --%>
+							                                <td><fmt:formatDate value="${list.reg_date }" pattern="yyyy-MM-dd"/> </td>
+							                                <td><c:out value="${list.hit }"/></td>
+							                            </tr>
+					                        		</c:forEach>
+					                        	</c:when>
+					                        	<c:otherwise>
+		                            				게시물이 없습니다.
+		                            			</c:otherwise>
+					                        </c:choose>
+			                        	</tbody>
+			                       	</table>
+		                       	</form>
 	                            <!-- pager -->
-	                            <%@include file="pageProcess.jsp"%>                        
+	                            <%@include file="pageProcess.jsp"%> 
+	                            <input type="button" id="registView_Btn" value="등록">                       
 		                    </div>
 							</div>
 						</div>
