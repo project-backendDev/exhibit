@@ -16,6 +16,9 @@
 		<result property="img_Origin_Nm"    column="img_Origin_Nm"/>
 		<result property="img_File_Nm"      column="img_File_Nm"/>
 		<result property="img_Path"       	column="img_Path"/>
+		<result property="doc_Origin_Nm"    column="doc_Origin_Nm"/>
+		<result property="doc_File_Nm"      column="doc_File_Nm"/>
+		<result property="doc_Path"       	column="doc_Path"/>
    </resultMap>
    
    <!-- 사연남기기 등록 -->
@@ -30,6 +33,14 @@
        			</when>
        			<otherwise>
        				#{img_Origin_Nm}, #{img_File_Nm}, #{img_Path}
+       			</otherwise>
+       		</choose>
+       		<choose>
+       			<when test="doc_Origin_Nm == null or doc_Origin_Nm == ''">
+       				null, null, null
+       			</when>
+       			<otherwise>
+       				#{doc_Origin_Nm}, #{doc_File_Nm}, #{doc_Path}
        			</otherwise>
        		</choose>
        		

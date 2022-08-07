@@ -13,6 +13,12 @@ public class SayeonService {
 	@Autowired
 	private SayeonMapper mapper;
 	
+	// 사연남기기 이미지 경로
+	static final String img_Path = "assets\\thumbnail\\sayeon\\";
+	
+	// 사연남기기 파일 경로
+	static final String doc_Path = "assets\\files\\sayeon\\";
+	
 	// (관리자) 사연남기기 INSERT(등록)
 	public void insertSayeon(Sayeon sayeon) {
 		mapper.insertSayeon(sayeon);

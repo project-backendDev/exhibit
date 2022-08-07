@@ -35,7 +35,7 @@
   
   <!-- Jquery -->
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
+<script>
 //파일을 담아두는 변수
 var sel_file = [];
 
@@ -77,7 +77,7 @@ $(function(){
 	//----------------이미지 미리보기 끝----------------
 	//모든 파일명.확장자(exe|sh|zip|alx)는 업로드를 못하도록 막기 
 	//첨부파일의 확장자가 exe, sh, zip, alz 경우 업로드를 제한
-	var regex = new RegExp("(.*?)\.(exe|sh|zip|alx)$");
+	var regex = new RegExp("(.*?)\.(exe|sh|zip|alx|java|jsp|js|pdf|pptx|hwp|hwpx|txt|docx|xlsx|cvs|json)$");
 	//최대 5MB까지만 업로드 가능
 	var maxSize = 5242880; //5MB
 	//확장자, 크기 체크
@@ -112,6 +112,7 @@ $(function(){
 			//확장자, 크기 체크
 			//function checkExtension(fileName, fileSize){
 			if(!checkExtension(files[i].name, files[i].size)){//!true라면 실패
+				console.log("확장자체크 결과 => 잘못된 확장자");
 				return false;
 			}
 			//formData.append("img_Origin_Nm", files[i]);
