@@ -8,15 +8,13 @@ public class Sayeon {
 	private String title;
 	private String content;
 	private String writer;
+	private String phone;
 	private Date reg_date;
 	private Date edit_date;
 	private int hit;
 	private String img_Origin_Nm;
 	private String img_File_Nm;
 	private String img_Path;
-	private String doc_Origin_Nm;
-	private String doc_File_Nm;
-	private String doc_Path;
 	
 	private Sayeon preView;
 	private Sayeon nextView;
@@ -81,29 +79,17 @@ public class Sayeon {
 	public void setImg_Path(String img_Path) {
 		this.img_Path = img_Path;
 	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public Sayeon getPreView() {
 		return preView;
 	}
 	public void setPreView(Sayeon preView) {
 		this.preView = preView;
-	}
-	public String getDoc_Origin_Nm() {
-		return doc_Origin_Nm;
-	}
-	public void setDoc_Origin_Nm(String doc_Origin_Nm) {
-		this.doc_Origin_Nm = doc_Origin_Nm;
-	}
-	public String getDoc_File_Nm() {
-		return doc_File_Nm;
-	}
-	public void setDoc_File_Nm(String doc_File_Nm) {
-		this.doc_File_Nm = doc_File_Nm;
-	}
-	public String getDoc_Path() {
-		return doc_Path;
-	}
-	public void setDoc_Path(String doc_Path) {
-		this.doc_Path = doc_Path;
 	}
 	public Sayeon getNextView() {
 		return nextView;

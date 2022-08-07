@@ -51,12 +51,12 @@ var regex1 = new RegExp("(.*?)\.(exe|sh|zip|alx|java|jsp|js|pdf|pptx|hwp|hwpx|tx
 var maxSize1 = 5242880; //5MB //최대 5MB까지만 업로드 가능
 
 function checkExtension(fileName, fileSize){
-	if(fileSize >= maxSize){
+	if(fileSize >= maxSize1){
 		alert("파일 사이즈 초과");
 		return false;
 	}
 	
-	if(regex.test(fileName)){
+	if(regex1.test(fileName)){
 		alert("해당 종류의 파일은 업로드할 수 없습니다.");
 		return false;
 	}
@@ -69,12 +69,12 @@ var regex2 = new RegExp("(.*?)\.(exe|sh|zip|alx|java|jsp|js|pptx|txt|cvs|json)$"
 var maxSize2 = 5242880; //5MB //최대 5MB까지만 업로드 가능
 
 function checkExtension2(fileName, fileSize){
-	if(fileSize >= maxSize){
+	if(fileSize >= maxSize2){
 		alert("파일 사이즈 초과");
 		return false;
 	}
 	
-	if(regex.test(fileName)){
+	if(regex2.test(fileName)){
 		alert("해당 종류의 파일은 업로드할 수 없습니다.");
 		return false;
 	}
@@ -82,7 +82,7 @@ function checkExtension2(fileName, fileSize){
 	return true;
 }
 
-function informationRegist() {
+function sayeonRegist() {
 	if ($("#title").val() == "") {
 		alert("제목을 입력해주세요.");
 		return;
@@ -129,7 +129,7 @@ function informationRegist() {
 		
 		$("#registForm").attr('action', '/sayeon/regist');
 		$("#registForm").submit();		
-		alert("관람예약이 완료 되었습니다.");
+		alert("사연남기기가 완료 되었습니다.");
 	}
 }
 </script>
@@ -229,8 +229,18 @@ function informationRegist() {
                                     <h5>첨부파일<%--<span>*</span> --%></h5>
                                     <div class="file_wrap">
                                         <input type="text" id="fileName2" placeholder="선택된 파일이 없습니다.">
-                                        <input type="file" id="file_artcl" name="file_artcl" onchange="javascript: document.getElementById('fileName2').value = this.value">
-                                        <label for="file_artcl">
+                                        <input type="file" id="file_artcl1" name="file_artcl" multiple onchange="javascript: document.getElementById('fileName2').value = this.value">
+                                        <label for="file_artcl1">
+                                            파일선택
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="input_wrap">
+                                	<h5></h5>
+                                    <div class="file_wrap">
+                                        <input type="text" id="fileName3" placeholder="선택된 파일이 없습니다.">
+                                        <input type="file" id="file_artcl2" name="file_artcl" multiple onchange="javascript: document.getElementById('fileName3').value = this.value">
+                                        <label for="file_artcl2">
                                             파일선택
                                         </label>
                                     </div>

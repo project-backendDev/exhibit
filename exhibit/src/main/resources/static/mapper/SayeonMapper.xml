@@ -10,12 +10,20 @@
 		<result property="title"       		column="title"/>
 		<result property="content"       	column="content"/>
 		<result property="writer"       	column="writer"/>
+		<result property="phone"       		column="phone"/>
 		<result property="reg_date"       	column="reg_date"/>
 		<result property="edit_date"       	column="edit_date"/>
 		<result property="hit"       		column="hit"/>
 		<result property="img_Origin_Nm"    column="img_Origin_Nm"/>
 		<result property="img_File_Nm"      column="img_File_Nm"/>
 		<result property="img_Path"       	column="img_Path"/>
+   </resultMap>
+   <resultMap type="com.project.exhibit.sayeon.SayeonAtchmnfl" id="SayeonAtchmnfl">
+   		<result property="atchmnfl_Seq"     column="atchmnfl_Seq"/>
+   		<result property="artcl_Seq"       	column="artcl_Seq"/>
+		<result property="writer"       	column="writer"/>
+		<result property="reg_date"       	column="reg_date"/>
+		<result property="edit_date"       	column="edit_date"/>
 		<result property="doc_Origin_Nm"    column="doc_Origin_Nm"/>
 		<result property="doc_File_Nm"      column="doc_File_Nm"/>
 		<result property="doc_Path"       	column="doc_Path"/>
@@ -25,8 +33,8 @@
    	<insert id="insertSayeon" parameterType="com.project.exhibit.sayeon.Sayeon"
    			useGeneratedKeys="true" keyProperty="artcl_Seq">
         INSERT INTO exhibit_sayeon_artcl (
-        	title, content, writer, reg_date, edit_date, hit, img_Origin_Nm, img_File_Nm, img_Path
-        ) VALUES (#{title}, #{content}, #{writer}, now(), now(), 0,
+        	title, content, writer, phone, reg_date, edit_date, hit, img_Origin_Nm, img_File_Nm, img_Path
+        ) VALUES (#{title}, #{content}, #{writer}, #{phone}, now(), now(), 0,
        		<choose>
        			<when test="img_Origin_Nm == null or img_Origin_Nm == ''">
        				null, null, null
@@ -35,15 +43,6 @@
        				#{img_Origin_Nm}, #{img_File_Nm}, #{img_Path}
        			</otherwise>
        		</choose>
-       		<choose>
-       			<when test="doc_Origin_Nm == null or doc_Origin_Nm == ''">
-       				null, null, null
-       			</when>
-       			<otherwise>
-       				#{doc_Origin_Nm}, #{doc_File_Nm}, #{doc_Path}
-       			</otherwise>
-       		</choose>
-       		
         )
    	</insert>
    	
@@ -52,6 +51,8 @@
 		UPDATE exhibit_sayeon_artcl 
 		SET title = #{title},
 			content = #{content},
+			writer = #{writer},
+			phone = #{phone},
 			edit_date = #{edit_date},
 			img_Origin_Nm = #{img_Origin_Nm},
 			img_File_Nm = #{img_File_Nm},
@@ -144,4 +145,20 @@
 		WHERE artcl_Seq = #{artcl_Seq}
 	</update>
    
+  <!-- ................................파일 업로드 ................................. -->
+   	<insert id="insertAtchmnfl" parameterType="java.util.List"
+   			useGeneratedKeys="true" keyProperty="atchmnfl_Seq">
+	   		INSERT INTO exhibit_sayeon_atchmnfl 
+	   		(artcl_Seq, writer, reg_date, edit_date, doc_Origin_Nm, doc_File_Nm, doc_Path) 
+        	VALUES 
+        <foreach collection="list" item="item" separator=" , ">
+	        (#{item.artcl_Seq}, #{item.writer}, now(), now(), #{item.doc_Origin_Nm}, #{item.doc_File_Nm}, #{item.doc_Path})
+        </foreach>
+   	</insert>
+   
+   	<select id="selectAtchmnfl" parameterType="com.project.exhibit.sayeon.Sayeon" resultType="hashmap">
+   		SELECT	*
+   		FROM	exhibit_sayeon_atchmnfl
+   		WHERE	artcl_Seq = #{artcl_Seq}
+   	</select>
 </mapper>

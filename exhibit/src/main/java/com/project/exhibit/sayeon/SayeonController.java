@@ -2,7 +2,10 @@ package com.project.exhibit.sayeon;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.project.exhibit.mediaMemorialHall.MediaMemorialHall;
 import com.project.exhibit.util.FileUtil;
 import com.project.exhibit.util.SearchPageVO;
 
@@ -117,62 +119,109 @@ public class SayeonController {
 	@RequestMapping("/regist")
 	public String Regist(
 			@ModelAttribute("sayeon") Sayeon sayeon,
+			@ModelAttribute("atchmnfl") SayeonAtchmnfl atchmnfl,
 			HttpServletRequest request,
-			@RequestParam("img_file_artcl") MultipartFile[] imgUploadFile,
-			@RequestParam("file_artcl") MultipartFile[] uploadFile
+			@RequestParam("img_file_artcl") MultipartFile imgUploadFile,
+			@RequestParam("file_artcl") List<MultipartFile> uploadFile
 			) {
 		System.out.println("사연남기기 등록 /regist");
 		
-		
-		
-		// 파일 저장경로 
-		String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
-		System.out.println("(1) contextRoot => " + contextRoot);
-		contextRoot = contextRoot + SayeonService.img_Path;
-		System.out.println("(2) contextRoot => " + contextRoot);
-		
-		File uploadPath = new File(contextRoot, FileUtil.getFolder());
-		
-		if(uploadPath.exists()==false) { //해당 경로가 없으면 생성
-			uploadPath.mkdirs();			
-		}
-		
-		for( MultipartFile upfile :  imgUploadFile) {
-			System.out.println("");
-			System.out.println("파일명 : " + upfile.getOriginalFilename());
-			System.out.println("파일사이즈 : " + upfile.getSize());
+		String phone = sayeon.getPhone().replaceAll(",", "-");
+		sayeon.setPhone(phone);
+		if( imgUploadFile.getName() != null && imgUploadFile.getSize() > 0) {
+			// 이미지파일 저장경로 
+			String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
+			contextRoot = contextRoot + SayeonService.img_Path;
+			
+			File uploadPath = new File(contextRoot, FileUtil.getFolder());
+			StringBuffer uploadFileName = null;
 			
 			//-----------UUID 파일명 처리 시작 ----------------------------
 			//동일한 이름으로 업로드되면 기존 파일을 지우게 되므로 이를 방지하기 위함
 			UUID uuid = UUID.randomUUID();
 			System.out.println("uuid??? => " + uuid.toString());
 			
-			String uploadFileName = uuid.toString() + "-" + upfile.getOriginalFilename();
+			uploadFileName = new StringBuffer();
+			uploadFileName.append(uuid.toString())
+						  .append("-")
+						  .append(imgUploadFile.getOriginalFilename());
 			
-			File saveFile = new File(uploadPath, uploadFileName);
+			File saveFile = new File(uploadPath, uploadFileName.toString());
 			//-----------UUID 파일명 처리 끝 ---------------------------
-			
-			try {
-				//-------썸네일 처리 시작---------
-				//이미지 파일인지 체킹
-				if(FileUtil.checkImageType(saveFile)) {
-					System.out.println("이미지 파일 = true");
-					upfile.transferTo(saveFile);
-					
-					sayeon.setImg_Path(uploadPath.getPath());
-					sayeon.setImg_Origin_Nm(upfile.getOriginalFilename());
-					sayeon.setImg_File_Nm(uploadFileName);
-				}else {
-					System.out.println("이미지 파일 = false");
+			if( FileUtil.checkImageType(saveFile) ) {
+				if(uploadPath.exists()==false) { //해당 경로가 없으면 생성
+					uploadPath.mkdirs();			
 				}
-				//-------썸네일 처리 끝---------
-			} catch (IllegalStateException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 			
+				System.out.println("이미지 파일 = true");
+				try {
+					imgUploadFile.transferTo(saveFile);
+					// 이 로직은 하나의 파일만 업로드 가능함....
+					sayeon.setImg_Path(uploadPath.getPath());
+					sayeon.setImg_Origin_Nm(imgUploadFile.getOriginalFilename());
+					sayeon.setImg_File_Nm(uploadFileName.toString());
+				} catch (IllegalStateException | IOException e) {
+					System.out.println("이미지 파일 업로드 실패");
+					//e.printStackTrace();
+				}
+			}else {
+				System.out.println("이미지 파일 = false");
+			}		
+					
 		}
 		
 		sayeon_Service.insertSayeon(sayeon);
+
+		// ------------------------------------- 첨부파일 업로드  ------------------------------------------
+		//if( uploadFile != null && uploadFile.size() > 0 && !"".equals(uploadFile.get(0).getName())) {
+		if( !"".equals(uploadFile.get(0).getName()) && uploadFile.get(0).getSize() > 0) {
+			List<SayeonAtchmnfl> atchmnflList = new ArrayList<SayeonAtchmnfl>();
+			String contextRoot = new HttpServletRequestWrapper(request).getRealPath("/");
+			contextRoot = contextRoot + SayeonService.doc_Path;
+			File uploadPath = new File(contextRoot, FileUtil.getFolder());
+			StringBuffer uploadFileName = null;
+			int listIndex = 0;
+			
+			for( MultipartFile upfile :  uploadFile) {
+				System.out.println("");
+				System.out.println("파일명 : " + upfile.getOriginalFilename());
+				System.out.println("파일사이즈 : " + upfile.getSize());
+				
+				//-----------UUID 파일명 처리 시작 ----------------------------
+				//동일한 이름으로 업로드되면 기존 파일을 지우게 되므로 이를 방지하기 위함
+				UUID uuid = UUID.randomUUID();
+				System.out.println("uuid??? => " + uuid.toString());
+				
+				uploadFileName = new StringBuffer();
+				uploadFileName.append(uuid.toString())
+							  .append("-")
+							  .append(upfile.getOriginalFilename());
+				
+				File saveFile = new File(uploadPath, uploadFileName.toString());
+				//-----------UUID 파일명 처리 끝 ---------------------------
+
+				if(uploadPath.exists()==false) { //해당 경로가 없으면 생성
+					uploadPath.mkdirs();			
+				}
+				try {
+					upfile.transferTo(saveFile);
+					atchmnfl = new SayeonAtchmnfl();
+					atchmnfl.setDoc_Path(uploadPath.getPath());
+					atchmnfl.setDoc_Origin_Nm(upfile.getOriginalFilename());
+					atchmnfl.setDoc_File_Nm(uploadFileName.toString());
+					atchmnfl.setArtcl_Seq(sayeon.getArtcl_Seq());
+					atchmnfl.setWriter(sayeon.getWriter());
+					
+				} catch (IllegalStateException | IOException e) {
+					System.out.println("이미지 파일 업로드 실패");
+					//e.printStackTrace();
+				}
+				atchmnflList.add(listIndex, atchmnfl);
+				listIndex++;
+			}
+			
+			sayeon_Service.insertAtchmnfl(atchmnflList);
+		}
+		
 		
 		return "redirect:/sayeon/news4";
 	}
@@ -228,7 +277,12 @@ public class SayeonController {
     		}
 	    }
 	    
-	    	    
+	    List<Map<String, String>> selectAtchmnfl = sayeon_Service.selectAtchmnfl(artclView); 
+	    System.out.println("맵 결과");
+	    System.out.println(selectAtchmnfl.toString());
+	    
+	    model.addAttribute("atchmnfl", selectAtchmnfl);
+	    
 	    artclView.setHit(artclView.getHit()+1); // 조회수 업데이트
 	    System.out.println("조회수 : " + artclView.getHit());
 	    sayeon_Service.hitUp(artclView);

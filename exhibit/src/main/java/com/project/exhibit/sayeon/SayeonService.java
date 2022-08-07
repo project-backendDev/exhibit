@@ -1,6 +1,7 @@
 package com.project.exhibit.sayeon;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -88,5 +89,19 @@ public class SayeonService {
 	public void hitUp(Sayeon artclView) {
 		System.out.println("조회수 업데이트");
 		mapper.hitUp(artclView);
+	}
+	
+	/************************************************************************/
+	
+	// (사용자) 사연남기기 첨부파일 등록
+	public void insertAtchmnfl(List<SayeonAtchmnfl> atchmnfl) {
+		System.out.println("파일 업로드");
+		mapper.insertAtchmnfl(atchmnfl);
+	}
+	
+	// (사용자) 사연남기기 첨부파일 출력
+	public List<Map<String, String>> selectAtchmnfl(Sayeon sayeon){
+		System.out.println("첨부파일 출력");
+		return mapper.selectAtchmnfl(sayeon);
 	}
 }

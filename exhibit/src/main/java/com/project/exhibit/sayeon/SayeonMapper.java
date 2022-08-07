@@ -1,6 +1,7 @@
 package com.project.exhibit.sayeon;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -36,4 +37,11 @@ public interface SayeonMapper {
 	// (사용자) 사연남기기 조회수 업데이트
 	void hitUp(Sayeon Sayeon);
 	
+	/******************************************************************/
+	
+	// (사용자) 사연남기기 첨부파일 등록
+	void insertAtchmnfl(List<SayeonAtchmnfl> atchmnfl);
+	
+	// (사용자) 사연남기기 첨부파일 출력
+	List<Map<String, String>> selectAtchmnfl(Sayeon sayeon);
 }
