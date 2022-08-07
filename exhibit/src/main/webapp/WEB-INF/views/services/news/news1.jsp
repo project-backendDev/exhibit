@@ -119,7 +119,7 @@
 				                                <th style="width: 12%;">조회</th>
 				                            </tr>
 				                            <c:choose>
-		                            			<c:when test="${artclList != null }">
+		                            			<c:when test="${artclList != null && artclList.size() > 0}">
 			                            			<c:forEach items="${artclList }" var="list" >
 			                            			<%-- <fmt:parseDate var="nowDate" value="${now }" pattern="yyyy-MM-dd"/>
 			                            			<fmt:parseDate var="regD" value="${list.reg_date }" pattern="yyyy-MM-dd"/>
@@ -157,7 +157,9 @@
 					                        		</c:forEach>
 					                        	</c:when>
 					                        	<c:otherwise>
-		                            				<h5>게시물이 없습니다.</h5>
+					                        		<tr>
+		                            					<td colspan="4">게시물이 없습니다.</td>
+		                            				</tr>
 		                            			</c:otherwise>
 					                        </c:choose>
 			                        	</tbody>

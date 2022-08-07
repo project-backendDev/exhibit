@@ -158,7 +158,9 @@
 					                        		</c:forEach>
 					                        	</c:when>
 					                        	<c:otherwise>
-		                            				게시물이 없습니다.
+		                            				<tr>
+		                            					<td colspan="4">게시물이 없습니다.</td>
+		                            				</tr>
 		                            			</c:otherwise>
 					                        </c:choose>
 			                        	</tbody>
