@@ -132,6 +132,39 @@ function sayeonRegist() {
 		alert("사연남기기가 완료 되었습니다.");
 	}
 }
+		
+var addCnt = 2; // 첫번째 input file이 1
+
+function link_f_text(value, nm){
+	$(nm).val(value);
+}
+
+function addFile(){
+		
+		var f_nameId = "fileName" + addCnt;
+		var f_artclId = "file_artcl" + addCnt;
+		
+		$("#fileDiv").append("<div class='input_wrap'>"+
+							 "<h5></h5>"+
+							 "<div class='file_wrap'>"+
+							 "<input type='text' id='"+ f_nameId +"' placeholder='선택된 파일이 없습니다.'>"+
+							 "<input type='file' id='"+ f_artclId +"' name='file_artcl' multiple onchange='link_f_text(this.value,"+f_nameId+")'>"+
+							 "<label for='"+ f_artclId +"'>파일선택</label></div></div>");
+			
+		addCnt++;
+}
+<%--
+<div class="input_wrap">
+<h5></h5>
+<div class="file_wrap">
+    <input type="text" id="fileName2" placeholder="선택된 파일이 없습니다.">
+    <input type="file" id="file_artcl2" name="file_artcl" multiple onchange="javascript: document.getElementById('fileName2').value = this.value">
+    <label for="file_artcl2">
+        파일선택
+    </label>
+</div>
+</div>
+--%>
 </script>
 </head>
 <body class="Pretendard" style="background: #F9F9F9;">
@@ -224,33 +257,39 @@ function sayeonRegist() {
                                     </div>
                                 </div>
                             </div>
-                            <div class="form_con file last">
+                            <div class="form_con file last" id="fileDiv">
                                 <div class="input_wrap">
                                     <h5>첨부파일<%--<span>*</span> --%></h5>
                                     <div class="file_wrap">
-                                        <input type="text" id="fileName2" placeholder="선택된 파일이 없습니다.">
-                                        <input type="file" id="file_artcl1" name="file_artcl" multiple onchange="javascript: document.getElementById('fileName2').value = this.value">
+                                        <input type="text" id="fileName1" placeholder="선택된 파일이 없습니다.">
+                                        <input type="file" id="file_artcl1" name="file_artcl" multiple onchange="javascript: document.getElementById('fileName1').value = this.value">
                                         <label for="file_artcl1">
                                             파일선택
                                         </label>
                                     </div>
+                                    <div style="padding: 10px;">
+                                    	<input type="button" value="파일추가" onclick="addFile()">
+                                    </div>
                                 </div>
-                                <div class="input_wrap">
+                                <%--<div class="input_wrap">
                                 	<h5></h5>
                                     <div class="file_wrap">
-                                        <input type="text" id="fileName3" placeholder="선택된 파일이 없습니다.">
-                                        <input type="file" id="file_artcl2" name="file_artcl" multiple onchange="javascript: document.getElementById('fileName3').value = this.value">
+                                        <input type="text" id="fileName2" placeholder="선택된 파일이 없습니다.">
+                                        <input type="file" id="file_artcl2" name="file_artcl" multiple onchange="javascript: document.getElementById('fileName2').value = this.value">
                                         <label for="file_artcl2">
                                             파일선택
                                         </label>
                                     </div>
-                                </div>
+                                </div> --%>
                             </div>
                             
                             <div class="apply_btn bordernone ">
                                 <a href=javascript:sayeonRegist();>
                                     저장
                                 </a>
+                                <a id="list_btn" href="${pageContext.request.contextPath }/sayeon/news4">
+	                                목록으로
+	                            </a>
                             </div>
                         </div> 
                     </form>

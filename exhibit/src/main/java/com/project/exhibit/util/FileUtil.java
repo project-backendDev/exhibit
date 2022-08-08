@@ -1,10 +1,19 @@
 package com.project.exhibit.util;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.util.FileCopyUtils;
 
 
 public class FileUtil {
@@ -32,35 +41,71 @@ public class FileUtil {
 		return false;
 	}
 	
-	// 이미지 파일 저장
-	/**
-	 * @param contextRoot
-	 * @param file
-	 * @param 
-	 */
-	/*
-	 * public static void fileUpload(String contextRoot, List<MultipartFile> file) {
-	 * 
-	 * File uploadPath = new File(contextRoot, getFolder()); StringBuffer
-	 * uploadFileName = null;
-	 * 
-	 * for( MultipartFile upfile : file ) { //-----------UUID 파일명 처리 시작
-	 * ---------------------------- //동일한 이름으로 업로드되면 기존 파일을 지우게 되므로 이를 방지하기 위함 UUID
-	 * uuid = UUID.randomUUID(); System.out.println("uuid??? => " +
-	 * uuid.toString());
-	 * 
-	 * uploadFileName = new StringBuffer(); uploadFileName.append(uuid.toString())
-	 * .append("-") .append(upfile.getOriginalFilename());
-	 * 
-	 * File saveFile = new File(uploadPath, uploadFileName.toString());
-	 * //-----------UUID 파일명 처리 끝 --------------------------- if(
-	 * checkImageType(saveFile) ) { if(uploadPath.exists()==false) { //해당 경로가 없으면 생성
-	 * uploadPath.mkdirs(); } System.out.println("이미지 파일 = true"); try {
-	 * upfile.transferTo(saveFile); } catch (IllegalStateException | IOException e)
-	 * { System.out.println("이미지 파일 업로드 실패"); //e.printStackTrace(); } }else {
-	 * System.out.println("이미지 파일 = false"); } }
-	 * 
-	 * }
-	 */
+	// 파일 다운로드
+	public void filDown(HttpServletRequest 	request,
+						HttpServletResponse response, 
+						String 				doc_Path, 
+						String				doc_Origin_Nm,
+						String 				doc_File_Nm
+						) throws IOException {
+		 
+		File file = new File( doc_Path + doc_Origin_Nm);
+		System.out.println("root = " + doc_Path + doc_Origin_Nm);
+		if (file.exists() && file.isFile()) {
+			response.setContentType("application/octet-stream; charset=utf-8");
+			response.setContentLength((int) file.length());
+			String browser = getBrowser(request);
+			String disposition = getDisposition(doc_File_Nm, browser);
+			response.setHeader("Content-Disposition", disposition);
+			response.setHeader("Content-Transfer-Encoding", "binary");
+			OutputStream out = response.getOutputStream();
+			FileInputStream fis = null;
+			fis = new FileInputStream(file);
+			FileCopyUtils.copy(fis, out);
+			if (fis != null)
+				fis.close();
+			out.flush();
+			out.close();
+		}
+	}
+
+	private String getBrowser(HttpServletRequest request) {
+		String header = request.getHeader("User-Agent");
+		if (header.indexOf("MSIE") > -1 || header.indexOf("Trident") > -1)
+			return "MSIE";
+		else if (header.indexOf("Chrome") > -1)
+			return "Chrome";
+		else if (header.indexOf("Opera") > -1)
+			return "Opera";
+		return "Firefox";
+	}
+
+	private String getDisposition(String filename, String browser)
+			throws UnsupportedEncodingException {
+		String dispositionPrefix = "attachment;filename=";
+		String encodedFilename = null;
+		if (browser.equals("MSIE")) {
+			encodedFilename = URLEncoder.encode(filename, "UTF-8").replaceAll(
+					"\\+", "%20");
+		} else if (browser.equals("Firefox")) {
+			encodedFilename = "\""
+					+ new String(filename.getBytes("UTF-8"), "8859_1") + "\"";
+		} else if (browser.equals("Opera")) {
+			encodedFilename = "\""
+					+ new String(filename.getBytes("UTF-8"), "8859_1") + "\"";
+		} else if (browser.equals("Chrome")) {
+			StringBuffer sb = new StringBuffer();
+			for (int i = 0; i < filename.length(); i++) {
+				char c = filename.charAt(i);
+				if (c > '~') {
+					sb.append(URLEncoder.encode("" + c, "UTF-8"));
+				} else {
+					sb.append(c);
+				}
+			}
+			encodedFilename = sb.toString();
+		}
+		return dispositionPrefix + encodedFilename;
+	}
 	
 }

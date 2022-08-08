@@ -3,13 +3,14 @@ package com.project.exhibit.sayeon;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -293,5 +294,28 @@ public class SayeonController {
 		ModelAndView mav = new ModelAndView("services/news/news4_detail");
 		
 		return mav;
+	}
+	
+	// 파일 다운로드
+	@RequestMapping("/fileDownload")
+	public  void fileDownload(
+			  @ModelAttribute("atchmnfl") SayeonAtchmnfl atchmnfl
+			, HttpSession session
+			, HttpServletRequest req
+			, HttpServletResponse res
+			, ModelAndView mav) throws Throwable {
+		
+		System.out.println("다운로드로직");
+		System.out.println(atchmnfl.getAtchmnfl_Seq());
+		System.out.println(atchmnfl.getDoc_Path());
+		System.out.println(atchmnfl.getDoc_File_Nm());
+		System.out.println(atchmnfl.getDoc_Origin_Nm());
+		
+		try {
+			FileUtil fileDown = new FileUtil(); //파일다운로드 객체생성
+			fileDown.filDown(req, res, "파일경로입력" + "/" , "파일이름이력", "다운받았을때출력되는파일이름입력"); //파일다운로드 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
