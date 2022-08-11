@@ -166,7 +166,7 @@
                               		<c:choose>
                               			<c:when test="${atchmnfl != null }">
                               				<c:forEach items="${atchmnfl }" var="list">
-			                                <a href="${pageContext.request.contextPath }/sayeon/fileDownload?doc_Path=${list.DOC_PATH}" download="">
+			                                <a href="${pageContext.request.contextPath }/sayeon/fileDownload?atchmnfl_Seq=${list.ATCHMNFL_SEQ}" download="">
 			                                    <h6><c:out value="${list.DOC_ORIGIN_NM }"></c:out><img src="${pageContext.request.contextPath }/assets/images/i_download.png" alt=""></h6>
 			                                </a>
 		                                </c:forEach>

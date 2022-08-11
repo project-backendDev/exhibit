@@ -156,9 +156,17 @@
         </foreach>
    	</insert>
    
+   <!-- 상세보기 첨부파일 -->
    	<select id="selectAtchmnfl" parameterType="com.project.exhibit.sayeon.Sayeon" resultType="hashmap">
    		SELECT	*
    		FROM	exhibit_sayeon_atchmnfl
    		WHERE	artcl_Seq = #{artcl_Seq}
+   	</select>
+   	
+   	<!-- 첨부파일 다운로드 -->
+   	<select id="downloadAtchmnfl" parameterType="com.project.exhibit.sayeon.SayeonAtchmnfl" resultType="com.project.exhibit.sayeon.SayeonAtchmnfl">
+   		SELECT	*
+   		FROM	exhibit_sayeon_atchmnfl
+   		WHERE	atchmnfl_Seq = #{atchmnfl_Seq}
    	</select>
 </mapper>

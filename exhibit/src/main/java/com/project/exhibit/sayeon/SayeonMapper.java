@@ -39,9 +39,12 @@ public interface SayeonMapper {
 	
 	/******************************************************************/
 	
-	// (사용자) 사연남기기 첨부파일 등록
+	// (관리자, 사용자) 사연남기기 첨부파일 등록
 	void insertAtchmnfl(List<SayeonAtchmnfl> atchmnfl);
 	
-	// (사용자) 사연남기기 첨부파일 출력
+	// (관리자, 사용자) 사연남기기 첨부파일 출력
 	List<Map<String, String>> selectAtchmnfl(Sayeon sayeon);
+	
+	// (관리자, 사용자) 사연남기기 첨부파일 다운로드
+	SayeonAtchmnfl downloadAtchmnfl(SayeonAtchmnfl atchmnfl);
 }

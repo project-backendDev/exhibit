@@ -104,4 +104,9 @@ public class SayeonService {
 		System.out.println("첨부파일 출력");
 		return mapper.selectAtchmnfl(sayeon);
 	}
+	
+	// (관리자, 사용자) 사연남기기 첨부파일 다운로드
+	public SayeonAtchmnfl downloadAtchmnfl(SayeonAtchmnfl atchmnfl) {
+		return mapper.downloadAtchmnfl(atchmnfl);
+	}
 }

@@ -307,13 +307,17 @@ public class SayeonController {
 		
 		System.out.println("다운로드로직");
 		System.out.println(atchmnfl.getAtchmnfl_Seq());
-		System.out.println(atchmnfl.getDoc_Path());
-		System.out.println(atchmnfl.getDoc_File_Nm());
-		System.out.println(atchmnfl.getDoc_Origin_Nm());
 		
+		atchmnfl = sayeon_Service.downloadAtchmnfl(atchmnfl);
+		atchmnfl.setDoc_Path(atchmnfl.getDoc_Path().replace("\\", "/"));
+		System.out.println("파일 경로 : " + atchmnfl.getDoc_Path());
+		System.out.println("파일 이름 : " + atchmnfl.getDoc_File_Nm());
+		System.out.println("파일 찐이름 : " + atchmnfl.getDoc_Origin_Nm());
 		try {
 			FileUtil fileDown = new FileUtil(); //파일다운로드 객체생성
-			fileDown.filDown(req, res, "파일경로입력" + "/" , "파일이름이력", "다운받았을때출력되는파일이름입력"); //파일다운로드 
+			//fileDown.filDown(req, res, "파일경로입력" + "/" , "파일이름이력", "다운받았을때출력되는파일이름입력"); //파일다운로드 
+			
+			fileDown.filDown(req, res, atchmnfl.getDoc_Path() + "/" , atchmnfl.getDoc_File_Nm(), atchmnfl.getDoc_Origin_Nm());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
