@@ -45,6 +45,36 @@
   		max-width: 400px;
   		max-height: 500px;
   	}
+  	
+  	.filebox .upload-name {
+	  	display: inline-block;
+	    height: 40px;
+	    padding: 0 10px;
+	    vertical-align: middle;
+	    border: 1px solid #dddddd;
+	    width: 25%;
+	    color: #999999;
+  	}
+  	
+  	.filebox label {
+	    display: inline-block;
+	    padding: 10px 20px;
+	    color: #fff;
+	    vertical-align: middle;
+	    background-color: #999999;
+	    cursor: pointer;
+	    height: 40px;
+	    margin-left: 10px;
+	}
+	
+	.filebox input[type="file"] {
+	    position: absolute;
+	    width: 0;
+	    height: 0;
+	    padding: 0;
+	    overflow: hidden;
+	    border: 0;
+	}
   </style>
   <script type="text/javascript">
   	var sel_files = [];
@@ -127,6 +157,7 @@
   			$(".imgForm").submit();
   		}
   	}
+  	
   </script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -170,7 +201,9 @@
 								<div style="width: 1140px;">
 									<form name="dataForm" id="dataForm" style="width: 1630px;">
 										<p><b> 이미지 업로드 </b>
-										<div>
+										<div class="filebox">
+											<input class="upload-name" value="첨부파일" placeholder="첨부파일" />
+											<label for="input_img"> 파일찾기 </label>
 											<input type="file" id="input_img" name="artcl_file" multiple />
 										</div>
 										
