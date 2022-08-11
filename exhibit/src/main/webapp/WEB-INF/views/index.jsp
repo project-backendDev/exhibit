@@ -112,7 +112,7 @@
 								</h3>
 								<h4>
 									병원이 단순히 질병을 치료하는 곳이 아닌 환자의 가정에 행복과 평안, 웃음을 주는 곳이어야 한다.<br/> 
-									병실에 누워있는 환자를 진료할 때면<br class="mo_only"/> 몸으로 직접 안아서 일으켰다. <br/>
+<!-- 									병실에 누워있는 환자를 진료할 때면<br class="mo_only"/> 몸으로 직접 안아서 일으켰다. <br/> -->
 									위로하는 뜻에서, 그리고 친밀감을주기 위해 시작한 일이다. <br/>
 									그러나 ‘안아 일으키기’가 너무도 정확한 진찰이라는 사실을 깨달았다. <br/>
 									‘환자가 아프면 나도 따라 아팠고, 환자가 슬프면 나도 같이 슬펐으며, <br class="pc_only"/>
@@ -563,17 +563,17 @@
 					<ul class="sns">
 						<li>
 							<a href="https://www.youtube.com/channel/UCO0FZPU4bLODaTN59eT2AzA" target="_blank">
-								<img src="${pageContext.request.contextPath }/assets/images/sns1.png" alt="">
+								<img src="${pageContext.request.contextPath }/assets/images/sns1.png" alt="유튜브">
 							</a>
 						</li>
 						<li>
 							<a href="https://www.facebook.com/gachon1958" target="_blank">
-								<img src="${pageContext.request.contextPath }/assets/images/sns2.png" alt="">
+								<img src="${pageContext.request.contextPath }/assets/images/sns2.png" alt="페이스북">
 							</a>
 						</li>
 						<li>
-							<a href="#">
-								<img src="${pageContext.request.contextPath }/assets/images/sns3.png" alt="">
+							<a href="https://www.instagram.com/gachon1958" target="_blank">
+								<img src="${pageContext.request.contextPath }/assets/images/sns3.png" alt="인스타그램">
 							</a>
 						</li>
 						<li>

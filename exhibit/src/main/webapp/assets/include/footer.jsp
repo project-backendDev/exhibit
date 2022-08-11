@@ -15,22 +15,34 @@
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
 							<div class="slide_img">
-								<img src="${pageContext.request.contextPath }/assets/images/footer_img1.png" alt="">
+								<a href="http://gachon.or.kr/" target="_blank">
+									<!-- 가천문화재단 -->
+									<img src="${pageContext.request.contextPath }/assets/images/footer_img1.png" alt="">
+								</a>
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<div class="slide_img">
-								<img src="${pageContext.request.contextPath }/assets/images/footer_img2.png" alt="">
+								<a href="https://www.gilhospital.com/" target="_blank">
+									<!-- 가천대길병원 -->
+									<img src="${pageContext.request.contextPath }/assets/images/footer_img2.png" alt="">
+								</a>
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<div class="slide_img">
-								<img src="${pageContext.request.contextPath }/assets/images/footer_img3.png" alt="">
+								<a href="http://www.gachon1958.com/" target="_blank">
+									<!-- 이길여 산부인과 기념관 -->
+									<img src="${pageContext.request.contextPath }/assets/images/footer_img3.png" alt="">
+								</a>
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<div class="slide_img">
-								<img src="${pageContext.request.contextPath }/assets/images/footer_img4.png" alt="">
+								<a href="http://www.gcmuseum.org/" target="_blank">
+									<!-- 가천박물관 -->
+									<img src="${pageContext.request.contextPath }/assets/images/footer_img4.png" alt="">
+								</a>
 							</div>
 						</div>
 					</div>
@@ -59,7 +71,15 @@
 				<div class="right">
 					<select name="" id="" class="map">
 						<option value="">FAMILY SITE</option>
-						<option value="http://www.naver.com">네이버</option>
+						<option value="http://www.gachon.org">가천길재단</option>
+						<option value=" http://www.gachon.or.kr">가천문화재단</option>
+						<option value="http://www.gcmuseum.org">가천박물관</option>
+						<option value="https://www.gilhospital.com/web/www/home">가천대길병원</option>
+						<option value="https://www.gachon.ac.kr/">가천대학교</option>
+						<option value="http://shinmyung.icehs.kr/main.do">신명여자고등학교</option>
+						<option value="https://www.gilhospital.com/web/findlife">새생명찾아주기운동본부</option>
+						<option value="https://cafe.daum.net/michuhall">가천미추홀청소년봉사단</option>
+						<option value="http://www.kyeongin.com/main/index.php">경인일보</option>
 					</select>
 				</div>
 			</div>
