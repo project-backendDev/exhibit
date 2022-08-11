@@ -45,7 +45,7 @@ public class ImageSlideController {
 		try {
 			// 파일이 있을때
 			if (multipartFile.size() > 0 && !multipartFile.get(0).getOriginalFilename().equals("")) {
-				img_Service.deleteImageSlide();
+//				img_Service.deleteImageSlide();
 				
 				ImageSlide imgSlide = new ImageSlide();
 				fileRoot = contextRoot + "img/upload/";
