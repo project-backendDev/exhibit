@@ -85,66 +85,92 @@
 	<div id="contents">
 		<div class="section" id="section0">
 			<!-- Swiper -->
-			<div class="swiper visu_slide">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide " style="background: url(${pageContext.request.contextPath }/assets/images/main1.png) no-repeat center center; background-size: cover;">
-						<div class="wrap">
-							<!-- <div class="shadow"></div> -->
-							<div class="slide_txt">
-								<h3>
-									보증금 없는 병원
-								</h3>
-								<h4>
-									그 시절, 병원 문턱은 너무 높았다. <br class="mo_only"/>미리 보증금을 내지 않으면 진료도 입원도 받아주지 않았다.<br/>
-									그래서 생각했다. ‘돈이 없어 병을 고치지 못하고, 안타깝게 희생당하는 일은 없어야 한다.<br/>
-									누구든 병원에 와서 치료받고 수술하고 입원할 수 있어야 한다.<br/>
-									돈보다 목숨 아닌가?’ 간판으로 써 붙인 ‘보증금 없는 병원’ 은 그렇게 탄생했다.<br/>
-								</h4>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide " style="background: url(${pageContext.request.contextPath }/assets/images/main2.jpg) no-repeat center center; background-size: cover;">
-						<div class="wrap">
-							<!-- <div class="shadow"></div> -->
-							<div class="slide_txt">
-								<h3>
-									환자와 함께 울고 웃다
-								</h3>
-								<h4>
-									병원이 단순히 질병을 치료하는 곳이 아닌 환자의 가정에 행복과 평안, 웃음을 주는 곳이어야 한다.<br/> 
-<!-- 									병실에 누워있는 환자를 진료할 때면<br class="mo_only"/> 몸으로 직접 안아서 일으켰다. <br/> -->
-									위로하는 뜻에서, 그리고 친밀감을주기 위해 시작한 일이다. <br/>
-									그러나 ‘안아 일으키기’가 너무도 정확한 진찰이라는 사실을 깨달았다. <br/>
-									‘환자가 아프면 나도 따라 아팠고, 환자가 슬프면 나도 같이 슬펐으며, <br class="pc_only"/>
-									환자가 기쁘면 나도 덩달아 기뻤다. <br/>
-									나에게 병원은 이렇듯 환자들과 희로애락을 함께 나누는 소(小)우주였다’									
-								</h4>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide " style="background: url(${pageContext.request.contextPath }/assets/images/main3.jpg) no-repeat center 80%; background-size: cover;">
-						<div class="wrap">
-							<!-- <div class="shadow"></div> -->
-							<div class="slide_txt">
-								<h3>
-									미역국에 담긴 ‘고객감동’의 정신
-								</h3>
-								<h4>
-									병원에서는 언제나 한 솥 가득<br class="mo_only"/> 미역국이 부글부글 끓고 있었다. <br/>
-									이길여 산부인과의 미역국은 그 맛을<br class="mo_only"/> 모르는 사람이 없을 정도로 유명했다. <br/>
-									퇴원 후에도 그 맛을 잊지 못해 냄비를 들고 찾아오는 사람들조차 있었다.<br/>
-									환자도 가족들도 그 추억의 맛을 잊지 못한다. <br/>
-									돌이켜보면 특별할 것 없는<br class="mo_only"/> 지극히 평범한 미역국일 뿐이었다.<br/>
-									무엇이 그 보통 미역국을 사람들을 감동시킨 명물로 소문나게 한 것일까?<br/>
-									한결같이 환자만을 생각하며 정성을 다한<br class="mo_only"/> 마음으로 미역국을 끊여냈기 때문일 것이다.
+			
+			<c:choose>
+				<c:when test="${imgList != null && imgList.size() > 0 }">
+					<div class="swiper visu_slide">
+						<div class="swiper-wrapper">
+							<c:forEach var="img" items="${imgList }">
+								<div class="swiper-slide" style="background: url(${img.url}) no-repeat center center; background-size: cover;">
+								
+								
+									<!-- 여기에 슬라이드별 텍스트 들어갈수있게 짜야됨 ㅠ -->
 									
-								</h4>
+									
+								</div>
+							</c:forEach>
+						</div>
+						<div class="swiper-pagination swiper-pagination1"></div>
+					</div>					
+				</c:when>
+				
+				<c:otherwise>
+					<div class="swiper visu_slide">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide " style="background: url(${pageContext.request.contextPath }/assets/images/main1.png) no-repeat center center; background-size: cover;">
+								<div class="wrap">
+									<!-- <div class="shadow"></div> -->
+									<div class="slide_txt">
+										<h3>
+											보증금 없는 병원
+										</h3>
+										<h4>
+											그 시절, 병원 문턱은 너무 높았다. <br class="mo_only"/>미리 보증금을 내지 않으면 진료도 입원도 받아주지 않았다.<br/>
+											그래서 생각했다. ‘돈이 없어 병을 고치지 못하고, 안타깝게 희생당하는 일은 없어야 한다.<br/>
+											누구든 병원에 와서 치료받고 수술하고 입원할 수 있어야 한다.<br/>
+											돈보다 목숨 아닌가?’ 간판으로 써 붙인 ‘보증금 없는 병원’ 은 그렇게 탄생했다.<br/>
+										</h4>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide " style="background: url(${pageContext.request.contextPath }/assets/images/main2.jpg) no-repeat center center; background-size: cover;">
+								<div class="wrap">
+									<!-- <div class="shadow"></div> -->
+									<div class="slide_txt">
+										<h3>
+											환자와 함께 울고 웃다
+										</h3>
+										<h4>
+											병원이 단순히 질병을 치료하는 곳이 아닌 환자의 가정에 행복과 평안, 웃음을 주는 곳이어야 한다.<br/> 
+		<!-- 									병실에 누워있는 환자를 진료할 때면<br class="mo_only"/> 몸으로 직접 안아서 일으켰다. <br/> -->
+											위로하는 뜻에서, 그리고 친밀감을주기 위해 시작한 일이다. <br/>
+											그러나 ‘안아 일으키기’가 너무도 정확한 진찰이라는 사실을 깨달았다. <br/>
+											‘환자가 아프면 나도 따라 아팠고, 환자가 슬프면 나도 같이 슬펐으며, <br class="pc_only"/>
+											환자가 기쁘면 나도 덩달아 기뻤다. <br/>
+											나에게 병원은 이렇듯 환자들과 희로애락을 함께 나누는 소(小)우주였다’									
+										</h4>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide " style="background: url(${pageContext.request.contextPath }/assets/images/main3.jpg) no-repeat center 80%; background-size: cover;">
+								<div class="wrap">
+									<!-- <div class="shadow"></div> -->
+									<div class="slide_txt">
+										<h3>
+											미역국에 담긴 ‘고객감동’의 정신
+										</h3>
+										<h4>
+											병원에서는 언제나 한 솥 가득<br class="mo_only"/> 미역국이 부글부글 끓고 있었다. <br/>
+											이길여 산부인과의 미역국은 그 맛을<br class="mo_only"/> 모르는 사람이 없을 정도로 유명했다. <br/>
+											퇴원 후에도 그 맛을 잊지 못해 냄비를 들고 찾아오는 사람들조차 있었다.<br/>
+											환자도 가족들도 그 추억의 맛을 잊지 못한다. <br/>
+											돌이켜보면 특별할 것 없는<br class="mo_only"/> 지극히 평범한 미역국일 뿐이었다.<br/>
+											무엇이 그 보통 미역국을 사람들을 감동시킨 명물로 소문나게 한 것일까?<br/>
+											한결같이 환자만을 생각하며 정성을 다한<br class="mo_only"/> 마음으로 미역국을 끊여냈기 때문일 것이다.
+											
+										</h4>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="swiper-pagination swiper-pagination1"></div>
-			</div> 
+						<div class="swiper-pagination swiper-pagination1"></div>
+					</div> 
+				</c:otherwise>
+			</c:choose>
+			
+			
+			
+			
 			<div class="sec_bottom">
 				<div class="wrap">
 					<ul>
