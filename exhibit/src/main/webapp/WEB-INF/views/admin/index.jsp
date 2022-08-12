@@ -219,6 +219,9 @@
 							<div class="card" style=>
 								<h2 style="padding: 15px 0px 15px 20px;">
 									<span>현재 등록 중인 이미지</span>
+									<span> 
+										<b>※ 이미지 클릭 시 이미지 삭제가 가능합니다</b>
+									</span>
 								</h2>
 								<hr />
 								<div class="img_container" style="width: 1630px;">

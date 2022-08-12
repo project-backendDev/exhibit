@@ -21,6 +21,10 @@ public class Index {
 		System.out.println("Controller index");
 		ModelAndView mav = new ModelAndView("/index");
 		
+		ArrayList<ImageSlide> imgList = (ArrayList<ImageSlide>) img_Service.selectImageSlideList();
+		
+		mav.addObject("imgList", imgList);
+		
 		return mav;
 	}
 	
@@ -36,6 +40,9 @@ public class Index {
 		
 		return mav;
 	}
+	
+	
+	
 	
  
 }
