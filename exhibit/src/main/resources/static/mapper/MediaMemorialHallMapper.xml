@@ -21,7 +21,7 @@
 	<!-- 언론에 비친 기념관 등록 -->
 	<insert id="insertMediaMemorialHall" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall"
 			useGeneratedKeys="true" keyProperty="artcl_Seq">
-		INSERT INTO exhibit_media_memorial_hall_artcl (
+		INSERT INTO EXHIBIT_MEDIA_MEMORIAL_HALL_ARTCL (
         	title, content, writer, reg_date, edit_date, hit, img_Origin_Nm, img_File_Nm, img_Path
         ) VALUES (#{title}, #{content}, #{writer}, now(), now(), 0,
        		<choose>
@@ -38,7 +38,7 @@
 	
 	<!-- 언론에 비친 기념관 수정 -->
 	<update id="updateMediaMemorialHall" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
-		UPDATE exhibit_media_memorial_hall_artcl 
+		UPDATE EXHIBIT_MEDIA_MEMORIAL_HALL_ARTCL 
 		SET title = #{title},
 			content = #{content},
 			edit_date = #{edit_date},
@@ -50,12 +50,12 @@
 	
 	<!-- 언론에 비친 기념관 삭제 -->
 	<delete id="deleteMediaMemorialHall" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
-		DELETE FROM exhibit_media_memorial_hall_artcl WHERE artcl_Seq = #{artcl_Seq}
+		DELETE FROM EXHIBIT_MEDIA_MEMORIAL_HALL_ARTCL WHERE artcl_Seq = #{artcl_Seq}
 	</delete>
 	
 	<!-- 언론에 비친 기념관 리스트 출력 -->
 	<select id="selectMediaMemorialHall" parameterType="com.project.exhibit.util.SearchPageVO" resultType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall" >
-		select * from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from exhibit_media_Memorial_Hall_artcl
+		select * from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from EXHIBIT_MEDIA_MEMORIAL_HALL_ARTCL
 		<if test="searchType != null">
 	      <where>
 	         <choose>
@@ -77,7 +77,7 @@
 	
 	<!-- 언론에 비친 기념관 리스트 카운트 출력 -->
 	<select id="selectMediaMemorialHallCount" parameterType="com.project.exhibit.util.SearchPageVO" resultType="int" >
-		select count(*) from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from exhibit_media_Memorial_Hall_artcl
+		select count(*) from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from EXHIBIT_MEDIA_MEMORIAL_HALL_ARTCL
 		<if test="searchType != null">
 	      <where>
 	         <choose>
@@ -93,17 +93,17 @@
 	<!-- 언론에 비친 기념관 상세글 출력 -->
 	<select id="selectMediaMemorialHallView" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall" resultType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
 		SELECT * 
-		FROM   exhibit_media_Memorial_Hall_artcl 
+		FROM   EXHIBIT_MEDIA_MEMORIAL_HALL_ARTCL
 		WHERE  artcl_Seq = #{artcl_Seq}
 	</select>
 	
 	<!-- 언론에 비친 기념관 상세글 출력시 이전 글 가져오기 -->
 	<select id="selectMMH_Preview" parameterType="int" resultType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
 		SELECT artcl_Seq, title
-		FROM   exhibit_media_Memorial_Hall_artcl
+		FROM   EXHIBIT_MEDIA_MEMORIAL_HALL_ARTCL
 		<where>
 			artcl_Seq=( SELECT max(artcl_Seq)
-						FROM   exhibit_media_Memorial_Hall_artcl
+						FROM   EXHIBIT_MEDIA_MEMORIAL_HALL_ARTCL
 						<where>
 							artcl_Seq &lt; #{artcl_Seq}
 						</where>
@@ -114,10 +114,10 @@
 	<!-- 언론에 비친 기념관 상세글 출력시 다음 글 가져오기 -->
 	<select id="selectMMH_Nextview" parameterType="int" resultType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
 		SELECT artcl_Seq, title
-		FROM   exhibit_media_Memorial_Hall_artcl
+		FROM   EXHIBIT_MEDIA_MEMORIAL_HALL_ARTCL
 		<where>
 			artcl_Seq=( SELECT min(artcl_Seq)
-						FROM   exhibit_media_Memorial_Hall_artcl
+						FROM   EXHIBIT_MEDIA_MEMORIAL_HALL_ARTCL
 						<where>
 							artcl_Seq &gt; #{artcl_Seq}
 						</where>
@@ -128,7 +128,7 @@
 	
 	<!-- 조회수 업데이트 -->
 	<update id="hitUpMMH" parameterType="com.project.exhibit.mediaMemorialHall.MediaMemorialHall">
-		UPDATE exhibit_media_memorial_hall_artcl 
+		UPDATE EXHIBIT_MEDIA_MEMORIAL_HALL_ARTCL
 		SET hit = #{hit}
 		WHERE artcl_Seq = #{artcl_Seq}
 	</update>
