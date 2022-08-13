@@ -7,6 +7,8 @@
 <mapper namespace="com.project.exhibit.newsletter.NewsLetterMapper">
 	<resultMap type="com.project.exhibit.newsletter.NewsLetter" id="NewsLetter">
 		<result property="artcl_Seq"       	column="artcl_Seq"/>
+		<result property="category_Seq"     column="category_Seq"/>
+		<result property="category"     	column="category"/>
 		<result property="title"       		column="title"/>
 		<result property="content"       	column="content"/>
 		<result property="writer"       	column="writer"/>
@@ -17,13 +19,39 @@
 		<result property="img_File_Nm"      column="img_File_Nm"/>
 		<result property="img_Path"       	column="img_Path"/>
 	</resultMap>
+	<resultMap type="com.project.exhibit.newsletter.NewsLetterAtchmnfl" id="NewsLetterAtchmnfl">
+   		<result property="atchmnfl_Seq"     column="atchmnfl_Seq"/>
+   		<result property="artcl_Seq"       	column="artcl_Seq"/>
+		<result property="writer"       	column="writer"/>
+		<result property="reg_date"       	column="reg_date"/>
+		<result property="edit_date"       	column="edit_date"/>
+		<result property="doc_Origin_Nm"    column="doc_Origin_Nm"/>
+		<result property="doc_File_Nm"      column="doc_File_Nm"/>
+		<result property="doc_Path"       	column="doc_Path"/>
+   </resultMap>
+   <resultMap type="com.project.exhibit.newsletter.NewsLetterCategory" id="NewsLetterCategory">
+   		<result property="category_Seq"     column="category_Seq"/>
+   		<result property="category"       	column="category"/>
+		<result property="position"       	column="position"/>
+		<result property="reg_date"       	column="reg_date"/>
+		<result property="edit_date"       	column="edit_date"/>
+   </resultMap>
 	
 	<!-- 뉴스레터 등록 -->
    	<insert id="insertNewsLetter" parameterType="com.project.exhibit.newsletter.NewsLetter"
    			useGeneratedKeys="true" keyProperty="artcl_Seq">
-        INSERT INTO exhibit_newsletter_artcl (
-        	title, content, writer, reg_date, edit_date, hit, img_Origin_Nm, img_File_Nm, img_Path
-        ) VALUES (#{title}, #{content}, #{writer}, now(), now(), 0,
+        INSERT INTO EXHIBIT_NEWSLETTER_ARTCL (
+        	category_Seq, category, title, content, writer, reg_date, edit_date, hit, img_Origin_Nm, img_File_Nm, img_Path
+        ) VALUES (
+        	<choose>
+        		<when test="category_Seq == null or category == null">
+        			null, null
+        		</when>
+        		<otherwise>
+        			#{category_Seq}, #{category}
+        		</otherwise>
+        	</choose>
+        	#{title}, #{content}, #{writer}, now(), now(), 0,
        		<choose>
        			<when test="img_Origin_Nm == null or img_Origin_Nm == ''">
        				null, null, null
@@ -38,8 +66,10 @@
    	
    	<!--뉴스레터 수정 -->
    	<update id="updateNewsLetter" parameterType="com.project.exhibit.newsletter.NewsLetter">
-		UPDATE exhibit_newsletter_artcl 
-		SET title = #{title},
+		UPDATE EXHIBIT_NEWSLETTER_ARTCL 
+		SET category_Seq = #{category_Seq},
+			category = #{category},
+			title = #{title},
 			content = #{content},
 			edit_date = #{edit_date},
 			img_Origin_Nm = #{img_Origin_Nm},
@@ -50,14 +80,17 @@
    	
    	<!-- 뉴스레터 삭제 -->
 	<delete id="deleteNewsLetter" parameterType="com.project.exhibit.newsletter.NewsLetter">
-		DELETE FROM exhibit_newsletter_artcl WHERE artcl_Seq = #{artcl_Seq}
+		DELETE FROM EXHIBIT_NEWSLETTER_ARTCL WHERE artcl_Seq = #{artcl_Seq}
 	</delete>
    	
    	<!-- 뉴스레터 리스트 출력 -->
 	<select id="selectNewsLetter" parameterType="com.project.exhibit.util.SearchPageVO" resultType="com.project.exhibit.newsletter.NewsLetter" >
-		select * from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from exhibit_newsletter_artcl
+		select * from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from EXHIBIT_NEWSLETTER_ARTCL
 		<if test="searchType != null">
 	      <where>
+	      	 <choose>
+	      	 	<when test="category != null and category_Seq != null">category = #{category}</when>
+	      	 </choose>
 	         <choose>
 	         	<when test="searchType == 3"> writer like CONCAT('%',#{searchValue},'%')</when>
 	            <when test="searchType == 2"> content like CONCAT('%',#{searchValue},'%')</when>
@@ -77,9 +110,12 @@
 	
 	<!-- 뉴스레터 리스트 카운트 출력 -->
 	<select id="selectNewsLetterCount" parameterType="com.project.exhibit.util.SearchPageVO" resultType="int" >
-		select count(*) from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from exhibit_newsletter_artcl
+		select count(*) from (select @ROWNUM := @ROWNUM + 1 AS ROWNUM, m.* from (select * from EXHIBIT_NEWSLETTER_ARTCL
 		<if test="searchType != null">
 	      <where>
+	      	 <choose>
+	      	 	<when test="category != null and category_Seq != null">category = #{category}</when>
+	      	 </choose>
 	         <choose>
 	         	<when test="searchType == 3"> writer like CONCAT('%',#{searchValue},'%')</when>
 	            <when test="searchType == 2"> content like CONCAT('%',#{searchValue},'%')</when>
@@ -93,14 +129,14 @@
 	<!-- 뉴스레터 상세글 출력 -->
 	<select id="selectNewsLetterView" parameterType="com.project.exhibit.newsletter.NewsLetter" resultType="com.project.exhibit.newsletter.NewsLetter">
 		SELECT * 
-		FROM   exhibit_newsletter_artcl 
+		FROM   EXHIBIT_NEWSLETTER_ARTCL 
 		WHERE  artcl_Seq = #{artcl_Seq}
 	</select>
 	
 	<!-- 뉴스레터 상세글 출력시 이전 글 가져오기 -->
 	<select id="select_Preview" parameterType="int" resultType="com.project.exhibit.newsletter.NewsLetter">
 		SELECT artcl_Seq, title
-		FROM   exhibit_newsletter_artcl
+		FROM   EXHIBIT_NEWSLETTER_ARTCL
 		<where>
 			artcl_Seq=( SELECT max(artcl_Seq)
 						FROM   exhibit_newsletter_artcl
@@ -114,7 +150,7 @@
 	<!-- 뉴스레터 상세글 출력시 다음 글 가져오기 -->
 	<select id="select_Nextview" parameterType="int" resultType="com.project.exhibit.newsletter.NewsLetter">
 		SELECT artcl_Seq, title
-		FROM   exhibit_newsletter_artcl
+		FROM   EXHIBIT_NEWSLETTER_ARTCL
 		<where>
 			artcl_Seq=( SELECT min(artcl_Seq)
 						FROM   exhibit_newsletter_artcl
@@ -128,9 +164,65 @@
 	
 	<!-- 조회수 업데이트 -->
 	<update id="hitUp" parameterType="com.project.exhibit.newsletter.NewsLetter">
-		UPDATE exhibit_newsletter_artcl 
+		UPDATE EXHIBIT_NEWSLETTER_ARTCL 
 		SET hit = #{hit}
 		WHERE artcl_Seq = #{artcl_Seq}
 	</update>
 	
+	<!-- ................................파일 업로드 ................................. -->
+   	<insert id="insertAtchmnfl" parameterType="java.util.List"
+   			useGeneratedKeys="true" keyProperty="atchmnfl_Seq">
+	   		INSERT INTO EXHIBIT_NEWSLETTER_ATCHMNFL 
+	   		(artcl_Seq, writer, reg_date, edit_date, doc_Origin_Nm, doc_File_Nm, doc_Path) 
+        	VALUES 
+        <foreach collection="list" item="item" separator=" , ">
+	        (#{item.artcl_Seq}, #{item.writer}, now(), now(), #{item.doc_Origin_Nm}, #{item.doc_File_Nm}, #{item.doc_Path})
+        </foreach>
+   	</insert>
+   
+   <!-- 상세보기 첨부파일 -->
+   	<select id="selectAtchmnfl" parameterType="com.project.exhibit.newsletter.NewsLetter" resultType="hashmap">
+   		SELECT	*
+   		FROM	EXHIBIT_NEWSLETTER_ATCHMNFL
+   		WHERE	artcl_Seq = #{artcl_Seq}
+   	</select>
+   	
+   	<!-- 첨부파일 다운로드 -->
+   	<select id="downloadAtchmnfl" parameterType="com.project.exhibit.newsletter.NewsLetterAtchmnfl" resultType="com.project.exhibit.newsletter.NewsLetterAtchmnfl">
+   		SELECT	*
+   		FROM	EXHIBIT_NEWSLETTER_ATCHMNFL
+   		WHERE	atchmnfl_Seq = #{atchmnfl_Seq}
+   	</select>
+	
+	<!-- ................................ 카테고리 ................................. -->
+	<!-- 카테고리 등록 -->
+	<insert id="insertCategory" parameterType="com.project.exhibit.newsletter.NewsLetterCategory"
+			useGeneratedKeys="true" keyProperty="category_Seq">
+		INSERT INTO	EXHIBIT_NEWSLETTER_CATEGORY(
+		category, position, reg_date, edit_date
+		)
+		VALUES(
+		#{category}, #{position}, now(), now()
+		)
+	</insert>
+	
+	<!-- 카테고리 수정 -->
+	<update id="updateCategory" parameterType="com.project.exhibit.newsletter.NewsLetterCategory">
+		UPDATE EXHIBIT_NEWSLETTER_CATEGORY
+		SET	category = #{category},
+			position = #{position},
+			edit_date = #{edit_date}
+		WHERE category_Seq = #{category_Seq}
+	</update>
+	
+	<!-- 카테고리 삭제 -->
+	<delete id="deleteCategory" parameterType="com.project.exhibit.newsletter.NewsLetterCategory">
+		DELETE FROM EXHIBIT_NEWSLETTER_CATEGORY WHERE category_Seq = #{category_Seq}
+	</delete>
+	
+	<!-- 카테고리 목록 출력 -->
+	<select id="selectCategory" resultType="com.project.exhibit.newsletter.NewsLetterCategory">
+		SELECT	category_Seq, category, position, reg_date, edit_date
+		FROM	EXHIBIT_NEWSLETTER_CATEGORY
+	</select>
 </mapper>
