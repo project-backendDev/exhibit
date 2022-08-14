@@ -44,11 +44,11 @@
         	category_Seq, category, title, content, writer, reg_date, edit_date, hit, img_Origin_Nm, img_File_Nm, img_Path
         ) VALUES (
         	<choose>
-        		<when test="category_Seq == null or category == null">
+        		<when test="category_Seq == '' or category == ''">
         			null, null
         		</when>
         		<otherwise>
-        			#{category_Seq}, #{category}
+        			#{category_Seq}, #{category},
         		</otherwise>
         	</choose>
         	#{title}, #{content}, #{writer}, now(), now(), 0,

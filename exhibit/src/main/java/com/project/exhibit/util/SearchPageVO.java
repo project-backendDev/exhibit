@@ -15,6 +15,26 @@ public class SearchPageVO {
 	private int end;
 	private int cntPage = 5;
 	
+	//카테고리 추가
+	private Integer category_Seq;
+	private String category;
+	
+	public Integer getCategory_Seq() {
+		return category_Seq;
+	}
+
+	public void setCategory_Seq(Integer category_Seq) {
+		this.category_Seq = category_Seq;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	public SearchPageVO() {
 	}
 

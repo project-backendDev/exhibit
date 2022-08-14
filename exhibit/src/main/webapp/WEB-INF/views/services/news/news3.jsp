@@ -858,7 +858,82 @@
 		<c:import url="${pageContext.request.contextPath }/assets/include/footer.jsp" />
 	</footer>
 	<!-- // footer 끝 -->
+	
+	<!-- 모달 -->
+    <div class="modal modal modal_step modal_step1 hidden">
+        <div class="modal_overlay">
+        </div>
+		<form action="">
+			<div class="modal_content modal_md scrollbar" style="overflow-y:scroll;">
+				<div class="layoutCont">
+					<div class="certiTxt">
+						<div class="modalContWrap">
+							<div class="modal_close cancerButton">
+							  <img src="${pageContext.request.contextPath }/assets/images/close.png" alt="모달 닫기버튼">
+							</div>   
+							<div class="modal_con">
+							  <div class="head">
+								<div class="left">
+									<h4>뉴스레터 신청</h4>
+									<p>
+										구독 신청을 하시면, 매달 문자로 재단의 소식이<br/>
+										담겨있는 뉴스레터 링크를 보내드립니다.									
+									</p>
+								</div>
+								<div class="right">
+									<img src="${pageContext.request.contextPath }/assets/images/letter.png" alt="">
+								</div>
+							  </div>
+							  <div class="modal_form">
+								<div class="input_con default">
+									<input type="text" placeholder="성명">
+								</div>
+								<div class="input_con default">
+									<input type="text" placeholder="연락처">
+								</div>
+								<p><span>*</span>문자 수신이 가능한 휴대전화만 가능합니다.</p>
+								<div class="input_con email">
+									<input type="text" placeholder="이메일">
+									<span>@</span>
+									<select name="" id="">
+                                        <option value="">선택</option>
+                                        <option value="">naver.com</option>
+                                        <option value="">daum.net</option>
+                                        <option value="">gmail.com</option>
+                                        <option value="">nate.com</option>
+                                        <option value="">yahoo.com</option>
+									</select>
+								</div>
+							  </div>
+							  <div class="term">
+								<h5><span>(필수)</span> 개인정보 수집 및 이용에 동의합니다.</h5>
+								<div class="term_box">
+									<pre style=" overflow: auto; white-space: pre-wrap;">뉴스레터 문자 발송을 위한 최소한의 개인정보를 수집 및 이용합니다. 
+수집된 정보는 발송 외 다른 목적으로 이용되지 않으며, 서비스가 종료되거나 발송을 원하지 않을 경우 즉시 파기됩니다.</pre>
+								</div>
+								<ul class="list_wrap">
+									<li>
+										<input type="radio" name="agree2" id="agree3" checked="">
+										<label for="agree3"><i><img src="${pageContext.request.contextPath }/assets/images/i_check.png" alt=""></i>동의합니다.</label>
+									</li>
+									<li>
+										<input type="radio" name="agree2" id="agree4">
+										<label for="agree4"><i><img src="${pageContext.request.contextPath }/assets/images/i_check.png" alt=""></i>동의하지 않습니다.</label>
+									</li>
+								</ul>                            
+							</div>
+							</div>
+	
+						</div>
+						<div class="confirm_button">
+							<button class="cancerButton agree" type="submit">뉴스레터 신청</button>
+						</div>
+					</div>           
+				</div>
+			</div>
+		</form>
 
+    </div>
 
 
 

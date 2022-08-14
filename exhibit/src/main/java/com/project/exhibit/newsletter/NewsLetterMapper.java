@@ -1,9 +1,12 @@
 package com.project.exhibit.newsletter;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.project.exhibit.sayeon.Sayeon;
+import com.project.exhibit.sayeon.SayeonAtchmnfl;
 import com.project.exhibit.util.SearchPageVO;
 
 @Mapper
@@ -36,4 +39,26 @@ public interface NewsLetterMapper {
 	// (사용자) 뉴스레터 조회수 업데이트
 	void hitUp(NewsLetter newsletter);
 	
+	/** ----------------------------------- 첨부파일 -------------------------------- **/
+	// (관리자, 사용자) 뉴스레터 첨부파일 등록
+	void insertAtchmnfl(List<NewsLetterAtchmnfl> atchmnfl);
+	
+	// (관리자, 사용자) 뉴스레터 첨부파일 출력
+	List<Map<String, String>> selectAtchmnfl(NewsLetter newsLetter);
+	
+	// (관리자, 사용자) 뉴스레터 첨부파일 다운로드
+	NewsLetterAtchmnfl downloadAtchmnfl(NewsLetterAtchmnfl atchmnfl);
+	
+	/** ----------------------------------- 카테고리 -------------------------------- **/ 
+	// (관리자, 사용자) 카테고리 SELECT(출력)
+	List<NewsLetterCategory> selectCategory();
+	
+	// (관리자) 카테고리 등록
+	void insertCategory(NewsLetterCategory category);
+	
+	// (관리자) 카테고리 수정
+	void updateCategory(NewsLetterCategory category);
+	
+	// (관리자) 카테고리 삭제
+	void deleteCategory(NewsLetterCategory category);
 }

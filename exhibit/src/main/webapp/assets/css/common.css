@@ -954,3 +954,8 @@ footer .footer_bottom .wrap .right select option{
     } 
      
 } 
+
+/** 추가 */
+input:invalid {
+  border: 3px solid red !important;
+}

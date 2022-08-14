@@ -1,14 +1,23 @@
 package com.project.exhibit.newsletter;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.exhibit.sayeon.Sayeon;
+import com.project.exhibit.sayeon.SayeonAtchmnfl;
 import com.project.exhibit.util.SearchPageVO;
 
 @Service
 public class NewsLetterService {
+	
+	// 뉴스레터 이미지 경로
+	static final String img_Path = "assets\\thumbnail\\newsletter\\";
+	
+	// 뉴스레터 파일 경로
+	static final String doc_Path = "assets\\files\\newsletter\\";
 	
 	@Autowired
 	private NewsLetterMapper mapper;
@@ -82,6 +91,48 @@ public class NewsLetterService {
 	public void hitUp(NewsLetter artclView) {
 		System.out.println("조회수 업데이트");
 		mapper.hitUp(artclView);
+	}
+	
+	/** ----------------------------------- 카테고리 -------------------------------- **/
+	// (사용자) 사연남기기 첨부파일 등록
+	public void insertAtchmnfl(List<NewsLetterAtchmnfl> atchmnfl) {
+		System.out.println("파일 업로드");
+		mapper.insertAtchmnfl(atchmnfl);
+	}
+	
+	// (사용자) 사연남기기 첨부파일 출력
+	public List<Map<String, String>> selectAtchmnfl(NewsLetter newsLetter){
+		System.out.println("첨부파일 출력");
+		return mapper.selectAtchmnfl(newsLetter);
+	}
+	
+	// (관리자, 사용자) 사연남기기 첨부파일 다운로드
+	public NewsLetterAtchmnfl downloadAtchmnfl(NewsLetterAtchmnfl atchmnfl) {
+		return mapper.downloadAtchmnfl(atchmnfl);
+	}
+	
+	/** ----------------------------------- 카테고리 -------------------------------- **/ 
+	// (관리자, 사용자) 카테고리 SELECT(출력)
+	public List<NewsLetterCategory> selectCategory() {
+		if( mapper.selectCategory() != null ) {
+			return mapper.selectCategory();
+		}
+		return null;
+	}
+	
+	// (관리자) 카테고리 등록
+	public void insertCategory(NewsLetterCategory category) {
+		mapper.insertCategory(category);
+	}
+	
+	// (관리자) 카테고리 수정
+	public void updateCategory(NewsLetterCategory category) {
+		mapper.updateCategory(category);
+	}
+	
+	// (관리자) 카테고리 삭제
+	public void deleteCategory(NewsLetterCategory category) {
+		mapper.deleteCategory(category);
 	}
 	
 }

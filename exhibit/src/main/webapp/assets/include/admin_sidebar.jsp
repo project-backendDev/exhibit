@@ -86,6 +86,12 @@
 	                  <p>공지사항</p>
 	                </a>
 	              </li>
+	              <li class="nav-item">
+	                <a href="${pageContext.request.contextPath }/admin/newsletter/artclList" class="nav-link">
+	                  <i class="far fa-circle nav-icon"></i>
+	                  <p>뉴스레터</p>
+	                </a>
+	              </li>
 	            </ul>
 	          </li>
         </ul>

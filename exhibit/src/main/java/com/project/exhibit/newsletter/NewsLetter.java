@@ -5,6 +5,8 @@ import java.util.Date;
 public class NewsLetter {
 	
 	private Integer artcl_Seq;
+	private Integer category_Seq;
+	private String category;
 	private String title;
 	private String content;
 	private String writer;
@@ -23,6 +25,18 @@ public class NewsLetter {
 	}
 	public void setArtcl_Seq(Integer artcl_Seq) {
 		this.artcl_Seq = artcl_Seq;
+	}
+	public Integer getCategory_Seq() {
+		return category_Seq;
+	}
+	public void setCategory_Seq(Integer category_Seq) {
+		this.category_Seq = category_Seq;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	public String getTitle() {
 		return title;
