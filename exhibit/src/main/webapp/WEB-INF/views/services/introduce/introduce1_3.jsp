@@ -98,8 +98,7 @@
                             <div class="txt">
                                 <p><span class="dotted">·</span>  2008. 10 ~   現)의료법인 길의료재단 설립자 및 명예이사장</p>
                                 <p><span class="dotted">·</span>  2007. 10 ~ 2008. 08   한국과학기술기획평가원(KISTEP) 이사장</p>
-                                <p><span class="dotted">·</span>  2003. 12 ~ 2004. 07 중앙인사위원회 인사정책자문회의 의장</p>
-                                <p><span class="dotted">·</span>  2003. 10 ~ 2007. 12   의사협회 '한국의학 100주 기념사업위원회' 위원장</p>
+                                <p><span class="dotted">·</span>  2003. 10 ~ 2007. 12  	의사협회 '한국의학 100주년 기념사업위원회' 위원장</p>
                                 <p><span class="dotted">·</span>  2002. 03 ~   現)가천길재단 회장</p>
                                 <p><span class="dotted">·</span>  2001. 08 ~ 2003.07   민주평화통일자문회의 여성부의장</p>
                             </div>
@@ -108,6 +107,12 @@
                             <div class="dot"></div>
                             <h2>1990年代</h2>
                             <div class="txt">
+                            	<p><span class="dotted">·</span>  1995. 03 ~ 2005.04 	서울대학교 의과대학 동창회 회장(5회 연임)</p>
+                            	<p><span class="dotted">·</span>  1993. 03 				사단법인 가천미추홀청소년봉사단 설림, 現)총재(2010~)</p>
+                            	<p><span class="dotted">·</span>  1992. 05				現)사회복지법인 새생명찾아주기운동본부 설립자 및 명예이사장</p>
+                            	<p><span class="dotted">·</span>  1991. 11 				現)재단법인 가천문화재단, 가천박물관 설립자 및 명예이사장</p>
+                            
+                            <!-- 
                                 <p><span class="dotted">·</span>  1998. 12 ~ 2000. 08 학교법인 경원학원 이사장</p>
                                 <p><span class="dotted">·</span>  1999. 08 ~ 現)경인일보 회장</p>
                                 <p><span class="dotted">·</span>  1998. 03   가천의과대학교 개교</p>
@@ -117,18 +122,17 @@
                                 <p><span class="dotted">·</span>  1993. 03   사단법인 가천미추홀청소년봉사단 설립, 現)총재(2010~) </p>
                                 <p><span class="dotted">·</span>  1992. 05 ~ 사회복지법인 새생명찾아주기운동본부 설립, 現)이사장</p>
                                 <p><span class="dotted">·</span>  1991. 11 ~ 재단법인 가천문화재단 설립, 現)명예이사장</p>
+                             -->
                             </div>
                         </li>      
                         <li>
                             <div class="dot"></div>
                             <h2>1980年代</h2>
                             <div class="txt">
-                                
-                                <p><span class="dotted">·</span>  1985.07.15. ~ 07.26. 1985 UN여성대회 정부대표 참가(케냐) </p>
                                 <p><span class="dotted">·</span>  1982. 06 ~ 1984. 05   	사단법인 한국여자의사회 회장</p>
-                                <p><span class="dotted">·</span>  1981.06 ~ 2005.06 민주평화통일자문회의 상임의원</p>
                             </div>
-                        </li>        
+                        </li>
+                        <!--         
                         <li>
                             <div class="dot"></div>
                             <h2>1970年代</h2>
@@ -144,8 +148,10 @@
                                 
                                 <p><span class="dotted">·</span>  1958.05 ~ 1978.08 산부인과의원 개원</p>
                             </div>
-                        </li>   
+                        </li>
+                         -->   
                     </ul>
+                    
                     <div class="tit">
                         학력
                     </div>
@@ -157,21 +163,29 @@
                             <div class="txt">
                                 <p><span class="dotted">·</span>  	카이스트 명예 이학박사</p>
                             </div>
-                        </li>        
+                        </li>
+                        
+                        <!--        
                         <li>
                             <div class="dot"></div>
                             <h2>2003</h2>
                             <div class="txt">
+                             
                                 <p><span class="dotted">·</span>  	단국대학교 명예교육학 박사</p>
+                             
                             </div>
-                        </li>     
+                        </li>
+                        -->
+                             
                         <li>
                             <div class="dot"></div>
                             <h2>1977</h2>
                             <div class="txt">
                                 <p><span class="dotted">·</span>  	日本대학교 의학부 의학박사</p>
                             </div>
-                        </li> 
+                        </li>
+                         
+                        <!-- 
                         <li>
                             <div class="dot"></div>
                             <h2>1964</h2>
@@ -186,6 +200,8 @@
                                 <p><span class="dotted">·</span>  	美 Oueen’s Hospital center 레지던트 수료</p>
                             </div>
                         </li>  
+                         -->
+                         
                         <li>
                             <div class="dot"></div>
                             <h2>1957</h2>
@@ -210,6 +226,7 @@
                     <div id="tab-1" class="tab-content current">
                         <ul class="list">
                             <li><div class="line"></div></li>
+                            <!-- 
                             <li>
                                 <div class="dot"></div>
                                 <h2>2021</h2>
@@ -219,15 +236,15 @@
                                         자랑스러운 동문인상 수상                                        
                                     </p>
                                 </div>
-                            </li>        
+                            </li>
+                             -->
+                                     
                             <li>
                                 <div class="dot"></div>
                                 <h2>2020</h2>
                                 <div class="txt">
-                                    <p>
-                                        <span class="dotted">·</span>  국제라이온스 인도주의상 수상
-                                        <span class="dotted">·</span>  한국경영학회 명예의전당 헌액
-                                    </p>
+                                    <p><span class="dotted">·</span>  국제라이온스 인도주의상 수상</p>
+                                    <p><span class="dotted">·</span>  한국경영학회 명예의전당 헌액</p>
                                 </div>
                             </li> 
                             <li>
@@ -265,7 +282,7 @@
                                 <h2>2015</h2>
                                 <div class="txt">
                                     <p><span class="dotted">·</span>  키르기스스탄 최고 의료훈장 수훈</p>
-                                    <p><span class="dotted">·</span>  대학적십자사 박애장 금장 수상</p>
+                                    <!-- <p><span class="dotted">·</span>  대학적십자사 박애장 금장 수상</p>   -->
                                 </div>
                             </li> 
                             <li>
@@ -353,7 +370,9 @@
                                         <span>·</span>  제2회 자랑스런 전북인대상 수상                                  
                                     </p>
                                 </div>
-                            </li>     
+                            </li>
+                                 
+                            <!-- 
                             <li>
                                 <div class="dot"></div>
                                 <h2>1993</h2>
@@ -362,7 +381,9 @@
                                         <span>·</span>  제29회 용신봉사상 수상                          
                                     </p>
                                 </div>
-                            </li>  
+                            </li>
+                             -->
+                               
                         </ul>   
                     </div>
                     <div id="tab-4" class="tab-content">

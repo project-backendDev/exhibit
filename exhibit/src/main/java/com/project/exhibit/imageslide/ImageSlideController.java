@@ -45,7 +45,7 @@ public class ImageSlideController {
 		try {
 			// 파일이 있을때
 			if (multipartFile.size() > 0 && !multipartFile.get(0).getOriginalFilename().equals("")) {
-				img_Service.deleteImageSlide();
+//				img_Service.deleteImageSlide();
 				
 				ImageSlide imgSlide = new ImageSlide();
 				fileRoot = contextRoot + "img/upload/";
@@ -58,6 +58,8 @@ public class ImageSlideController {
 					imgDir.mkdir();
 				}
 				
+				/** 삭제하지 않기위해 주석처리
+				 
 				// 이미지를 등록할 때마다 안에 있는 파일들을 삭제
 				if (imgDir.exists()) {
 					System.out.println("폴더있음");
@@ -71,6 +73,8 @@ public class ImageSlideController {
 						System.out.println("폴더 안에 파일 삭제");
 					}
 				}
+				
+				*/
 				
 				// 받은 파일들을 INSERT
 				for (MultipartFile file : multipartFile) {

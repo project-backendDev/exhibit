@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -104,7 +105,9 @@
 										<th style="text-align: center;"> 관람일 </th>
 										<th style="text-align: center;"> 관람시간 </th>
 										<th style="text-align: center;"> 관람인원 </th>
-										<th style="text-align: center;"> 교통수단 </th>	
+										<th style="text-align: center;"> 교통수단 </th>
+										<th style="text-align: center;"> 등록일자 </th>
+										<th style="text-align: center;"> 수정일자 </th>	
 										<th style="text-align: center;"> 비고 </th>								
 									</tr>
 								</thead>
@@ -148,14 +151,24 @@
 													</c:when>
 												</c:choose>										
 											</td>
+											<td>
+												<fmt:formatDate value="${info.reg_date }" pattern="yyyy-MM-dd" />
+											</td>
+											<td>
+												<fmt:formatDate value="${info.edit_date }" pattern="yyyy-MM-dd" />
+											</td>
 											<td style="display:flex;">
-												<a href="${pageContext.request.contextPath }/admin/informationEdit?reserve_Seq=${info.reserve_Seq}">
-													<input type="button" class="btn btn-primary" value="수정" />
-												</a>
-												<a href="javascript:reserveDelete(${info.reserve_Seq })">
-													<input type="button" class="btn btn-danger" id="delete" value="삭제" />
-													<input type="hidden" name="reserve_Seq" id="reserve_Seq" value="${info.reserve_Seq }" /> 
-												</a>
+												<span>
+													<a href="${pageContext.request.contextPath }/admin/informationEdit?reserve_Seq=${info.reserve_Seq}">
+														<input type="button" class="btn btn-primary" value="수정" />
+													</a>
+												</span>
+												<span>
+													<a href="javascript:reserveDelete(${info.reserve_Seq })">
+														<input type="button" class="btn btn-danger" id="delete" value="삭제" />
+														<input type="hidden" name="reserve_Seq" id="reserve_Seq" value="${info.reserve_Seq }" /> 
+													</a>
+												</span>
 											</td>
 										</tr>
 									</c:forEach>
@@ -227,7 +240,9 @@
 			{ data : 'visit_day' },
 			{ data : 'visit_time' },
 			{ data : 'reserve_people' },
-			{ data : 'transfer' }
+			{ data : 'transfer' },
+			{ data : 'reg_date' },
+			{ data : 'edit_date'}
 		]
 	});
 	    

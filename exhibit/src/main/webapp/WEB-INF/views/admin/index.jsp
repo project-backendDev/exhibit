@@ -45,6 +45,44 @@
   		max-width: 400px;
   		max-height: 500px;
   	}
+  	
+  	.filebox .upload-name {
+	  	display: inline-block;
+	    height: 40px;
+	    padding: 0 10px;
+	    vertical-align: middle;
+	    border: 1px solid #dddddd;
+	    width: 25%;
+	    color: #999999;
+  	}
+  	
+  	.filebox label {
+	    display: inline-block;
+	    padding: 10px 20px;
+	    color: #fff;
+	    vertical-align: middle;
+	    background-color: #999999;
+	    cursor: pointer;
+	    height: 40px;
+	    margin-left: 10px;
+	}
+	
+	.filebox input[type="file"] {
+	    position: absolute;
+	    width: 0;
+	    height: 0;
+	    padding: 0;
+	    overflow: hidden;
+	    border: 0;
+	}
+	
+	.img_Container img {
+		transition : all 0.2s linear;
+	}
+	
+	.img_Container:hover img {
+		transform: scale(1.2);
+	}
   </style>
   <script type="text/javascript">
   	var sel_files = [];
@@ -69,7 +107,7 @@
   			
   			var reader = new FileReader();
   			reader.onload = function(e) {
-  				var img_html = "<img src=\"" + e.target.result + "\" />";
+  				var img_html = "<img src=\"" + e.target.result + "\" style='width: 300px; height:200px; padding: 0px 10px 0px 10px;' />";
   				$(".imgs_wrap").append(img_html);	
   			}
   			reader.readAsDataURL(f);
@@ -127,6 +165,7 @@
   			$(".imgForm").submit();
   		}
   	}
+  	
   </script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -170,7 +209,9 @@
 								<div style="width: 1140px;">
 									<form name="dataForm" id="dataForm" style="width: 1630px;">
 										<p><b> 이미지 업로드 </b>
-										<div>
+										<div class="filebox">
+											<input class="upload-name" value="첨부파일" placeholder="첨부파일" />
+											<label for="input_img"> 파일찾기 </label>
 											<input type="file" id="input_img" name="artcl_file" multiple />
 										</div>
 										
@@ -183,17 +224,22 @@
 							</div>
 						</div>
 						<form method="POST" name="imgForm" class="imgForm">
-							<div class="card" style=>
+							<div class="card" style="height:400px;">
 								<h2 style="padding: 15px 0px 15px 20px;">
 									<span>현재 등록 중인 이미지</span>
 								</h2>
+								<div style="padding: 15px 0px 15px 20px;">
+									<h5>※ 이미지 클릭 시 삭제가 가능합니다</h5>
+								</div>
 								<hr />
-								<div class="img_container" style="width: 1630px;">
+ 								<div class="img_container" style="width: 1630px; display: flex; margin: auto;"> 
 										<c:forEach var="img" items="${imgList }" varStatus="status">
-											<a href="javascript:imgDelete(${img.artcl_seq })" class="img_area" >
-												<img class="imgList" src="${img.url }" />
-												<input type="hidden" name="artcl_seq" id="artcl_seq" value="${img.artcl_seq }" />
-											</a>
+											<div class="img_Container">
+												<a href="javascript:imgDelete(${img.artcl_seq })" class="img_area" >
+													<img class="imgList" src="${img.url }" style="width: 300px; height:200px; padding: 0px 10px 0px 10px;" />
+													<input type="hidden" name="artcl_seq" id="artcl_seq" value="${img.artcl_seq }" />
+												</a>
+											</div>	
 										</c:forEach>
 								</div>
 							</div>

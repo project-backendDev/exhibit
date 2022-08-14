@@ -13,6 +13,8 @@
 		<result property="visit_time"		column="visit_time" />
 		<result property="reserve_people"	column="reserve_people" />
 		<result property="transfer"			column="transfer" />
+		<result property="reg_date"			column="reg_date" />
+		<result property="edit_date"		column="edit_date" />
 		<result property="add_item1"		column="add_item1" />
 		<result property="add_item2"		column="add_item2" />
 		<result property="add_item3"		column="add_item3" />
@@ -26,9 +28,9 @@
 	<insert id="insertReservation" parameterType="com.project.exhibit.information.InformationMapper" 
 		useGeneratedKeys="true" keyProperty="reserve_Seq"> 
 	INSERT INTO EXHIBIT_INFORMATION_RESERVATION (
-		name, tel, visit_day, visit_time, reserve_people, transfer, add_item1, add_item2, add_item3, add_item4, add_item5
+		name, tel, visit_day, visit_time, reserve_people, transfer, reg_date, edit_date, add_item1, add_item2, add_item3, add_item4, add_item5
 	) VALUES (
-		#{name}, #{tel}, #{visit_day}, #{visit_time}, #{reserve_people}, #{transfer}, null, null, null, null, null
+		#{name}, #{tel}, #{visit_day}, #{visit_time}, #{reserve_people}, #{transfer}, now(), now(), null, null, null, null, null
 	)
 	</insert>
 	
@@ -79,8 +81,8 @@
 	<update id="updateReserveData"  parameterType="com.project.exhibit.information.Information">
 		UPDATE	EXHIBIT_INFORMATION_RESERVATION
 		SET		name = #{name}, tel = #{tel}, visit_day = #{visit_day}, visit_time = #{visit_time}, 
-				reserve_people = #{reserve_people}, transfer = #{transfer}, add_item1 = null, add_item2 = null,
-				add_item3 = null, add_item4 = null, add_item5 = null
+				reserve_people = #{reserve_people}, transfer = #{transfer}, edit_date = now(), 
+				add_item1 = null, add_item2 = null, add_item3 = null, add_item4 = null, add_item5 = null
 		WHERE	reserve_Seq = #{reserve_Seq}
 	</update>
 	

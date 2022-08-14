@@ -70,9 +70,11 @@
                     </ul>
                 </div>
                 <div class="information">
+                <!-- 
 					<div class="side_mark">
 						<p>Gallery</p>
 					</div>
+				 -->
                     <ul class="list type1">
                         <li>
                             <div class="title">

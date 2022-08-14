@@ -48,7 +48,7 @@
 	            </a>
 	            <ul class="nav nav-treeview" style="display: none;">
 	              <li class="nav-item">
-	                <a href="pages/UI/general.html" class="nav-link">
+	                <a href="/admin" class="nav-link">
 	                  <i class="far fa-circle nav-icon"></i>
 	                  <p>이미지 슬라이드</p>
 	                </a>
