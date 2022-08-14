@@ -145,7 +145,7 @@
 						return;
   					}
   				} else {
-  					alert("오류가 발생했습니다.\n잠시 후 다시 시도해주세요");
+  					alert("이미지를 등록해주세요.");
   					return;
   				}
   			},
@@ -160,7 +160,7 @@
   		var con = confirm("해당 이미지를 삭제하시겠습니까?");
   		
   		if (con) {
-  			alert("삭제!" + seq);
+  			alert("삭제가 완료되었습니다.");
   			$(".imgForm").attr('action', '/admin/imgDelete.do?artcl_seq=' + seq);
   			$(".imgForm").submit();
   		}
@@ -170,7 +170,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
+ 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="${pageContext.request.contextPath }/assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
